@@ -181,7 +181,7 @@
     text-transform: uppercase;
     color: var(--text-dim);
     writing-mode: vertical-rl;
-    pointer-events: none; /* pozwala klikać w przyciski pod spodem */
+    pointer-events: none;
     z-index: 0;
     opacity: 0;
     animation: fadeUp .8s 1.2s forwards;
@@ -457,44 +457,6 @@
     padding-left: 1.4rem;
   }
 
-  /* ── OPINIE ── */
-  #opinie {
-    background: #0d0c0a;
-  }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(122,132,144,.1);
-    margin-top: 4rem;
-  }
-  .review-card {
-    background: #0a0a08;
-    padding: 2.5rem 2rem;
-  }
-  .review-stars {
-    color: var(--rust);
-    font-size: .85rem;
-    letter-spacing: .1em;
-    margin-bottom: 1.2rem;
-  }
-  .review-text {
-    font-size: 1.05rem;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.65;
-    color: var(--steel-light);
-    margin-bottom: 1.5rem;
-  }
-  .review-author {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
   /* ── FAQ ── */
   #faq {
     background: #0d0c0a;
@@ -585,6 +547,167 @@
     opacity: 1;
     transform: translateY(0);
     padding: 0 2rem 1.7rem 2rem;
+  }
+
+  /* ── OPINIE ── */
+  #opinie {
+    background: #0d0c0a;
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(122,132,144,.1);
+    margin-top: 4rem;
+  }
+  .review-card {
+    background: #0a0a08;
+    padding: 2.5rem 2rem;
+  }
+  .review-stars {
+    color: var(--rust);
+    font-size: .85rem;
+    letter-spacing: .1em;
+    margin-bottom: 1.2rem;
+  }
+  .review-text {
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--steel-light);
+    margin-bottom: 1.5rem;
+  }
+  .review-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ── GALERIA ── */
+  #galeria {
+    background: var(--black);
+    padding: 7rem 3rem;
+  }
+
+  .gallery-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .gallery-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--steel-light);
+    margin-top: 1rem;
+    max-width: 420px;
+  }
+
+  /* Grid z 3 kolumnami i wierszami o stałej wysokości */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 320px 320px;
+    gap: 3px;
+  }
+
+  /* Domyślny element galerii */
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+  }
+
+  /* Wysoki element — zajmuje 2 wiersze */
+  .gallery-item--tall {
+    grid-row: span 2;
+  }
+
+  /* Szeroki element — zajmuje 2 kolumny */
+  .gallery-item--wide {
+    grid-column: span 2;
+  }
+
+  /* Wrapper na zdjęcie — wypełnia całą komórkę */
+  .gallery-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Zdjęcie zawsze wypełnia komórkę, przycinane żeby się wpasowało */
+  .gallery-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .6s ease;
+  }
+
+  .gallery-item:hover .gallery-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  /* Overlay z gradientem od dołu */
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,10,8,.88) 0%,
+      rgba(10,10,8,.3) 40%,
+      transparent 70%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.6rem 1.8rem;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  .gallery-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: .5rem;
+  }
+
+  .gallery-caption {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--off-white);
+    line-height: 1.25;
+  }
+
+  .gallery-caption span {
+    display: block;
+    font-family: 'Crimson Pro', serif;
+    font-size: .88rem;
+    font-weight: 300;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--steel-light);
+    margin-top: .3rem;
+  }
+
+  .gallery-cta {
+    margin-top: 3rem;
+    text-align: center;
   }
 
   /* ── CTA ── */
@@ -698,4 +821,23 @@
     #faq details[open] .faq-answer { padding: 0 1.3rem 1.3rem 1.3rem; }
     .faq-toggle { width: 30px; height: 30px; }
     footer { flex-direction: column; text-align: center; }
+
+    /* Galeria na mobile: jedna kolumna, auto-height */
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      gap: 3px;
+    }
+    .gallery-item--tall,
+    .gallery-item--wide {
+      grid-row: span 1;
+      grid-column: span 1;
+    }
+    .gallery-img-wrap {
+      height: 260px;
+    }
+    /* Na mobile overlay zawsze widoczny */
+    .gallery-overlay {
+      opacity: 1;
+    }
   }
