@@ -1,5 +1,3 @@
-timezone: Europe/Warsaw
-
 collections_config:
   pages:
     name: Strony
@@ -7,18 +5,7 @@ collections_config:
     glob:
       - "*.html"
     output: true
-    url: "/[relative_base_path]/[slug].html"
+    url: "/[slug]"
     _enabled_editors:
       - visual
       - source
-
-_editables:
-  text:
-    bold: true
-    italic: true
-    link: true
-  block:
-    bold: true
-    italic: true
-    link: true
-    format: true
