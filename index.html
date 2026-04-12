@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youniq Bikes – Customowe Rowery Kraków</title>
+<meta name="description" content="Youniq Bikes – customowe rowery i serwis premium w Krakowie. Custom builds, zaplatanie i centrowanie kół, serwis Shimano / SRAM / Campagnolo. Rakowicka 99.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://youniqbikes.pl/">
+<meta name="telephone" content="+48500250068">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Youniq Bikes">
+<meta property="og:title" content="Youniq Bikes – Customowe Rowery Kraków">
+<meta property="og:description" content="Customowe rowery i serwis premium w Krakowie. Custom builds, koła ręcznie składane, serwis Shimano / SRAM / Campagnolo. Rakowicka 99.">
+<meta property="og:url" content="https://youniqbikes.pl/">
+<meta property="og:image" content="https://youniqbikes.netlify.app/og.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Youniq Bikes – Customowe Rowery Kraków">
+<meta name="twitter:description" content="Customowe rowery i serwis premium w Krakowie. Rakowicka 99.">
+<meta name="twitter:image" content="https://youniqbikes.netlify.app/og.jpg">
+
+<!-- Local SEO: structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BicycleStore",
+  "name": "Youniq Bikes",
+  "description": "Customowe rowery i serwis premium w Krakowie: custom builds, zaplatanie i centrowanie kół, serwis Shimano / SRAM / Campagnolo.",
+  "url": "https://youniqbikes.pl/",
+  "telephone": "+48500250068",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rakowicka 99",
+    "addressLocality": "Kraków",
+    "postalCode": "31-510",
+    "addressCountry": "PL"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Kraków"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Desktop: pokazuj link do #kontakt, ukryj tel: */
+.hero-cta-mobile  { display: none; }
+.hero-cta-desktop { display: inline-flex; }
+
+/* Mobile (≤ 768px): pokazuj tel:, ukryj #kontakt */
+@media (max-width: 768px) {
+  .hero-cta-desktop { display: none; }
+  .hero-cta-mobile  { display: inline-flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Youniq<span>.</span>Bikes</a>
+  <ul>
+    <li><a href="#filozofia">Filozofia</a></li>
+    <li><a href="#uslugi">Usługi</a></li>
+    <li><a href="#galeria">Realizacje</a></li>
+    <li><a href="#dlaczego">Dlaczego My</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <p class="hero-eyebrow editable" data-cms="hero_eyebrow">Kraków · Rakowicka 99 · Custom Builds</p>
+  <h1 class="editable" data-cms="hero_heading">Twoja<br>wizja.<br><em>Nasza</em><br>precyzja.</h1>
+  <p class="hero-sub editable" data-cms="hero_subheading">Nie skręcamy rowerów z katalogu. Budujemy maszyny pod konkretny cel, konkretne ciało i konkretne drogi. Od stali po tytan.</p>
+  <div class="hero-cta-row">
+    <!-- Desktop: scrolluje do sekcji kontakt -->
+    <a href="#kontakt" class="btn-primary hero-cta-desktop editable" data-cms="hero_cta_label">Umów konsultację</a>
+    <!-- Mobile: inicjuje połączenie telefoniczne -->
+    <a href="tel:+48500250068" class="btn-primary hero-cta-mobile editable" data-cms="hero_cta_label">Umów konsultację</a>
+    <a href="#uslugi" class="btn-ghost editable" data-cms="hero_cta_ghost">Zobacz usługi</a>
+  </div>
+  <div class="hero-address">Rakowicka 99 · Kraków · PL</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Custom Builds</span>
+    <span>Zaplatanie Kół</span>
+    <span>Serwis Premium</span>
+    <span>Shimano · SRAM · Campagnolo</span>
+    <span>Rowery Szosowe</span>
+    <span>Gravele</span>
+    <span>Wyprawówki</span>
+    <span>Ramy Stalowe & Tytanowe</span>
+    <span>Custom Builds</span>
+    <span>Zaplatanie Kół</span>
+    <span>Serwis Premium</span>
+    <span>Shimano · SRAM · Campagnolo</span>
+    <span>Rowery Szosowe</span>
+    <span>Gravele</span>
+    <span>Wyprawówki</span>
+    <span>Ramy Stalowe & Tytanowe</span>
+  </div>
+</div>
+
+<!-- FILOZOFIA -->
+<section id="filozofia">
+  <div class="philosophy-text reveal">
+    <div class="section-label">O nas / Filozofia</div>
+    <h2 class="editable" data-cms="philosophy_heading">Rower to<br><em>narzędzie</em><br>i sztuka.</h2>
+    <p class="editable" data-cms="philosophy_p1">Youniq Bikes to nie sieciowy punkt serwisowy. To warsztat prowadzony przez <strong>mechanika z krwi i kości</strong> – kogoś, kto wybiera komponenty tak samo świadomie jak lutier dobiera drewno do gryfu.</p>
+    <p class="editable" data-cms="philosophy_p2">Nie boimy się projektów, które inne serwisy odsyłają z kwitkiem. Wiemy, czym różni się <strong>naciąg 110 kgf od 120 kgf</strong> na szprysze i dlaczego ma to znaczenie na 200 km wyprawy. Jeśli szukasz kogoś, komu możesz zaufać stalową ramą i cyklistycznym życiem – jesteś we właściwym miejscu.</p>
+  </div>
+  <div class="philosophy-stat-block reveal">
+    <div class="stat">
+      <div class="stat-num editable" data-cms="stat1_num">100%</div>
+      <div class="stat-label editable" data-cms="stat1_label">Custom podejście</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num editable" data-cms="stat2_num">★ 4.9</div>
+      <div class="stat-label editable" data-cms="stat2_label">Ocena klientów</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num editable" data-cms="stat3_num">0</div>
+      <div class="stat-label editable" data-cms="stat3_label">Kompromisów w jakości</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num editable" data-cms="stat4_num">∞</div>
+      <div class="stat-label editable" data-cms="stat4_label">Wiedzy technicznej</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- USŁUGI -->
+<section id="uslugi">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">Usługi</div>
+      <h2>Co robimy<br><em>naprawdę</em> dobrze.</h2>
+    </div>
+  </div>
+  <div class="services-grid reveal">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <span class="service-icon editable" data-cms="svc1_icon">⚙️</span>
+      <div class="service-title editable" data-cms="svc1_title">Custom<br>Builds</div>
+      <p class="service-desc editable" data-cms="svc1_desc">Budujesz swój idealny rower od zera? Dobieramy ramę, napęd, układ hamulcowy i osprzęt do Twojego celu – nie do budżetu marketingowego producenta.</p>
+      <div class="service-tags">
+        <span class="tag">Szosa</span>
+        <span class="tag">Gravel</span>
+        <span class="tag">Stal & Tytan</span>
+        <span class="tag">Wyprawowy</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <span class="service-icon editable" data-cms="svc2_icon">🔵</span>
+      <div class="service-title editable" data-cms="svc2_title">Zaplatanie<br>& Centrowanie Kół</div>
+      <p class="service-desc editable" data-cms="svc2_desc">Jedne z najlepiej ocenianych usług w Krakowie. Zaplatamy koła ręcznie, z precyzyjnie dobranym naciągiem szprych – dla kogoś, kto wie, dlaczego to ma znaczenie.</p>
+      <div class="service-tags">
+        <span class="tag">DT Swiss</span>
+        <span class="tag">Sapim</span>
+        <span class="tag">Hand Built</span>
+        <span class="tag">Centrowanie</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <span class="service-icon editable" data-cms="svc3_icon">🔧</span>
+      <div class="service-title editable" data-cms="svc3_title">Serwis<br>Premium</div>
+      <p class="service-desc editable" data-cms="svc3_desc">Od pełnej renowacji vintage'owej ramy po przegląd przed sezonem. Pracujemy na napędach Shimano GRX, SRAM Force, Campagnolo – z jednaką starannością.</p>
+      <div class="service-tags">
+        <span class="tag">Napędy</span>
+        <span class="tag">Renowacja</span>
+        <span class="tag">Di2 / eTap</span>
+        <span class="tag">Hamulce Tarczowe</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DLACZEGO MY -->
+<section id="dlaczego">
+  <div class="section-label reveal">Dlaczego My</div>
+  <h2 class="reveal">Nie każdy<br>serwis<br>to <em>przyjmie.</em></h2>
+  <div class="why-grid">
+    <div class="why-manifesto reveal editable" data-cms="why_quote">
+      „Przyszedłem z tytanową ramą bez żadnej dokumentacji i śrubami M5 w niestandardowym układzie. Inne miejsca powiedziały »nie«. Tu zaczęli pytać o wymiary."
+    </div>
+    <div class="why-list reveal">
+      <div class="why-item">
+        <div class="why-item-title editable" data-cms="why1_title">Wiedza bez kompromisów</div>
+        <p class="editable" data-cms="why1_desc">Nie udajemy ekspertów – jesteśmy nimi. Mechanik, który tu pracuje, potrafi wyjaśnić każdą decyzję techniczną – i dlaczego alternatywa jest gorsza.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-title editable" data-cms="why2_title">Trudne projekty mile widziane</div>
+        <p class="editable" data-cms="why2_desc">Niestandardowe ramy, egzotyczne komponenty, rower po dekadzie w garażu? Właśnie po to jesteśmy.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-title editable" data-cms="why3_title">Zero masówki</div>
+        <p class="editable" data-cms="why3_desc">Nie pracujemy na akord. Każdy rower dostaje tyle uwagi, ile potrzebuje – nawet jeśli to znaczy dłuższy czas realizacji.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-title editable" data-cms="why4_title">Autentyczność ponad marketing</div>
+        <p class="editable" data-cms="why4_desc">Powiemy Ci wprost, jeśli dana część nie ma sensu w Twoim zestawieniu. Naszym celem jest rower, który działa – nie kolejna sprzedaż.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label reveal">Często zadawane pytania (FAQ)</div>
+  <h2 class="reveal">Pytania, które<br><em>wracają</em><br>w rozmowach.</h2>
+
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>1. Czy naprawiacie tylko nowoczesne rowery?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Nie.</strong> Naszą pasją jest przywracanie życia klasykom. Jak zauważyli nasi klienci, chętnie podejmujemy się „reanimacji" 30-letnich rowerów MTB, szosówek w stylu vintage czy rowerów miejskich (np. marki Winora), z których inni spisali już na straty.
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>2. Czy podejmujecie się napraw, których inne serwisy odmówiły?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Tak.</strong> Specjalizujemy się w trudnych przypadkach – od nietypowych usterek w systemach SRAM (Click Box) i FOX, po niestandardowe ramy i rowery typu Cargo. Jeśli usłyszałeś gdzieś, że „nie da się tego naprawić", przynieś rower do nas na Rakowicką 99.
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>3. Jak wygląda proces wyceny? Czy koszty mnie nie zaskoczą?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          Działamy przejrzyście. Przy przyjęciu roweru dokonujemy wstępnej diagnozy i określamy przewidywane koszty. Jeśli w trakcie pracy okaże się, że potrzebne są dodatkowe części, konsultujemy to z Tobą przed ich zakupem. Rozliczamy się szczegółowo z każdej zakupionej części i wykonanej usługi.
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>4. Czy muszę umawiać się na termin?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          W sezonie obłożenie bywa duże, dlatego dla większych projektów (budowa roweru, tuning, gruntowny przegląd) zalecamy kontakt telefoniczny. Drobne sprawy, jak wymiana dętki czy szybka regulacja, staramy się załatwiać od ręki lub w ciągu 24 godzin, o ile czas na to pozwala.
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>5. Czy doradzacie w doborze części?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Oczywiście.</strong> Nie naciągamy na najdroższe komponenty. Doradzamy rozwiązania adekwatne do stanu roweru i Twojego budżetu. Chętnie dzielimy się wiedzą – jeśli chcesz samodzielnie dbać o rower, podpowiemy Ci, jak to robić poprawnie.
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>
+          <span>6. Dlaczego warto wybrać Youniq Bikes, a nie sieciowy serwis?</span>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          Bo tutaj Twój rower nie jest kolejnym numerem w kolejce. Do każdej maszyny podchodzimy pedantycznie – każda śrubka jest sprawdzona, wyczyszczona i nasmarowana. Pracę wykonuje pasjonat-inżynier, dla którego liczy się bezpieczeństwo i „szwajcarska precyzja" działania osprzętu.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIE -->
+<section id="opinie">
+  <div class="section-label reveal">Głos klientów</div>
+  <h2 class="reveal">Mówią to,<br>czego nie<br><em>piszemy sami.</em></h2>
+  <div class="reviews-grid reveal">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text editable" data-cms="review1_text">„Zaplatanie kół na poziomie, jakiego w Krakowie długo szukałem. Koła trzymają centryczność po całym sezonie. Polecam każdemu, komu zależy na jakości."</p>
+      <div class="review-author editable" data-cms="review1_author">Michał K. — kolarz szosowy</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text editable" data-cms="review2_text">„Przyszedłem z konkretną wizją gravela na długodystansowe wyprawy. Razem dobraliśmy każdy komponent. Rower pojechał na Bałkany i wrócił bez awarii."</p>
+      <div class="review-author editable" data-cms="review2_author">Tomasz R. — bikepacker</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text editable" data-cms="review3_text">„Wiedza techniczna na innym poziomie niż w typowym serwisie. Wytłumaczył mi, dlaczego mój poprzedni setup był błędem – i jak to naprawić. Wróciłem tu już cztery razy."</p>
+      <div class="review-author editable" data-cms="review3_author">Agata W. — cyklistka amatorska</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="gallery-header reveal">
+    <div class="section-label">Realizacje</div>
+    <h2>Nasze<br><em>prace.</em></h2>
+    <p class="gallery-sub">Każdy rower to osobna historia. Oto kilka z nich.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item gallery-item--tall reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery1_img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Custom build szosa stalowa" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery1_tag">Custom Build</div>
+          <div class="gallery-caption editable" data-cms="gallery1_caption">Szosa stalowa — Reynolds 853<br><span>Shimano Ultegra Di2 · ręcznie zaplatane koła</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery2_img" src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&q=80" alt="Zaplatanie kół DT Swiss" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery2_tag">Koła Hand-Built</div>
+          <div class="gallery-caption editable" data-cms="gallery2_caption">Zaplatanie kół<br><span>DT Swiss · Sapim CX-Ray</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery3_img" src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=800&q=80" alt="Serwis napędu SRAM" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery3_tag">Serwis Premium</div>
+          <div class="gallery-caption editable" data-cms="gallery3_caption">Serwis napędu<br><span>SRAM Force eTap AXS</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--wide reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery4_img" src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=1200&q=80" alt="Gravel custom build tytanowa rama" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery4_tag">Custom Build</div>
+          <div class="gallery-caption editable" data-cms="gallery4_caption">Gravel na wyprawy — rama tytanowa<br><span>Shimano GRX 820 · opony 45c · sakwy bikepacking</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery5_img" src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80" alt="Renowacja vintage roweru" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery5_tag">Renowacja</div>
+          <div class="gallery-caption editable" data-cms="gallery5_caption">Renowacja klasyka z lat 80.<br><span>Campagnolo Record · nowe okablowanie</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item gallery-item--tall reveal">
+      <div class="gallery-img-wrap">
+        <img class="editable" data-cms="gallery6_img" src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=800&q=80" alt="Detal komponentów rowerowych" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="gallery-tag editable" data-cms="gallery6_tag">Detal</div>
+          <div class="gallery-caption editable" data-cms="gallery6_caption">Precyzja w każdym detalu<br><span>Mostek · Kierownica · Taśmowanie</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gallery-cta reveal">
+    <a href="#kontakt" class="btn-ghost">Porozmawiajmy o Twoim projekcie →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="kontakt">
+  <div class="section-label">Kontakt</div>
+  <h2 class="editable" data-cms="contact_heading">Zacznijmy<br><em>rozmawiać.</em></h2>
+  <p class="editable" data-cms="contact_desc">Masz projekt, pytanie o serwis albo chcesz po prostu porozmawiać o kołach? Wpadnij na Rakowicką 99 albo napisz – nie owijamy w bawełnę.</p>
+  <div class="cta-row">
+    <a href="/cdn-cgi/l/email-protection#8ae1e5e4feebe1fecaf3e5ffe4e3fbe8e3e1eff9a4fae6" class="btn-primary">Napisz do nas</a>
+    <a href="https://maps.app.goo.gl/XpUsyRzsvwveWy1d6" class="btn-ghost" target="_blank">Znajdź warsztat</a>
+  </div>
+  <p class="cta-info editable" data-cms="contact_info">
+    Rakowicka 99, Kraków &nbsp;·&nbsp;
+    <a href="tel:+48500250068">+48 500 250 068</a> &nbsp;·&nbsp;
+    Pon–Pt 10:00–18:00, Sob 10:00–14:00
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Youniq<span>.</span>Bikes</div>
+  <p>Rakowicka 99 · Kraków · Customowe Rowery Premium</p>
+  <p>© 2026 Youniq Bikes. Wszelkie prawa zastrzeżone.</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
