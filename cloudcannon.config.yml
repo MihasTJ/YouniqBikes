@@ -1,19 +1,23 @@
 timezone: Europe/Warsaw
-source: /
-# To mówi CloudCannonowi, że nie musi nic budować, pliki są gotowe:
-ssg_name: static
 
 collections_config:
   pages:
     name: Strony
     path: ""
-    parser: html
+    glob:
+      - "**/*.html"
     output: true
     _enabled_editors:
       - visual
       - source
 
-# To aktywuje podgląd wizualny
 _editables:
-  content:
-    active: true
+  text:
+    bold: true
+    italic: true
+    link: true
+  block:
+    format: true
+    bold: true
+    italic: true
+    link: true
