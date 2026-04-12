@@ -1,14 +1,19 @@
 timezone: Europe/Warsaw
 source: /
+# To mówi CloudCannonowi, że nie musi nic budować, pliki są gotowe:
+ssg_name: static
 
 collections_config:
   pages:
     name: Strony
-    path: "" # Szukaj w głównym katalogu
+    path: ""
+    parser: html
     output: true
-    filter:
-      base:
-        - index.html # Skup się konkretnie na tym pliku
     _enabled_editors:
       - visual
       - source
+
+# To aktywuje podgląd wizualny
+_editables:
+  content:
+    active: true
