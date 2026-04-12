@@ -1,11 +1,18 @@
-paths:
-  static: ''
-  uploads: uploads
 timezone: Europe/Warsaw
-markdown:
-  engine: commonmark
-  options: {}
+source: /
+
 collections_config:
   pages:
-    path: ''
-    icon: wysiwyg
+    name: Strony
+    path: ''  # Puste oznacza główny folder, tam gdzie masz index.html
+    parser: html
+    output: true
+    _enabled_editors:
+      - visual
+      - source
+
+# To aktywuje Twoje klasy .editable w edytorze wizualnym
+_editables:
+  content:
+    active: true
+    allow_html: true
