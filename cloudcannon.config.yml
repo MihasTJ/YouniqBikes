@@ -4,15 +4,11 @@ source: /
 collections_config:
   pages:
     name: Strony
-    path: ''  # Puste oznacza główny folder, tam gdzie masz index.html
-    parser: html
+    path: "" # Szukaj w głównym katalogu
     output: true
+    filter:
+      base:
+        - index.html # Skup się konkretnie na tym pliku
     _enabled_editors:
       - visual
       - source
-
-# To aktywuje Twoje klasy .editable w edytorze wizualnym
-_editables:
-  content:
-    active: true
-    allow_html: true
