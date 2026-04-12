@@ -5,8 +5,9 @@ collections_config:
     name: Strony
     path: ""
     glob:
-      - "**/*.html"
+      - "*.html"
     output: true
+    url: "/[relative_base_path]/[slug].html"
     _enabled_editors:
       - visual
       - source
@@ -17,7 +18,7 @@ _editables:
     italic: true
     link: true
   block:
-    format: true
     bold: true
     italic: true
     link: true
+    format: true
