@@ -1,7 +1,10 @@
 /**
  * cms-loader.js — Youniq Bikes
- * Zdjęcia galerii ładowane w tle — pokazują się dopiero gdy są gotowe.
+ * Obsługa dwujęzyczności (PL / EN) + ładowanie cennika.
  */
+
+// ─── Aktualny język ───────────────────────────────────────────────────────────
+var currentLang = localStorage.getItem('yb_lang') || 'pl';
 
 // ─── Załaduj js-yaml z CDN ────────────────────────────────────────────────────
 function loadScript(src) {
@@ -37,24 +40,19 @@ function linkifyPhone(value) {
 function loadImageWhenReady(imgEl, src) {
   return new Promise(function(resolve) {
     if (!src) { resolve(); return; }
-
     var temp = new window.Image();
-
     temp.onload = function() {
       imgEl.src = src;
-      // Dodaj klasę zamiast inline style — hover z CSS działa poprawnie
       imgEl.classList.add('loaded');
       imgEl.style.opacity = '1';
       resolve();
     };
-
     temp.onerror = function() {
       imgEl.src = src;
       imgEl.classList.add('loaded');
       imgEl.style.opacity = '1';
       resolve();
     };
-
     temp.src = src;
   });
 }
@@ -66,78 +64,187 @@ function applyData(data) {
   document.querySelectorAll('[data-cms]').forEach(function(el) {
     var key = el.getAttribute('data-cms');
     if (!(key in data)) return;
-
     var value = String(data[key]);
 
-    // Zdjęcia galerii — specjalna obsługa z preloadem
     if (el.tagName === 'IMG' && key.startsWith('gallery') && key.endsWith('_img')) {
       galleryPromises.push(loadImageWhenReady(el, value));
       return;
     }
-
-    // Inne obrazki (nie galeria)
-    if (el.tagName === 'IMG') {
-      el.src = value;
-      return;
-    }
-
-    // Linki CTA
-    if (el.tagName === 'A') {
-      el.textContent = value;
-      return;
-    }
-
-    // Kontakt — linkuj telefon
-    if (key === 'contact_info') {
-      el.innerHTML = linkifyPhone(value);
-      return;
-    }
-
-    // Reszta
+    if (el.tagName === 'IMG') { el.src = value; return; }
+    if (el.tagName === 'A')   { el.textContent = value; return; }
+    if (key === 'contact_info') { el.innerHTML = linkifyPhone(value); return; }
     el.innerHTML = value.replace(/\n/g, '<br>');
   });
 
   return Promise.all(galleryPromises);
 }
 
-// ─── Główna funkcja ───────────────────────────────────────────────────────────
-async function loadCMSData() {
-  // Ukryj zdjęcia galerii natychmiast przez JS — zanim przeglądarka je pobierze
+// ─── Tłumaczenia UI (nav, etykiety sekcji) ───────────────────────────────────
+var uiStrings = {
+  pl: {
+    nav_filozofia: 'Filozofia',
+    filozofia_label: 'O nas / Filozofia',
+    uslugi_label:    'Usługi',
+    services_h2:     'Co robimy<br><em>naprawdę</em> dobrze.',
+    dlaczego_label:  'Dlaczego My',
+    dlaczego_h2:     'Nie każdy<br>serwis<br>to <em>przyjmie.</em>',
+    faq_label:       'Często zadawane pytania (FAQ)',
+    faq_h2:          'Pytania, które<br><em>wracają</em><br>w rozmowach.',
+    nav_uslugi:    'Usługi',
+    nav_dlaczego:  'Dlaczego My',
+    nav_cennik:    'Cennik',
+    nav_galeria:   'Realizacje',
+    nav_kontakt:   'Kontakt',
+    cennik_label:  'Cennik',
+    opinie_label:  'Głos klientów',
+    opinie_h2:     'Mówią to,<br>czego nie<br><em>piszemy sami.</em>',
+    galeria_label: 'Realizacje',
+    galeria_h2:    'Nasze<br><em>prace.</em>',
+    galeria_sub:   'Każdy rower to osobna historia. Oto kilka z nich.',
+    galeria_cta:   'Porozmawiajmy o Twoim projekcie →',
+    kontakt_label: 'Kontakt',
+    footer_copy:   '© 2026 Youniq Bikes. Wszelkie prawa zastrzeżone.',
+    footer_sub:    'Rakowicka 99 · Kraków · Customowe Rowery Premium',
+    lang_active:   'PL',
+    lang_other:    'EN',
+  },
+  en: {
+    nav_filozofia: 'Philosophy',
+    filozofia_label: 'About / Philosophy',
+    uslugi_label:    'Services',
+    services_h2:     'What we do<br><em>really</em> well.',
+    dlaczego_label:  'Why Us',
+    dlaczego_h2:     'Not every shop<br>will<br><em>take this on.</em>',
+    faq_label:       'Frequently Asked Questions',
+    faq_h2:          'Questions that<br><em>come up</em><br>again and again.',
+    nav_uslugi:    'Services',
+    nav_dlaczego:  'Why Us',
+    nav_cennik:    'Pricing',
+    nav_galeria:   'Portfolio',
+    nav_kontakt:   'Contact',
+    cennik_label:  'Pricing',
+    opinie_label:  'Client Voice',
+    opinie_h2:     "Words we<br>didn't<br><em>write ourselves.</em>",
+    galeria_label: 'Portfolio',
+    galeria_h2:    'Our<br><em>work.</em>',
+    galeria_sub:   'Every bike tells a story. Here are a few.',
+    galeria_cta:   "Let's talk about your build →",
+    kontakt_label: 'Contact',
+    footer_copy:   '© 2026 Youniq Bikes. All rights reserved.',
+    footer_sub:    'Rakowicka 99 · Kraków · Premium Custom Bikes',
+    lang_active:   'EN',
+    lang_other:    'PL',
+  }
+};
+
+// ─── Zastosuj tłumaczenia UI ──────────────────────────────────────────────────
+function applyUI(lang) {
+  var t = uiStrings[lang];
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (!t[key]) return;
+    if (/<[a-z]/i.test(t[key])) { el.innerHTML = t[key]; } else { el.textContent = t[key]; }
+  });
+
+  var lbl = document.getElementById('langLabel');
+  var oth = document.getElementById('langOther');
+  if (lbl) lbl.textContent = t.lang_active;
+  if (oth) oth.textContent = t.lang_other;
+
+  var opinieLabel = document.querySelector('#opinie .section-label');
+  if (opinieLabel) opinieLabel.textContent = t.opinie_label;
+  var opinieH2 = document.querySelector('#opinie h2');
+  if (opinieH2) opinieH2.innerHTML = t.opinie_h2;
+
+  var galeriaLabel = document.querySelector('#galeria .section-label');
+  if (galeriaLabel) galeriaLabel.textContent = t.galeria_label;
+  var galeriaH2 = document.querySelector('.gallery-header h2');
+  if (galeriaH2) galeriaH2.innerHTML = t.galeria_h2;
+  var galeriaSub = document.querySelector('.gallery-sub');
+  if (galeriaSub) galeriaSub.textContent = t.galeria_sub;
+  var galeriaCta = document.querySelector('.gallery-cta a');
+  if (galeriaCta) galeriaCta.textContent = t.galeria_cta;
+
+  var cennikLabel = document.querySelector('#cennik .section-label');
+  if (cennikLabel) cennikLabel.textContent = t.cennik_label;
+
+  var kontaktLabel = document.querySelector('#kontakt .section-label');
+  if (kontaktLabel) kontaktLabel.textContent = t.kontakt_label;
+
+  var footerPs = document.querySelectorAll('footer p');
+  if (footerPs[0]) footerPs[0].textContent = t.footer_sub;
+  if (footerPs[1]) footerPs[1].textContent = t.footer_copy;
+
+  document.documentElement.lang = lang;
+}
+
+// ─── Pliki YAML dla każdego języka ───────────────────────────────────────────
+var filesPL = [
+  '/_data/hero.yml',
+  '/_data/filozofia.yml',
+  '/_data/dlaczego.yml',
+  '/_data/faq.yml',
+  '/_data/opinie.yml',
+  '/_data/galeria.yml',
+  '/_data/kontakt.yml',
+  '/_data/cennik.yml',
+];
+
+var filesEN = [
+  '/_data/hero_en.yml',
+  '/_data/filozofia_en.yml',
+  '/_data/dlaczego_en.yml',
+  '/_data/faq_en.yml',
+  '/_data/opinie_en.yml',
+  '/_data/galeria.yml',
+  '/_data/kontakt_en.yml',
+  '/_data/cennik_en.yml',
+];
+
+// ─── Główna funkcja ładowania danych ─────────────────────────────────────────
+async function loadCMSData(lang) {
+  lang = lang || currentLang;
+
   document.querySelectorAll('[data-cms^="gallery"][data-cms$="_img"]').forEach(function(img) {
     img.style.opacity = '0';
     img.style.transition = 'none';
-    img.src = ''; // wyczyść src żeby przeglądarka nie pobierała starego
+    img.src = '';
   });
 
-  // Załaduj js-yaml
   if (!window.jsyaml) {
     await loadScript('https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js');
   }
 
-  // Pobierz wszystkie pliki YAML równolegle
-  var files = [
-    '/_data/hero.yml',
-    '/_data/filozofia.yml',
-    '/_data/dlaczego.yml',
-    '/_data/faq.yml',
-    '/_data/opinie.yml',
-    '/_data/galeria.yml',
-    '/_data/kontakt.yml',
-  ];
-
+  var files = (lang === 'en') ? filesEN : filesPL;
   var results = await Promise.all(files.map(fetchYAML));
   var allData = Object.assign.apply(Object, [{}].concat(results));
 
-  // Podmień treści + czekaj aż zdjęcia galerii się załadują
   await applyData(allData);
+  applyUI(lang);
 
-  // Sygnał dla script.js — galeria gotowa, można odpalić reveal
   if (window.revealGallery) window.revealGallery();
 }
 
-// ─── Odpal jak najwcześniej ───────────────────────────────────────────────────
+// ─── Przełącznik języka ───────────────────────────────────────────────────────
+function initLangSwitcher() {
+  var btn = document.getElementById('langSwitcher');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    currentLang = (currentLang === 'pl') ? 'en' : 'pl';
+    localStorage.setItem('yb_lang', currentLang);
+    document.body.classList.remove('cms-ready');
+    loadCMSData(currentLang);
+  });
+}
+
+// ─── Start ────────────────────────────────────────────────────────────────────
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadCMSData);
+  document.addEventListener('DOMContentLoaded', function() {
+    initLangSwitcher();
+    loadCMSData(currentLang);
+  });
 } else {
-  loadCMSData();
+  initLangSwitcher();
+  loadCMSData(currentLang);
 }

@@ -7,8 +7,12 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+
+  # ═══════════════════════════════════════════════════
+  # TREŚCI PL
+  # ═══════════════════════════════════════════════════
   - name: "site"
-    label: "Treści strony"
+    label: "🇵🇱 Treści strony (PL)"
     files:
 
       - label: "Hero (baner główny)"
@@ -79,6 +83,67 @@ collections:
           - { label: "Opinia 3 — treść", name: "review3_text", widget: "text" }
           - { label: "Opinia 3 — autor", name: "review3_author", widget: "string" }
 
+      - label: "Cennik usług"
+        name: "cennik"
+        file: "_data/cennik.yml"
+        fields:
+          - { label: "Nagłówek sekcji", name: "cennik_heading", widget: "string" }
+          - { label: "Opis sekcji", name: "cennik_desc", widget: "text" }
+          - { label: "Przypis / nota", name: "cennik_note", widget: "text" }
+
+          - widget: "object"
+            label: "Koła"
+            name: "cat1"
+            collapsed: false
+            fields:
+              - { label: "Tytuł kategorii", name: "cat1_title", widget: "string" }
+              - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string" }
+              - { label: "Usługa 1 — cena", name: "price1_price", widget: "string" }
+              - { label: "Usługa 2 — nazwa", name: "price2_service", widget: "string" }
+              - { label: "Usługa 2 — cena", name: "price2_price", widget: "string" }
+              - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string" }
+              - { label: "Usługa 3 — cena", name: "price3_price", widget: "string" }
+              - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string" }
+              - { label: "Usługa 4 — cena", name: "price4_price", widget: "string" }
+              - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string" }
+              - { label: "Usługa 5 — cena", name: "price5_price", widget: "string" }
+              - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string" }
+              - { label: "Usługa 6 — cena", name: "price6_price", widget: "string" }
+
+          - widget: "object"
+            label: "Napęd & Hamulce"
+            name: "cat2"
+            collapsed: false
+            fields:
+              - { label: "Tytuł kategorii", name: "cat2_title", widget: "string" }
+              - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string" }
+              - { label: "Usługa 7 — cena", name: "price7_price", widget: "string" }
+              - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string" }
+              - { label: "Usługa 8 — cena", name: "price8_price", widget: "string" }
+              - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string" }
+              - { label: "Usługa 9 — cena", name: "price9_price", widget: "string" }
+              - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string" }
+              - { label: "Usługa 10 — cena", name: "price10_price", widget: "string" }
+              - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string" }
+              - { label: "Usługa 11 — cena", name: "price11_price", widget: "string" }
+              - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string" }
+              - { label: "Usługa 12 — cena", name: "price12_price", widget: "string" }
+
+          - widget: "object"
+            label: "Przeglądy & Custom"
+            name: "cat3"
+            collapsed: false
+            fields:
+              - { label: "Tytuł kategorii", name: "cat3_title", widget: "string" }
+              - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string" }
+              - { label: "Usługa 13 — cena", name: "price13_price", widget: "string" }
+              - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string" }
+              - { label: "Usługa 14 — cena", name: "price14_price", widget: "string" }
+              - { label: "Usługa 15 — nazwa", name: "price15_service", widget: "string" }
+              - { label: "Usługa 15 — cena", name: "price15_price", widget: "string" }
+              - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string" }
+              - { label: "Usługa 16 — cena", name: "price16_price", widget: "string" }
+
       - label: "Galeria realizacji"
         name: "galeria"
         file: "_data/galeria.yml"
@@ -109,3 +174,147 @@ collections:
           - { label: "Nagłówek sekcji", name: "contact_heading", widget: "string" }
           - { label: "Opis", name: "contact_desc", widget: "text" }
           - { label: "Informacje kontaktowe", name: "contact_info", widget: "string" }
+
+  # ═══════════════════════════════════════════════════
+  # TREŚCI EN
+  # ═══════════════════════════════════════════════════
+  - name: "site_en"
+    label: "🇬🇧 Treści strony (EN)"
+    files:
+
+      - label: "Hero (main banner)"
+        name: "hero_en"
+        file: "_data/hero_en.yml"
+        fields:
+          - { label: "Eyebrow text", name: "hero_eyebrow", widget: "string" }
+          - { label: "Main heading", name: "hero_heading", widget: "string" }
+          - { label: "Subheading", name: "hero_subheading", widget: "text" }
+          - { label: "Primary CTA button", name: "hero_cta_label", widget: "string" }
+          - { label: "Ghost button", name: "hero_cta_ghost", widget: "string" }
+
+      - label: "Philosophy"
+        name: "filozofia_en"
+        file: "_data/filozofia_en.yml"
+        fields:
+          - { label: "Section heading", name: "philosophy_heading", widget: "string" }
+          - { label: "Paragraph 1", name: "philosophy_p1", widget: "text" }
+          - { label: "Paragraph 2", name: "philosophy_p2", widget: "text" }
+          - { label: "Stat 1 — number", name: "stat1_num", widget: "string" }
+          - { label: "Stat 1 — label", name: "stat1_label", widget: "string" }
+          - { label: "Stat 2 — number", name: "stat2_num", widget: "string" }
+          - { label: "Stat 2 — label", name: "stat2_label", widget: "string" }
+          - { label: "Stat 3 — number", name: "stat3_num", widget: "string" }
+          - { label: "Stat 3 — label", name: "stat3_label", widget: "string" }
+          - { label: "Stat 4 — number", name: "stat4_num", widget: "string" }
+          - { label: "Stat 4 — label", name: "stat4_label", widget: "string" }
+
+      - label: "Why Us"
+        name: "dlaczego_en"
+        file: "_data/dlaczego_en.yml"
+        fields:
+          - { label: "Lead quote", name: "why_quote", widget: "text" }
+          - { label: "Point 1 — title", name: "why1_title", widget: "string" }
+          - { label: "Point 1 — description", name: "why1_desc", widget: "text" }
+          - { label: "Point 2 — title", name: "why2_title", widget: "string" }
+          - { label: "Point 2 — description", name: "why2_desc", widget: "text" }
+          - { label: "Point 3 — title", name: "why3_title", widget: "string" }
+          - { label: "Point 3 — description", name: "why3_desc", widget: "text" }
+          - { label: "Point 4 — title", name: "why4_title", widget: "string" }
+          - { label: "Point 4 — description", name: "why4_desc", widget: "text" }
+
+      - label: "FAQ"
+        name: "faq_en"
+        file: "_data/faq_en.yml"
+        fields:
+          - { label: "Question 1", name: "faq1_question", widget: "string" }
+          - { label: "Answer 1", name: "faq1_answer", widget: "text" }
+          - { label: "Question 2", name: "faq2_question", widget: "string" }
+          - { label: "Answer 2", name: "faq2_answer", widget: "text" }
+          - { label: "Question 3", name: "faq3_question", widget: "string" }
+          - { label: "Answer 3", name: "faq3_answer", widget: "text" }
+          - { label: "Question 4", name: "faq4_question", widget: "string" }
+          - { label: "Answer 4", name: "faq4_answer", widget: "text" }
+          - { label: "Question 5", name: "faq5_question", widget: "string" }
+          - { label: "Answer 5", name: "faq5_answer", widget: "text" }
+          - { label: "Question 6", name: "faq6_question", widget: "string" }
+          - { label: "Answer 6", name: "faq6_answer", widget: "text" }
+
+      - label: "Client reviews"
+        name: "opinie_en"
+        file: "_data/opinie_en.yml"
+        fields:
+          - { label: "Review 1 — text", name: "review1_text", widget: "text" }
+          - { label: "Review 1 — author", name: "review1_author", widget: "string" }
+          - { label: "Review 2 — text", name: "review2_text", widget: "text" }
+          - { label: "Review 2 — author", name: "review2_author", widget: "string" }
+          - { label: "Review 3 — text", name: "review3_text", widget: "text" }
+          - { label: "Review 3 — author", name: "review3_author", widget: "string" }
+
+      - label: "Pricing"
+        name: "cennik_en"
+        file: "_data/cennik_en.yml"
+        fields:
+          - { label: "Section heading", name: "cennik_heading", widget: "string" }
+          - { label: "Section description", name: "cennik_desc", widget: "text" }
+          - { label: "Footnote", name: "cennik_note", widget: "text" }
+
+          - widget: "object"
+            label: "Wheels"
+            name: "cat1"
+            collapsed: false
+            fields:
+              - { label: "Category title", name: "cat1_title", widget: "string" }
+              - { label: "Service 1 — name", name: "price1_service", widget: "string" }
+              - { label: "Service 1 — price", name: "price1_price", widget: "string" }
+              - { label: "Service 2 — name", name: "price2_service", widget: "string" }
+              - { label: "Service 2 — price", name: "price2_price", widget: "string" }
+              - { label: "Service 3 — name", name: "price3_service", widget: "string" }
+              - { label: "Service 3 — price", name: "price3_price", widget: "string" }
+              - { label: "Service 4 — name", name: "price4_service", widget: "string" }
+              - { label: "Service 4 — price", name: "price4_price", widget: "string" }
+              - { label: "Service 5 — name", name: "price5_service", widget: "string" }
+              - { label: "Service 5 — price", name: "price5_price", widget: "string" }
+              - { label: "Service 6 — name", name: "price6_service", widget: "string" }
+              - { label: "Service 6 — price", name: "price6_price", widget: "string" }
+
+          - widget: "object"
+            label: "Drivetrain & Brakes"
+            name: "cat2"
+            collapsed: false
+            fields:
+              - { label: "Category title", name: "cat2_title", widget: "string" }
+              - { label: "Service 7 — name", name: "price7_service", widget: "string" }
+              - { label: "Service 7 — price", name: "price7_price", widget: "string" }
+              - { label: "Service 8 — name", name: "price8_service", widget: "string" }
+              - { label: "Service 8 — price", name: "price8_price", widget: "string" }
+              - { label: "Service 9 — name", name: "price9_service", widget: "string" }
+              - { label: "Service 9 — price", name: "price9_price", widget: "string" }
+              - { label: "Service 10 — name", name: "price10_service", widget: "string" }
+              - { label: "Service 10 — price", name: "price10_price", widget: "string" }
+              - { label: "Service 11 — name", name: "price11_service", widget: "string" }
+              - { label: "Service 11 — price", name: "price11_price", widget: "string" }
+              - { label: "Service 12 — name", name: "price12_service", widget: "string" }
+              - { label: "Service 12 — price", name: "price12_price", widget: "string" }
+
+          - widget: "object"
+            label: "Service & Custom"
+            name: "cat3"
+            collapsed: false
+            fields:
+              - { label: "Category title", name: "cat3_title", widget: "string" }
+              - { label: "Service 13 — name", name: "price13_service", widget: "string" }
+              - { label: "Service 13 — price", name: "price13_price", widget: "string" }
+              - { label: "Service 14 — name", name: "price14_service", widget: "string" }
+              - { label: "Service 14 — price", name: "price14_price", widget: "string" }
+              - { label: "Service 15 — name", name: "price15_service", widget: "string" }
+              - { label: "Service 15 — price", name: "price15_price", widget: "string" }
+              - { label: "Service 16 — name", name: "price16_service", widget: "string" }
+              - { label: "Service 16 — price", name: "price16_price", widget: "string" }
+
+      - label: "Contact"
+        name: "kontakt_en"
+        file: "_data/kontakt_en.yml"
+        fields:
+          - { label: "Section heading", name: "contact_heading", widget: "string" }
+          - { label: "Description", name: "contact_desc", widget: "text" }
+          - { label: "Contact info", name: "contact_info", widget: "string" }
