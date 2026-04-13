@@ -20,7 +20,7 @@ function loadScript(src) {
 // ─── Pobierz i parsuj plik YAML ───────────────────────────────────────────────
 async function fetchYAML(path) {
   try {
-    var res = await fetch(path + '?v=' + Date.now());
+    var res = await fetch(path + '?v=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) return {};
     return window.jsyaml.load(await res.text()) || {};
   } catch (e) {
@@ -82,6 +82,9 @@ function applyData(data) {
 // ─── Tłumaczenia UI (nav, etykiety sekcji) ───────────────────────────────────
 var uiStrings = {
   pl: {
+    ticker: ['Custom Builds','Zaplatanie Kół','Serwis Premium','Shimano · SRAM · Campagnolo','Rowery Szosowe','Gravele','Wyprawówki','Ramy Stalowe & Tytanowe'],
+    contact_btn_primary: 'Napisz do nas',
+    contact_btn_ghost: 'Znajdź warsztat',
     nav_filozofia: 'Filozofia',
     filozofia_label: 'O nas / Filozofia',
     uslugi_label:    'Usługi',
@@ -109,6 +112,9 @@ var uiStrings = {
     lang_other:    'EN',
   },
   en: {
+    ticker: ['Custom Builds','Wheel Lacing','Premium Service','Shimano · SRAM · Campagnolo','Road Bikes','Gravel Bikes','Touring Builds','Steel & Titanium Frames'],
+    contact_btn_primary: 'Write to us',
+    contact_btn_ghost: 'Find the workshop',
     nav_filozofia: 'Philosophy',
     filozofia_label: 'About / Philosophy',
     uslugi_label:    'Services',
@@ -172,6 +178,22 @@ function applyUI(lang) {
   var kontaktLabel = document.querySelector('#kontakt .section-label');
   if (kontaktLabel) kontaktLabel.textContent = t.kontakt_label;
 
+  // Ticker
+  var tickerEl = document.querySelector('.ticker');
+  if (tickerEl && t.ticker) {
+    var doubled = t.ticker.concat(t.ticker);
+    tickerEl.innerHTML = doubled.map(function(s) { return '<span>' + s + '</span>'; }).join('');
+  }
+
+  // Przyciski kontakt
+  var ctaRow = document.querySelector('#kontakt .cta-row');
+  if (ctaRow) {
+    var btnPrimary = ctaRow.querySelector('.btn-primary');
+    var btnGhost   = ctaRow.querySelector('.btn-ghost');
+    if (btnPrimary && t.contact_btn_primary) btnPrimary.textContent = t.contact_btn_primary;
+    if (btnGhost   && t.contact_btn_ghost)   btnGhost.textContent   = t.contact_btn_ghost;
+  }
+
   var footerPs = document.querySelectorAll('footer p');
   if (footerPs[0]) footerPs[0].textContent = t.footer_sub;
   if (footerPs[1]) footerPs[1].textContent = t.footer_copy;
@@ -183,6 +205,7 @@ function applyUI(lang) {
 var filesPL = [
   '/_data/hero.yml',
   '/_data/filozofia.yml',
+  '/_data/uslugi.yml',
   '/_data/dlaczego.yml',
   '/_data/faq.yml',
   '/_data/opinie.yml',
@@ -194,10 +217,11 @@ var filesPL = [
 var filesEN = [
   '/_data/hero_en.yml',
   '/_data/filozofia_en.yml',
+  '/_data/uslugi_en.yml',
   '/_data/dlaczego_en.yml',
   '/_data/faq_en.yml',
   '/_data/opinie_en.yml',
-  '/_data/galeria.yml',
+  '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
   '/_data/cennik_en.yml',
 ];
