@@ -42,15 +42,15 @@ function loadImageWhenReady(imgEl, src) {
 
     temp.onload = function() {
       imgEl.src = src;
-      // Odkryj zdjęcie płynnie
-      imgEl.style.transition = 'opacity 0.4s ease';
+      // Dodaj klasę zamiast inline style — hover z CSS działa poprawnie
+      imgEl.classList.add('loaded');
       imgEl.style.opacity = '1';
       resolve();
     };
 
     temp.onerror = function() {
-      // Nawet przy błędzie pokaż element
       imgEl.src = src;
+      imgEl.classList.add('loaded');
       imgEl.style.opacity = '1';
       resolve();
     };
