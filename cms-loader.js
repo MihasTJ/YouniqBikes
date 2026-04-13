@@ -57,6 +57,22 @@ function loadImageWhenReady(imgEl, src) {
   });
 }
 
+// ─── Spłaszcz zagnieżdżone obiekty (np. cat1/cat2/cat3 z Decap CMS object widget)
+function flattenNested(data) {
+  var flat = {};
+  Object.keys(data).forEach(function(key) {
+    var val = data[key];
+    if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+      Object.keys(val).forEach(function(subKey) {
+        flat[subKey] = val[subKey];
+      });
+    } else {
+      flat[key] = val;
+    }
+  });
+  return flat;
+}
+
 // ─── Podmień treści, zdjęcia galerii obsłuż osobno ───────────────────────────
 function applyData(data) {
   var galleryPromises = [];
@@ -242,7 +258,8 @@ async function loadCMSData(lang) {
 
   var files = (lang === 'en') ? filesEN : filesPL;
   var results = await Promise.all(files.map(fetchYAML));
-  var allData = Object.assign.apply(Object, [{}].concat(results));
+  var merged  = Object.assign.apply(Object, [{}].concat(results));
+  var allData = flattenNested(merged);
 
   await applyData(allData);
   applyUI(lang);

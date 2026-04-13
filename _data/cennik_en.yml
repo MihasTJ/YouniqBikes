@@ -1,44 +1,44 @@
-cennik_heading: "Service<br><em>pricing.</em>"
-cennik_desc: "Labour costs only — parts not included. Individual quote at drop-off. No surprises."
-cennik_note: "* Prices cover labour only. Parts are quoted individually and always confirmed with you before purchase."
+cennik_heading: 'Service<br><em>pricing.</em>'
+cennik_desc: 'Labour costs only — parts not included. Individual quote at drop-off. No surprises.'
+cennik_note: '* Prices cover labour only. Parts are quoted individually and always confirmed with you before purchase.'
 
-# Category 1 — Wheels
-cat1_title: "Wheels"
-price1_service: "Hand-built wheel lacing"
-price1_price: "from 200 PLN"
-price2_service: "Wheel truing"
-price2_price: "from 60 PLN"
-price3_service: "Spoke replacement (per spoke)"
-price3_price: "from 25 PLN"
-price4_service: "Tubeless conversion"
-price4_price: "from 80 PLN"
-price5_service: "Inner tube / tyre change (front)"
-price5_price: "from 30 PLN"
-price6_service: "Inner tube / tyre change (rear)"
-price6_price: "from 40 PLN"
+cat1:
+  cat1_title: 'Wheels'
+  price1_service: 'Hand-built wheel lacing'
+  price1_price: 'from 200 PLN'
+  price2_service: 'Wheel truing'
+  price2_price: 'from 60 PLN'
+  price3_service: 'Spoke replacement (per spoke)'
+  price3_price: 'from 25 PLN'
+  price4_service: 'Tubeless conversion'
+  price4_price: 'from 80 PLN'
+  price5_service: 'Inner tube / tyre change (front)'
+  price5_price: 'from 30 PLN'
+  price6_service: 'Inner tube / tyre change (rear)'
+  price6_price: 'from 40 PLN'
 
-# Category 2 — Drivetrain & Brakes
-cat2_title: "Drivetrain & Brakes"
-price7_service: "Derailleur adjustment (per unit)"
-price7_price: "from 40 PLN"
-price8_service: "Mechanical brake adjustment"
-price8_price: "from 35 PLN"
-price9_service: "Hydraulic brake bleed"
-price9_price: "from 100 PLN"
-price10_service: "Cable + housing replacement"
-price10_price: "from 45 PLN"
-price11_service: "Bottom bracket service"
-price11_price: "from 60 PLN"
-price12_service: "Rear hub service"
-price12_price: "from 80 PLN"
+cat2:
+  cat2_title: 'Drivetrain & Brakes'
+  price7_service: 'Derailleur adjustment (per unit)'
+  price7_price: 'from 40 PLN'
+  price8_service: 'Mechanical brake adjustment'
+  price8_price: 'from 35 PLN'
+  price9_service: 'Hydraulic brake bleed'
+  price9_price: 'from 100 PLN'
+  price10_service: 'Cable + housing replacement'
+  price10_price: 'from 45 PLN'
+  price11_service: 'Bottom bracket service'
+  price11_price: 'from 60 PLN'
+  price12_service: 'Rear hub service'
+  price12_price: 'from 80 PLN'
 
-# Category 3 — Service & Custom
-cat3_title: "Service & Custom"
-price13_service: "Basic service"
-price13_price: "from 150 PLN"
-price14_service: "Full seasonal service"
-price14_price: "from 300 PLN"
-price15_service: "Custom Build — consultation"
-price15_price: "free"
-price16_service: "Hourly rate (non-standard work)"
-price16_price: "100 PLN / h"
+cat3:
+  cat3_title: 'Service & Custom'
+  price13_service: 'Basic service'
+  price13_price: 'from 150 PLN'
+  price14_service: 'Full seasonal service'
+  price14_price: 'from 300 PLN'
+  price15_service: 'Custom Build — consultation'
+  price15_price: 'free'
+  price16_service: 'Hourly rate (non-standard work)'
+  price16_price: '100 PLN / h'
