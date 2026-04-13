@@ -1,0 +1,111 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Folder gdzie klient będzie wgrywał zdjęcia
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "Treści strony"
+    files:
+
+      - label: "Hero (baner główny)"
+        name: "hero"
+        file: "_data/hero.yml"
+        fields:
+          - { label: "Nad-nagłówek (eyebrow)", name: "hero_eyebrow", widget: "string" }
+          - { label: "Nagłówek główny", name: "hero_heading", widget: "string" }
+          - { label: "Podtytuł", name: "hero_subheading", widget: "text" }
+          - { label: "Przycisk główny (CTA)", name: "hero_cta_label", widget: "string" }
+          - { label: "Przycisk ghost", name: "hero_cta_ghost", widget: "string" }
+
+      - label: "Filozofia"
+        name: "filozofia"
+        file: "_data/filozofia.yml"
+        fields:
+          - { label: "Nagłówek sekcji", name: "philosophy_heading", widget: "string" }
+          - { label: "Akapit 1", name: "philosophy_p1", widget: "text" }
+          - { label: "Akapit 2", name: "philosophy_p2", widget: "text" }
+          - { label: "Stat 1 — liczba", name: "stat1_num", widget: "string" }
+          - { label: "Stat 1 — opis", name: "stat1_label", widget: "string" }
+          - { label: "Stat 2 — liczba", name: "stat2_num", widget: "string" }
+          - { label: "Stat 2 — opis", name: "stat2_label", widget: "string" }
+          - { label: "Stat 3 — liczba", name: "stat3_num", widget: "string" }
+          - { label: "Stat 3 — opis", name: "stat3_label", widget: "string" }
+          - { label: "Stat 4 — liczba", name: "stat4_num", widget: "string" }
+          - { label: "Stat 4 — opis", name: "stat4_label", widget: "string" }
+
+      - label: "Dlaczego My"
+        name: "dlaczego"
+        file: "_data/dlaczego.yml"
+        fields:
+          - { label: "Cytat wiodący", name: "why_quote", widget: "text" }
+          - { label: "Punkt 1 — tytuł", name: "why1_title", widget: "string" }
+          - { label: "Punkt 1 — opis", name: "why1_desc", widget: "text" }
+          - { label: "Punkt 2 — tytuł", name: "why2_title", widget: "string" }
+          - { label: "Punkt 2 — opis", name: "why2_desc", widget: "text" }
+          - { label: "Punkt 3 — tytuł", name: "why3_title", widget: "string" }
+          - { label: "Punkt 3 — opis", name: "why3_desc", widget: "text" }
+          - { label: "Punkt 4 — tytuł", name: "why4_title", widget: "string" }
+          - { label: "Punkt 4 — opis", name: "why4_desc", widget: "text" }
+
+      - label: "FAQ"
+        name: "faq"
+        file: "_data/faq.yml"
+        fields:
+          - { label: "Pytanie 1", name: "faq1_question", widget: "string" }
+          - { label: "Odpowiedź 1", name: "faq1_answer", widget: "text" }
+          - { label: "Pytanie 2", name: "faq2_question", widget: "string" }
+          - { label: "Odpowiedź 2", name: "faq2_answer", widget: "text" }
+          - { label: "Pytanie 3", name: "faq3_question", widget: "string" }
+          - { label: "Odpowiedź 3", name: "faq3_answer", widget: "text" }
+          - { label: "Pytanie 4", name: "faq4_question", widget: "string" }
+          - { label: "Odpowiedź 4", name: "faq4_answer", widget: "text" }
+          - { label: "Pytanie 5", name: "faq5_question", widget: "string" }
+          - { label: "Odpowiedź 5", name: "faq5_answer", widget: "text" }
+          - { label: "Pytanie 6", name: "faq6_question", widget: "string" }
+          - { label: "Odpowiedź 6", name: "faq6_answer", widget: "text" }
+
+      - label: "Opinie klientów"
+        name: "opinie"
+        file: "_data/opinie.yml"
+        fields:
+          - { label: "Opinia 1 — treść", name: "review1_text", widget: "text" }
+          - { label: "Opinia 1 — autor", name: "review1_author", widget: "string" }
+          - { label: "Opinia 2 — treść", name: "review2_text", widget: "text" }
+          - { label: "Opinia 2 — autor", name: "review2_author", widget: "string" }
+          - { label: "Opinia 3 — treść", name: "review3_text", widget: "text" }
+          - { label: "Opinia 3 — autor", name: "review3_author", widget: "string" }
+
+      - label: "Galeria realizacji"
+        name: "galeria"
+        file: "_data/galeria.yml"
+        fields:
+          - { label: "Zdjęcie 1", name: "gallery1_img", widget: "image" }
+          - { label: "Tag 1", name: "gallery1_tag", widget: "string" }
+          - { label: "Opis 1", name: "gallery1_caption", widget: "string" }
+          - { label: "Zdjęcie 2", name: "gallery2_img", widget: "image" }
+          - { label: "Tag 2", name: "gallery2_tag", widget: "string" }
+          - { label: "Opis 2", name: "gallery2_caption", widget: "string" }
+          - { label: "Zdjęcie 3", name: "gallery3_img", widget: "image" }
+          - { label: "Tag 3", name: "gallery3_tag", widget: "string" }
+          - { label: "Opis 3", name: "gallery3_caption", widget: "string" }
+          - { label: "Zdjęcie 4", name: "gallery4_img", widget: "image" }
+          - { label: "Tag 4", name: "gallery4_tag", widget: "string" }
+          - { label: "Opis 4", name: "gallery4_caption", widget: "string" }
+          - { label: "Zdjęcie 5", name: "gallery5_img", widget: "image" }
+          - { label: "Tag 5", name: "gallery5_tag", widget: "string" }
+          - { label: "Opis 5", name: "gallery5_caption", widget: "string" }
+          - { label: "Zdjęcie 6", name: "gallery6_img", widget: "image" }
+          - { label: "Tag 6", name: "gallery6_tag", widget: "string" }
+          - { label: "Opis 6", name: "gallery6_caption", widget: "string" }
+
+      - label: "Kontakt"
+        name: "kontakt"
+        file: "_data/kontakt.yml"
+        fields:
+          - { label: "Nagłówek sekcji", name: "contact_heading", widget: "string" }
+          - { label: "Opis", name: "contact_desc", widget: "text" }
+          - { label: "Informacje kontaktowe", name: "contact_info", widget: "string" }
