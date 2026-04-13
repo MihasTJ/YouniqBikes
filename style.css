@@ -766,6 +766,95 @@
   .cta-info a { color: var(--steel-light); text-decoration: none; }
   .cta-info a:hover { color: var(--rust); }
 
+  /* ── LANG SWITCHER ── */
+  .lang-switcher {
+    background: none;
+    border: 1px solid rgba(176,190,197,.3);
+    color: var(--steel-light);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: .4rem .9rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color .2s, color .2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lang-switcher:hover { border-color: var(--rust); color: var(--rust); }
+  .lang-sep { color: var(--text-dim); }
+
+  /* ── CENNIK ── */
+  #cennik {
+    padding: 8rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .cennik-desc {
+    font-size: 1.15rem;
+    color: var(--steel-light);
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  .cennik-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(122,132,144,.1);
+    border: 1px solid rgba(122,132,144,.12);
+  }
+  .cennik-col {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+  }
+  .cennik-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(196,80,26,.25);
+  }
+  .cennik-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: .75rem 0;
+    border-bottom: 1px solid rgba(122,132,144,.08);
+    font-size: .95rem;
+    color: var(--off-white);
+    line-height: 1.4;
+  }
+  .cennik-row:last-child { border-bottom: none; }
+  .cennik-row--highlight .cennik-price { color: var(--rust); }
+  .cennik-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--steel-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cennik-note {
+    margin-top: 2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
   /* ── FOOTER ── */
   footer {
     background: #060605;
@@ -824,6 +913,11 @@
     #faq details[open] .faq-answer { padding: 0 1.3rem 1.3rem 1.3rem; }
     .faq-toggle { width: 30px; height: 30px; }
     footer { flex-direction: column; text-align: center; }
+
+    /* Cennik na mobile */
+    #cennik { padding: 5rem 1.5rem; }
+    .cennik-grid { grid-template-columns: 1fr; }
+    .cennik-row { font-size: .88rem; }
 
     /* Galeria na mobile: jedna kolumna, auto-height */
     .gallery-grid {

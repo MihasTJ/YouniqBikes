@@ -83,13 +83,17 @@
 <nav>
   <a href="#" class="nav-logo">Youniq<span>.</span>Bikes</a>
   <ul>
-    <li><a href="#filozofia">Filozofia</a></li>
-    <li><a href="#uslugi">Usługi</a></li>
-    <li><a href="#dlaczego">Dlaczego My</a></li>
+    <li><a href="#filozofia" data-i18n="nav_filozofia">Filozofia</a></li>
+    <li><a href="#uslugi" data-i18n="nav_uslugi">Usługi</a></li>
+    <li><a href="#dlaczego" data-i18n="nav_dlaczego">Dlaczego My</a></li>
+    <li><a href="#cennik" data-i18n="nav_cennik">Cennik</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#galeria">Realizacje</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#galeria" data-i18n="nav_galeria">Realizacje</a></li>
+    <li><a href="#kontakt" data-i18n="nav_kontakt">Kontakt</a></li>
   </ul>
+  <button class="lang-switcher" id="langSwitcher" aria-label="Switch language">
+    <span id="langLabel">PL</span><span class="lang-sep"> · </span><span id="langOther">EN</span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -133,7 +137,7 @@
 <!-- FILOZOFIA -->
 <section id="filozofia">
   <div class="philosophy-text reveal">
-    <div class="section-label">O nas / Filozofia</div>
+    <div class="section-label" data-i18n="filozofia_label">O nas / Filozofia</div>
     <h2 class="editable" data-cms="philosophy_heading">Rower to<br><em>narzędzie</em><br>i sztuka.</h2>
     <p class="editable" data-cms="philosophy_p1">Youniq Bikes to nie sieciowy punkt serwisowy. To warsztat prowadzony przez <strong>mechanika z krwi i kości</strong> – kogoś, kto wybiera komponenty tak samo świadomie jak lutier dobiera drewno do gryfu.</p>
     <p class="editable" data-cms="philosophy_p2">Nie boimy się projektów, które inne serwisy odsyłają z kwitkiem. Wiemy, czym różni się <strong>naciąg 110 kgf od 120 kgf</strong> na szprysze i dlaczego ma to znaczenie na 200 km wyprawy. Jeśli szukasz kogoś, komu możesz zaufać stalową ramą i cyklistycznym życiem – jesteś we właściwym miejscu.</p>
@@ -164,8 +168,8 @@
 <section id="uslugi">
   <div class="services-header reveal">
     <div>
-      <div class="section-label">Usługi</div>
-      <h2>Co robimy<br><em>naprawdę</em> dobrze.</h2>
+      <div class="section-label" data-i18n="uslugi_label">Usługi</div>
+      <h2 data-i18n="services_h2">Co robimy<br><em>naprawdę</em> dobrze.</h2>
     </div>
   </div>
   <div class="services-grid reveal">
@@ -214,8 +218,8 @@
 
 <!-- DLACZEGO MY -->
 <section id="dlaczego">
-  <div class="section-label reveal">Dlaczego My</div>
-  <h2 class="reveal">Nie każdy<br>serwis<br>to <em>przyjmie.</em></h2>
+  <div class="section-label reveal" data-i18n="dlaczego_label">Dlaczego My</div>
+  <h2 class="reveal" data-i18n="dlaczego_h2">Nie każdy<br>serwis<br>to <em>przyjmie.</em></h2>
   <div class="why-grid">
     <div class="why-manifesto reveal editable" data-cms="why_quote">
       „Przyszedłem z tytanową ramą bez żadnej dokumentacji i śrubami M5 w niestandardowym układzie. Inne miejsca powiedziały »nie«. Tu zaczęli pytać o wymiary."
@@ -243,8 +247,8 @@
 
 <!-- FAQ -->
 <section id="faq">
-  <div class="section-label reveal">Często zadawane pytania (FAQ)</div>
-  <h2 class="reveal">Pytania, które<br><em>wracają</em><br>w rozmowach.</h2>
+  <div class="section-label reveal" data-i18n="faq_label">Często zadawane pytania (FAQ)</div>
+  <h2 class="reveal" data-i18n="faq_h2">Pytania, które<br><em>wracają</em><br>w rozmowach.</h2>
 
   <div class="faq-list reveal">
     <div class="faq-item">
@@ -319,6 +323,50 @@
       </details>
     </div>
   </div>
+</section>
+
+<!-- CENNIK -->
+<section id="cennik">
+  <div class="section-label reveal" data-i18n-label="cennik_label">Cennik</div>
+  <h2 class="reveal editable" data-cms="cennik_heading">Cennik<br><em>usług.</em></h2>
+  <p class="cennik-desc reveal editable" data-cms="cennik_desc">Ceny robocizny — bez kosztów części. Wycena indywidualna przy przyjęciu roweru. Bez niespodzianek.</p>
+
+  <div class="cennik-grid reveal">
+
+    <!-- Koła -->
+    <div class="cennik-col">
+      <div class="cennik-cat editable" data-cms="cat1_title">Koła</div>
+      <div class="cennik-row"><span class="editable" data-cms="price1_service">Zaplatanie koła (hand-built)</span><span class="cennik-price editable" data-cms="price1_price">od 200 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price2_service">Centrowanie koła</span><span class="cennik-price editable" data-cms="price2_price">od 60 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price3_service">Wymiana szprychy (szt.)</span><span class="cennik-price editable" data-cms="price3_price">od 25 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price4_service">Przygotowanie pod tubeless</span><span class="cennik-price editable" data-cms="price4_price">od 80 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price5_service">Wymiana dętki / opony (przód)</span><span class="cennik-price editable" data-cms="price5_price">od 30 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price6_service">Wymiana dętki / opony (tył)</span><span class="cennik-price editable" data-cms="price6_price">od 40 zł</span></div>
+    </div>
+
+    <!-- Napęd & Hamulce -->
+    <div class="cennik-col">
+      <div class="cennik-cat editable" data-cms="cat2_title">Napęd & Hamulce</div>
+      <div class="cennik-row"><span class="editable" data-cms="price7_service">Regulacja przerzutki (1 szt.)</span><span class="cennik-price editable" data-cms="price7_price">od 40 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price8_service">Regulacja hamulców mechanicznych</span><span class="cennik-price editable" data-cms="price8_price">od 35 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price9_service">Odpowietrzenie hamulców hydraulicznych</span><span class="cennik-price editable" data-cms="price9_price">od 100 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price10_service">Wymiana linki + pancerza</span><span class="cennik-price editable" data-cms="price10_price">od 45 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price11_service">Serwis suportu</span><span class="cennik-price editable" data-cms="price11_price">od 60 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price12_service">Serwis piasty tylnej</span><span class="cennik-price editable" data-cms="price12_price">od 80 zł</span></div>
+    </div>
+
+    <!-- Przeglądy & Custom -->
+    <div class="cennik-col">
+      <div class="cennik-cat editable" data-cms="cat3_title">Przeglądy & Custom</div>
+      <div class="cennik-row"><span class="editable" data-cms="price13_service">Przegląd podstawowy</span><span class="cennik-price editable" data-cms="price13_price">od 150 zł</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price14_service">Przegląd rozszerzony (sezonowy)</span><span class="cennik-price editable" data-cms="price14_price">od 300 zł</span></div>
+      <div class="cennik-row cennik-row--highlight"><span class="editable" data-cms="price15_service">Custom Build — konsultacja</span><span class="cennik-price editable" data-cms="price15_price">bezpłatna</span></div>
+      <div class="cennik-row"><span class="editable" data-cms="price16_service">Stawka godzinowa (prace niestandardowe)</span><span class="cennik-price editable" data-cms="price16_price">100 zł / h</span></div>
+    </div>
+
+  </div>
+
+  <p class="cennik-note reveal editable" data-cms="cennik_note">* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i zawsze konsultowany z klientem przed zakupem.</p>
 </section>
 
 <!-- OPINIE -->
