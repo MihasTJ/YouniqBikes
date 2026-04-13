@@ -1,12 +1,29 @@
-faq1_question: "1. Do you only repair modern bikes?"
-faq1_answer: "<strong>No.</strong> Our passion is bringing classics back to life. We happily take on the revival of 30-year-old MTBs, vintage road bikes, and city bikes (e.g. Winora) that others have written off."
-faq2_question: "2. Do you take on repairs that other shops refused?"
-faq2_answer: "<strong>Yes.</strong> We specialise in difficult cases — from unusual faults in SRAM (Click Box) and FOX systems to non-standard frames and cargo bikes. If someone told you it can't be fixed, bring the bike to us at Rakowicka 99."
-faq3_question: "3. How does pricing work? Will there be any surprises?"
-faq3_answer: "We operate transparently. When you drop off your bike, we run an initial diagnosis and give you an estimated cost. If additional parts are needed during the work, we consult with you before purchasing them. We invoice every part and service in detail."
-faq4_question: "4. Do I need to book an appointment?"
-faq4_answer: "In season, we can get busy, so for larger projects (custom builds, tuning, full overhauls) we recommend calling ahead. Minor jobs like tube changes or quick adjustments we try to handle on the spot or within 24 hours, schedule permitting."
-faq5_question: "5. Do you advise on component selection?"
-faq5_answer: "<strong>Of course.</strong> We don't push the most expensive parts. We recommend solutions appropriate to your bike's condition and your budget. We're happy to share knowledge — if you want to maintain your bike yourself, we'll show you how to do it properly."
-faq6_question: "6. Why choose Youniq Bikes over a chain service?"
-faq6_answer: "Because here your bike is not just another number in the queue. We approach every machine meticulously — every bolt is checked, cleaned and lubricated. The work is done by a passionate engineer-mechanic for whom safety and Swiss-watch precision are what count."
+faq1_question: 1. Do you only repair modern bikes?
+faq1_answer: <strong>No.</strong> Our passion is bringing classics back to life.
+  We happily take on the revival of 30-year-old MTBs, vintage road bikes, and
+  city bikes (e.g. Winora) that others have written off.
+faq2_question: 2. Do you take on repairs that other shops refused?
+faq2_answer: <strong>Yes.</strong> We specialise in difficult cases — from
+  unusual faults in SRAM (Click Box) and FOX systems to non-standard frames and
+  cargo bikes. If someone told you it can't be fixed, bring the bike to us at
+  Rakowicka 99.
+faq3_question: 3. How does pricing work? Will there be any surprises?
+faq3_answer: We operate transparently. When you drop off your bike, we run an
+  initial diagnosis and give you an estimated cost. If additional parts are
+  needed during the work, we consult with you before purchasing them. We invoice
+  every part and service in detail.
+faq4_question: 4. Do I need to book an appointment?
+faq4_answer: In season, we can get busy, so for larger projects (custom builds,
+  tuning, full overhauls) we recommend calling ahead. Minor jobs like tube
+  changes or quick adjustments we try to handle on the spot or within 24 hours,
+  schedule permitting.
+faq5_question: 5. Do you advise on component selection?
+faq5_answer: <strong>Of course.</strong> We don't push the most expensive parts.
+  We recommend solutions appropriate to your bike's condition and your budget.
+  We're happy to share knowledge — if you want to maintain your bike yourself,
+  we'll show you how to do it properly.
+faq6_question: 6. Why choose Youniq Bikes over a chain service?
+faq6_answer: Because here your bike is not just another number in the queue. We
+  approach every machine meticulously — every bolt is checked, cleaned and
+  lubricated. The work is done by a passionate engineer-mechanic for whom safety
+  and Swiss-watch precision are what count.
