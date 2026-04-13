@@ -1,13 +1,13 @@
 /**
  * cms-loader.js — Youniq Bikes
- * Wczytuje pliki YAML z _data/ używając js-yaml (solidna biblioteka)
- * i podmienia treści na stronie przez atrybuty data-cms.
+ * Wczytuje pliki YAML z _data/ używając js-yaml i podmienia treści na stronie.
+ * Galeria ukryta do czasu załadowania danych — zero "skoku" zdjęć.
  */
 
 // ─── Załaduj js-yaml z CDN ────────────────────────────────────────────────────
 function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const s = document.createElement('script');
+  return new Promise(function(resolve, reject) {
+    var s = document.createElement('script');
     s.src = src;
     s.onload = resolve;
     s.onerror = reject;
@@ -15,69 +15,92 @@ function loadScript(src) {
   });
 }
 
-// ─── Pobierz plik YAML i zwróć sparsowany obiekt ─────────────────────────────
+// ─── Pobierz plik YAML ────────────────────────────────────────────────────────
 async function fetchYAML(path) {
   try {
-    const res = await fetch(path + '?v=' + Date.now());
+    var res = await fetch(path + '?v=' + Date.now());
     if (!res.ok) return {};
-    const text = await res.text();
-    return window.jsyaml.load(text) || {};
+    return window.jsyaml.load(await res.text()) || {};
   } catch (e) {
     console.warn('cms-loader: błąd pobierania', path, e);
     return {};
   }
 }
 
-// ─── Zamień numery telefonu w tekście na klikalne linki ──────────────────────
+// ─── Zamień numery telefonu na klikalne linki ─────────────────────────────────
 function linkifyPhone(value) {
-  return value.replace(/(\+?[\d\s]{9,15})/g, (match) => {
-    const digits = match.replace(/\s/g, '');
-    return '<a href="tel:' + digits + '">' + match + '</a>';
+  return value.replace(/(\+?[\d\s]{9,15})/g, function(match) {
+    return '<a href="tel:' + match.replace(/\s/g, '') + '">' + match + '</a>';
   });
 }
 
 // ─── Podmień treści na stronie ────────────────────────────────────────────────
 function applyData(data) {
-  document.querySelectorAll('[data-cms]').forEach(function (el) {
-    const key = el.getAttribute('data-cms');
+  document.querySelectorAll('[data-cms]').forEach(function(el) {
+    var key = el.getAttribute('data-cms');
     if (!(key in data)) return;
 
-    // js-yaml zwraca liczby jako number — zamień na string
-    const value = String(data[key]);
+    var value = String(data[key]);
 
-    // Obrazki
     if (el.tagName === 'IMG') {
+      // Załaduj zdjęcie — pokaż galerię dopiero gdy się załaduje
       el.src = value;
-      el.onerror = function () { this.onerror = null; };
+      el.onerror = function() { this.onerror = null; };
       return;
     }
 
-    // Linki CTA — podmień tylko tekst, zostaw href
     if (el.tagName === 'A') {
       el.textContent = value;
       return;
     }
 
-    // Pole kontaktowe — linkuj numery telefonu
     if (key === 'contact_info') {
       el.innerHTML = linkifyPhone(value);
       return;
     }
 
-    // Wszystko inne — wstaw jako innerHTML
-    // \n zamieniamy na <br> dla wieloliniowych wartości bez tagów
     el.innerHTML = value.replace(/\n/g, '<br>');
   });
 }
 
+// ─── Poczekaj aż wszystkie zdjęcia w galerii się załadują ────────────────────
+function waitForGalleryImages() {
+  var gallery = document.querySelector('.gallery-grid');
+  if (!gallery) return Promise.resolve();
+
+  var images = Array.from(gallery.querySelectorAll('img'));
+  if (images.length === 0) return Promise.resolve();
+
+  var promises = images.map(function(img) {
+    return new Promise(function(resolve) {
+      if (img.complete && img.naturalWidth > 0) {
+        resolve();
+      } else {
+        img.addEventListener('load', resolve);
+        img.addEventListener('error', resolve); // błąd też "zwalnia" blokadę
+      }
+    });
+  });
+
+  return Promise.all(promises);
+}
+
 // ─── Główna funkcja ───────────────────────────────────────────────────────────
 async function loadCMSData() {
-  // Załaduj js-yaml jeśli jeszcze nie załadowany
+  // 1. Ukryj galerię natychmiast — zanim zdążą się załadować domyślne src
+  var gallery = document.querySelector('.gallery-grid');
+  if (gallery) {
+    gallery.style.opacity = '0';
+    gallery.style.transition = 'none';
+  }
+
+  // 2. Załaduj js-yaml
   if (!window.jsyaml) {
     await loadScript('https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js');
   }
 
-  const files = [
+  // 3. Pobierz wszystkie dane
+  var files = [
     '/_data/hero.yml',
     '/_data/filozofia.yml',
     '/_data/dlaczego.yml',
@@ -87,12 +110,24 @@ async function loadCMSData() {
     '/_data/kontakt.yml',
   ];
 
-  const results = await Promise.all(files.map(fetchYAML));
-  const allData = Object.assign({}, ...results);
+  var results = await Promise.all(files.map(fetchYAML));
+  var allData = Object.assign.apply(Object, [{}].concat(results));
+
+  // 4. Podmień treści (w tym src zdjęć)
   applyData(allData);
+
+  // 5. Poczekaj aż nowe zdjęcia się załadują, potem odkryj galerię płynnie
+  await waitForGalleryImages();
+
+  if (gallery) {
+    gallery.style.transition = 'opacity 0.5s ease';
+    gallery.style.opacity = '1';
+  }
 }
 
-// ─── Uruchom po załadowaniu DOM ───────────────────────────────────────────────
+// ─── Uruchom możliwie jak najwcześniej ───────────────────────────────────────
+// Nie czekamy na DOMContentLoaded — uruchamiamy od razu gdy skrypt się załaduje
+// i sprawdzamy czy DOM jest już gotowy
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', loadCMSData);
 } else {
