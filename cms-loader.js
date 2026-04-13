@@ -1,37 +1,38 @@
 /**
  * cms-loader.js — Youniq Bikes
  * Wczytuje pliki YAML z folderu _data/ i podmienia treści na stronie.
- * Działa bez żadnych zewnętrznych bibliotek (poza prostym parserem YAML).
  */
 
-// ─── Minimalny parser YAML (obsługuje klucz: "wartość") ───────────────────────
+// ─── Solidny parser YAML ───────────────────────────────────────────────────────
+// Obsługuje wartości z dwukropkami (URL-e, godziny itp.)
 function parseYAML(text) {
   const result = {};
   const lines = text.split('\n');
 
   for (const line of lines) {
-    // Pomiń puste linie i komentarze
-    if (!line.trim() || line.trim().startsWith('#')) continue;
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
 
-    const colonIndex = line.indexOf(':');
-    if (colonIndex === -1) continue;
+    // Regex: klucz to tylko litery/cyfry/podkreślniki, potem ": " i reszta to wartość
+    const match = trimmed.match(/^([a-zA-Z0-9_]+)\s*:\s*(.*)/);
+    if (!match) continue;
 
-    const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
+    const key = match[1];
+    let value = match[2].trim();
 
-    // Usuń cudzysłowy jeśli wartość jest w cudzysłowach
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
+    // Wartość w podwójnych cudzysłowach
+    if (value.startsWith('"') && value.endsWith('"')) {
+      value = value.slice(1, -1)
+        .replace(/\\n/g, '\n')
+        .replace(/\\t/g, '\t')
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, '\\');
     }
-
-    // Odkoduj podstawowe sekwencje ucieczki YAML
-    value = value
-      .replace(/\\n/g, '\n')
-      .replace(/\\"/g, '"')
-      .replace(/\\'/g, "'");
+    // Wartość w pojedynczych cudzysłowach
+    else if (value.startsWith("'") && value.endsWith("'")) {
+      value = value.slice(1, -1).replace(/\\'/g, "'");
+    }
+    // Bez cudzysłowów — wartość może zawierać dwukropki (np. 10:00, https://)
 
     result[key] = value;
   }
@@ -39,46 +40,62 @@ function parseYAML(text) {
   return result;
 }
 
-// ─── Pobierz plik YAML i zwróć sparsowany obiekt ──────────────────────────────
+// ─── Pobierz plik YAML ────────────────────────────────────────────────────────
 async function fetchYAML(path) {
   try {
-    const response = await fetch(path + '?v=' + Date.now()); // cache bust
-    if (!response.ok) return {};
-    const text = await response.text();
-    return parseYAML(text);
+    const res = await fetch(path + '?v=' + Date.now());
+    if (!res.ok) return {};
+    return parseYAML(await res.text());
   } catch (e) {
-    console.warn('cms-loader: nie można pobrać', path, e);
+    console.warn('cms-loader: błąd pobierania', path, e);
     return {};
   }
 }
 
-// ─── Podmień treść elementu na podstawie data-cms ─────────────────────────────
+// ─── Buduje HTML dla contact_info z klikalnymi numerami telefonu ──────────────
+function buildContactInfo(value) {
+  return value.replace(
+    /(\+?[\d\s]{9,15})/g,
+    (match) => {
+      const digits = match.replace(/\s/g, '');
+      return '<a href="tel:' + digits + '">' + match + '</a>';
+    }
+  );
+}
+
+// ─── Podmień treści na stronie ────────────────────────────────────────────────
 function applyData(data) {
-  document.querySelectorAll('[data-cms]').forEach(el => {
+  document.querySelectorAll('[data-cms]').forEach(function(el) {
     const key = el.getAttribute('data-cms');
     if (!(key in data)) return;
 
     const value = data[key];
 
-    // Obsługa obrazków
+    // Obrazki
     if (el.tagName === 'IMG') {
       el.src = value;
+      el.onerror = function() { this.onerror = null; };
       return;
     }
 
-    // Obsługa linków — podmień tylko tekst, nie href
+    // Linki CTA — podmień tylko tekst, zostaw href bez zmian
     if (el.tagName === 'A') {
       el.textContent = value;
       return;
     }
 
-    // Pozostałe elementy — wstaw jako HTML (żeby działały <br>, <strong> itp.)
-    // Zamieniamy znaki nowej linii na <br>
+    // Pole kontaktowe — zamień numery telefonu na linki
+    if (key === 'contact_info') {
+      el.innerHTML = buildContactInfo(value);
+      return;
+    }
+
+    // Wszystko inne — wstaw jako innerHTML, \n → <br>
     el.innerHTML = value.replace(/\n/g, '<br>');
   });
 }
 
-// ─── Główna funkcja ładująca wszystkie pliki ──────────────────────────────────
+// ─── Główna funkcja ───────────────────────────────────────────────────────────
 async function loadCMSData() {
   const files = [
     '/_data/hero.yml',
@@ -90,38 +107,9 @@ async function loadCMSData() {
     '/_data/kontakt.yml',
   ];
 
-  // Pobierz wszystkie pliki równolegle
   const results = await Promise.all(files.map(fetchYAML));
-
-  // Scal wszystkie dane w jeden obiekt
   const allData = Object.assign({}, ...results);
-
-  // Podmień treści na stronie
   applyData(allData);
-
-  // Obsługa specjalna: galeria — zdjęcia mogą być w folderze /images/uploads/
-  applyGalleryImages(allData);
-}
-
-// ─── Specjalna obsługa zdjęć w galerii ───────────────────────────────────────
-function applyGalleryImages(data) {
-  // Galeria — upewnij się że src jest poprawnie ustawiony
-  // (applyData już to robi, ale tu możemy dodać fallback)
-  for (let i = 1; i <= 6; i++) {
-    const key = `gallery${i}_img`;
-    if (!data[key]) continue;
-
-    // Znajdź img po data-cms (już podmieniony przez applyData)
-    // To jest fallback na wypadek gdyby coś poszło nie tak
-    const img = document.querySelector(`[data-cms="${key}"]`);
-    if (img && img.tagName === 'IMG') {
-      img.src = data[key];
-      img.onerror = function () {
-        // Jeśli zdjęcie nie załaduje się — zachowaj oryginalne
-        this.onerror = null;
-      };
-    }
-  }
 }
 
 // ─── Uruchom po załadowaniu DOM ───────────────────────────────────────────────
