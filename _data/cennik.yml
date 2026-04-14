@@ -3,20 +3,19 @@ cennik_desc: 'Ceny robocizny — bez kosztów części. Wycena indywidualna przy
 cennik_note: '* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i zawsze konsultowany z klientem przed zakupem.'
 
 cat1:
-  cat1_title: 'Koła'
-  price1_service: 'Zaplatanie koła (hand-built)'
-  price1: 200
-  price2_service: 'Centrowanie koła'
-  price2: 60
-  price3_service: 'Wymiana szprychy (szt.)'
-  price3: 25
-  price4_service: 'Przygotowanie pod tubeless'
-  price4: 80
-  price5_service: 'Wymiana dętki / opony (przód)'
-  price5: 30
-  price6_service: 'Wymiana dętki / opony (tył)'
-  price6: 40
-
+  price3_service: Wymiana szprychy (szt.)
+  price4_service: Przygotowanie pod tubeless
+  price5_service: Wymiana dętki / opony (przód)
+  price6_service: Wymiana dętki / opony (tył)
+  price1_price: od 300 zł
+  price2_price: od 60 zł
+  cat1_title: Koła
+  price3_price: od 25 zł
+  price4_price: od 80 zł
+  price5_price: od 30 zł
+  price6_price: od 40 zł
+  price1_service: Zaplatanie koła (hand-built)
+  price2_service: Centrowanie koła
 cat2:
   cat2_title: 'Napęd & Hamulce'
   price7_service: 'Regulacja przerzutki (1 szt.)'
