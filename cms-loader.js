@@ -268,7 +268,7 @@ var filesEN = [
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
   '/_data/cennik_en.yml',
-  '/_data/cennik.yml',
+  '/_data/cennik_prices.yml',
 ];
 
 // ─── Główna funkcja ładowania danych ─────────────────────────────────────────
