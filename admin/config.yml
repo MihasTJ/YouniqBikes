@@ -98,17 +98,17 @@ collections:
             fields:
               - { label: "Tytuł kategorii", name: "cat1_title", widget: "string" }
               - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string" }
-              - { label: "Usługa 1 — cena", name: "price1_price", widget: "string" }
+              - { label: "Usługa 1 — cena (zł)", name: "price1", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 2 — nazwa", name: "price2_service", widget: "string" }
-              - { label: "Usługa 2 — cena", name: "price2_price", widget: "string" }
+              - { label: "Usługa 2 — cena (zł)", name: "price2", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string" }
-              - { label: "Usługa 3 — cena", name: "price3_price", widget: "string" }
+              - { label: "Usługa 3 — cena (zł)", name: "price3", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string" }
-              - { label: "Usługa 4 — cena", name: "price4_price", widget: "string" }
+              - { label: "Usługa 4 — cena (zł)", name: "price4", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string" }
-              - { label: "Usługa 5 — cena", name: "price5_price", widget: "string" }
+              - { label: "Usługa 5 — cena (zł)", name: "price5", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string" }
-              - { label: "Usługa 6 — cena", name: "price6_price", widget: "string" }
+              - { label: "Usługa 6 — cena (zł)", name: "price6", widget: "number", value_type: "int", min: 0 }
 
           - widget: "object"
             label: "Napęd & Hamulce"
@@ -117,17 +117,17 @@ collections:
             fields:
               - { label: "Tytuł kategorii", name: "cat2_title", widget: "string" }
               - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string" }
-              - { label: "Usługa 7 — cena", name: "price7_price", widget: "string" }
+              - { label: "Usługa 7 — cena (zł)", name: "price7", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string" }
-              - { label: "Usługa 8 — cena", name: "price8_price", widget: "string" }
+              - { label: "Usługa 8 — cena (zł)", name: "price8", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string" }
-              - { label: "Usługa 9 — cena", name: "price9_price", widget: "string" }
+              - { label: "Usługa 9 — cena (zł)", name: "price9", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string" }
-              - { label: "Usługa 10 — cena", name: "price10_price", widget: "string" }
+              - { label: "Usługa 10 — cena (zł)", name: "price10", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string" }
-              - { label: "Usługa 11 — cena", name: "price11_price", widget: "string" }
+              - { label: "Usługa 11 — cena (zł)", name: "price11", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string" }
-              - { label: "Usługa 12 — cena", name: "price12_price", widget: "string" }
+              - { label: "Usługa 12 — cena (zł)", name: "price12", widget: "number", value_type: "int", min: 0 }
 
           - widget: "object"
             label: "Przeglądy & Custom"
@@ -136,13 +136,13 @@ collections:
             fields:
               - { label: "Tytuł kategorii", name: "cat3_title", widget: "string" }
               - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string" }
-              - { label: "Usługa 13 — cena", name: "price13_price", widget: "string" }
+              - { label: "Usługa 13 — cena (zł)", name: "price13", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string" }
-              - { label: "Usługa 14 — cena", name: "price14_price", widget: "string" }
-              - { label: "Usługa 15 — nazwa", name: "price15_service", widget: "string" }
-              - { label: "Usługa 15 — cena", name: "price15_price", widget: "string" }
+              - { label: "Usługa 14 — cena (zł)", name: "price14", widget: "number", value_type: "int", min: 0 }
+              - { label: "Usługa 15 — konsultacja (0 = bezpłatna)", name: "price15_service", widget: "string" }
+              - { label: "Usługa 15 — cena (zł, 0 = bezpłatna)", name: "price15", widget: "number", value_type: "int", min: 0 }
               - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string" }
-              - { label: "Usługa 16 — cena", name: "price16_price", widget: "string" }
+              - { label: "Usługa 16 — stawka (zł/h)", name: "price16", widget: "number", value_type: "int", min: 0 }
 
       - label: "Galeria realizacji"
         name: "galeria"
@@ -253,6 +253,7 @@ collections:
       - label: "Pricing"
         name: "cennik_en"
         file: "_data/cennik_en.yml"
+        hint: "Prices are set in the 🇵🇱 Polish Pricing section and applied automatically here."
         fields:
           - { label: "Section heading", name: "cennik_heading", widget: "string" }
           - { label: "Section description", name: "cennik_desc", widget: "text" }
@@ -265,17 +266,11 @@ collections:
             fields:
               - { label: "Category title", name: "cat1_title", widget: "string" }
               - { label: "Service 1 — name", name: "price1_service", widget: "string" }
-              - { label: "Service 1 — price", name: "price1_price", widget: "string" }
               - { label: "Service 2 — name", name: "price2_service", widget: "string" }
-              - { label: "Service 2 — price", name: "price2_price", widget: "string" }
               - { label: "Service 3 — name", name: "price3_service", widget: "string" }
-              - { label: "Service 3 — price", name: "price3_price", widget: "string" }
               - { label: "Service 4 — name", name: "price4_service", widget: "string" }
-              - { label: "Service 4 — price", name: "price4_price", widget: "string" }
               - { label: "Service 5 — name", name: "price5_service", widget: "string" }
-              - { label: "Service 5 — price", name: "price5_price", widget: "string" }
               - { label: "Service 6 — name", name: "price6_service", widget: "string" }
-              - { label: "Service 6 — price", name: "price6_price", widget: "string" }
 
           - widget: "object"
             label: "Drivetrain & Brakes"
@@ -284,17 +279,11 @@ collections:
             fields:
               - { label: "Category title", name: "cat2_title", widget: "string" }
               - { label: "Service 7 — name", name: "price7_service", widget: "string" }
-              - { label: "Service 7 — price", name: "price7_price", widget: "string" }
               - { label: "Service 8 — name", name: "price8_service", widget: "string" }
-              - { label: "Service 8 — price", name: "price8_price", widget: "string" }
               - { label: "Service 9 — name", name: "price9_service", widget: "string" }
-              - { label: "Service 9 — price", name: "price9_price", widget: "string" }
               - { label: "Service 10 — name", name: "price10_service", widget: "string" }
-              - { label: "Service 10 — price", name: "price10_price", widget: "string" }
               - { label: "Service 11 — name", name: "price11_service", widget: "string" }
-              - { label: "Service 11 — price", name: "price11_price", widget: "string" }
               - { label: "Service 12 — name", name: "price12_service", widget: "string" }
-              - { label: "Service 12 — price", name: "price12_price", widget: "string" }
 
           - widget: "object"
             label: "Service & Custom"
@@ -303,13 +292,9 @@ collections:
             fields:
               - { label: "Category title", name: "cat3_title", widget: "string" }
               - { label: "Service 13 — name", name: "price13_service", widget: "string" }
-              - { label: "Service 13 — price", name: "price13_price", widget: "string" }
               - { label: "Service 14 — name", name: "price14_service", widget: "string" }
-              - { label: "Service 14 — price", name: "price14_price", widget: "string" }
               - { label: "Service 15 — name", name: "price15_service", widget: "string" }
-              - { label: "Service 15 — price", name: "price15_price", widget: "string" }
               - { label: "Service 16 — name", name: "price16_service", widget: "string" }
-              - { label: "Service 16 — price", name: "price16_price", widget: "string" }
 
       - label: "Contact"
         name: "kontakt_en"

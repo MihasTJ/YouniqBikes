@@ -223,9 +223,9 @@ function applyUI(lang) {
   document.documentElement.lang = lang;
 }
 
-// ─── Formatuj ceny z cennik_prices.yml ───────────────────────────────────────
-// Jeden plik cennik_prices.yml trzyma surowe liczby. Loader formatuje je
-// automatycznie: PL → "od X zł", EN → "from X PLN". price15=0 → bezpłatna/free.
+// ─── Formatuj ceny z cennik.yml ─────────────────────────────────────────────
+// Ceny (liczby) są w cennik.yml (PL). Loader formatuje je automatycznie:
+// PL → "od X zł", EN → "from X PLN". price15=0 → bezpłatna/free.
 function applyPrices(data, lang) {
   var isPL = (lang !== 'en');
   for (var i = 1; i <= 16; i++) {
@@ -256,7 +256,6 @@ var filesPL = [
   '/_data/galeria.yml',
   '/_data/kontakt.yml',
   '/_data/cennik.yml',
-  '/_data/cennik_prices.yml',
 ];
 
 var filesEN = [
@@ -269,7 +268,7 @@ var filesEN = [
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
   '/_data/cennik_en.yml',
-  '/_data/cennik_prices.yml',
+  '/_data/cennik.yml',
 ];
 
 // ─── Główna funkcja ładowania danych ─────────────────────────────────────────
