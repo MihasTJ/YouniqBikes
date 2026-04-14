@@ -1,28 +1,43 @@
-cennik_heading: 'Cennik<br><em>usług.</em>'
-cennik_desc: 'Ceny robocizny — bez kosztów części. Wycena indywidualna przy przyjęciu roweru. Bez niespodzianek.'
-cennik_note: '* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i zawsze konsultowany z klientem przed zakupem.'
-
+cennik_heading: Cennik<br><em>usług.</em>
+cennik_desc: Ceny robocizny — bez kosztów części. Wycena indywidualna przy
+  przyjęciu roweru. Bez niespodzianek.
+cennik_note: "* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i
+  zawsze konsultowany z klientem przed zakupem."
 cat1:
-  cat1_title: 'Koła'
-  price1_service: 'Zaplatanie koła (hand-built)'
-  price2_service: 'Centrowanie koła'
-  price3_service: 'Wymiana szprychy (szt.)'
-  price4_service: 'Przygotowanie pod tubeless'
-  price5_service: 'Wymiana dętki / opony (przód)'
-  price6_service: 'Wymiana dętki / opony (tył)'
-
+  price3_service: Wymiana szprychy (szt.)
+  price4_service: Przygotowanie pod tubeless
+  price5_service: Wymiana dętki / opony (przód)
+  price6_service: Wymiana dętki / opony (tył)
+  price1_price: od 200 zł
+  price2_price: od 60 zł
+  cat1_title: Koła
+  price3_price: od 25 zł
+  price4_price: od 80 zł
+  price5_price: od 30 zł
+  price6_price: od 40 zł
+  price1_service: Zaplatanie koła (hand-built)
+  price2_service: Centrowanie koła
 cat2:
-  cat2_title: 'Napęd & Hamulce'
-  price7_service: 'Regulacja przerzutki (1 szt.)'
-  price8_service: 'Regulacja hamulców mechanicznych'
-  price9_service: 'Odpowietrzenie hamulców hydraulicznych'
-  price10_service: 'Wymiana linki + pancerza'
-  price11_service: 'Serwis suportu'
-  price12_service: 'Serwis piasty tylnej'
-
+  price12_service: Serwis piasty tylnej
+  price7_service: Regulacja przerzutki (1 szt.)
+  price8_service: Regulacja hamulców mechanicznych
+  price9_service: Odpowietrzenie hamulców hydraulicznych
+  price10_price: od 45 zł
+  price11_price: od 60 zł
+  price12_price: od 80 zł
+  cat2_title: Napęd & Hamulce
+  price7_price: od 40 zł
+  price8_price: od 35 zł
+  price9_price: od 100 zł
+  price10_service: Wymiana linki + pancerza
+  price11_service: Serwis suportu
 cat3:
-  cat3_title: 'Przeglądy & Custom'
-  price13_service: 'Przegląd podstawowy'
-  price14_service: 'Przegląd rozszerzony (sezonowy)'
-  price15_service: 'Custom Build — konsultacja'
-  price16_service: 'Stawka godzinowa (prace niestandardowe)'
+  price13_service: Przegląd podstawowy
+  price14_service: Przegląd rozszerzony (sezonowy)
+  price15_service: Custom Build — konsultacja
+  price16_service: Stawka godzinowa (prace niestandardowe)
+  price13_price: od 150 zł
+  price14_price: od 300 zł
+  cat3_title: Przeglądy & Custom
+  price15_price: bezpłatna
+  price16_price: 100 zł / h
