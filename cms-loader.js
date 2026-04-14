@@ -267,9 +267,24 @@ var filesEN = [
   '/_data/opinie_en.yml',
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
-  '/_data/cennik_en.yml',
-  '/_data/cennik_prices.yml',
+  '/_data/cennik.yml',      // najpierw PL — zawiera ceny (price1, price2...) w cat1/cat2/cat3
+  '/_data/cennik_en.yml',   // potem EN — nadpisuje nazwy _service i nagłówki przez deep merge
 ];
+
+// ─── Głęboki merge obiektów (rozwiązuje problem cat1/cat2/cat3) ──────────────
+function deepMerge(target, source) {
+  Object.keys(source).forEach(function(key) {
+    var srcVal = source[key];
+    var tgtVal = target[key];
+    if (srcVal !== null && typeof srcVal === 'object' && !Array.isArray(srcVal) &&
+        tgtVal !== null && typeof tgtVal === 'object' && !Array.isArray(tgtVal)) {
+      deepMerge(tgtVal, srcVal);
+    } else {
+      target[key] = srcVal;
+    }
+  });
+  return target;
+}
 
 // ─── Główna funkcja ładowania danych ─────────────────────────────────────────
 async function loadCMSData(lang) {
@@ -287,7 +302,7 @@ async function loadCMSData(lang) {
 
   var files = (lang === 'en') ? filesEN : filesPL;
   var results = await Promise.all(files.map(fetchYAML));
-  var merged  = Object.assign.apply(Object, [{}].concat(results));
+  var merged  = results.reduce(function(acc, obj) { return deepMerge(acc, obj); }, {});
   var allData = flattenNested(merged);
   applyPrices(allData, lang);
 
