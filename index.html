@@ -94,7 +94,24 @@
   <button class="lang-switcher" id="langSwitcher" aria-label="Switch language">
     <span id="langLabel">PL</span><span class="lang-sep"> · </span><span id="langOther">EN</span>
   </button>
+  <button class="burger" id="burgerBtn" aria-label="Otwórz menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <a href="#filozofia" data-i18n="nav_filozofia" class="nav-mobile-link">Filozofia</a>
+  <a href="#uslugi" data-i18n="nav_uslugi" class="nav-mobile-link">Usługi</a>
+  <a href="#dlaczego" data-i18n="nav_dlaczego" class="nav-mobile-link">Dlaczego My</a>
+  <a href="#cennik" data-i18n="nav_cennik" class="nav-mobile-link">Cennik</a>
+  <a href="#faq" class="nav-mobile-link">FAQ</a>
+  <a href="#galeria" data-i18n="nav_galeria" class="nav-mobile-link">Realizacje</a>
+  <a href="#kontakt" data-i18n="nav_kontakt" class="nav-mobile-link">Kontakt</a>
+  <button class="lang-switcher" id="langSwitcherMobile" aria-label="Switch language">
+    <span id="langLabelMobile">PL</span><span class="lang-sep"> · </span><span id="langOtherMobile">EN</span>
+  </button>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -491,6 +508,11 @@
   <p>Rakowicka 99 · Kraków · Customowe Rowery Premium</p>
   <p>© 2026 Youniq Bikes. Wszelkie prawa zastrzeżone.</p>
 </footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" aria-label="Wróć na górę">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <script src="cms-loader.js"></script>
 <script src="script.js"></script>

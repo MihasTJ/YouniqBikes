@@ -38,3 +38,55 @@ window.revealGallery = function() {
     el.classList.add('visible');
   });
 };
+
+// ─── Burger menu ─────────────────────────────────────────────────────────────
+var burgerBtn  = document.getElementById('burgerBtn');
+var navMobile  = document.getElementById('navMobile');
+
+function toggleMenu(force) {
+  var isOpen = force !== undefined ? force : !navMobile.classList.contains('open');
+  navMobile.classList.toggle('open', isOpen);
+  burgerBtn.classList.toggle('open', isOpen);
+  burgerBtn.setAttribute('aria-expanded', isOpen);
+  navMobile.setAttribute('aria-hidden', !isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+if (burgerBtn) {
+  burgerBtn.addEventListener('click', function() { toggleMenu(); });
+}
+
+// Zamknij menu po kliknięciu w link lub poza overlay
+if (navMobile) {
+  navMobile.querySelectorAll('.nav-mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() { toggleMenu(false); });
+  });
+}
+
+// Zamknij na Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') toggleMenu(false);
+});
+
+// ─── Mobilny przełącznik języka ──────────────────────────────────────────────
+var langMobile = document.getElementById('langSwitcherMobile');
+if (langMobile) {
+  langMobile.addEventListener('click', function() {
+    document.getElementById('langSwitcher').click();
+    // Sync mobile labels after CMS reload (applyUI handles langLabelMobile)
+  });
+}
+
+// ─── Scroll to top ───────────────────────────────────────────────────────────
+var scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', function() {
+  if (!scrollTopBtn) return;
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
