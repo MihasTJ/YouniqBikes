@@ -173,6 +173,12 @@ function applyUI(lang) {
   var oth = document.getElementById('langOther');
   if (lbl) lbl.textContent = t.lang_active;
   if (oth) oth.textContent = t.lang_other;
+  // Mobile lang switcher labels
+  var lblM = document.getElementById('langLabelMobile');
+  var othM = document.getElementById('langOtherMobile');
+  if (lblM) lblM.textContent = t.lang_active;
+  if (othM) othM.textContent = t.lang_other;
+  // Mobile nav links (data-i18n already handled above via querySelectorAll)
 
   var opinieLabel = document.querySelector('#opinie .section-label');
   if (opinieLabel) opinieLabel.textContent = t.opinie_label;
@@ -217,6 +223,28 @@ function applyUI(lang) {
   document.documentElement.lang = lang;
 }
 
+// ─── Formatuj ceny z cennik_prices.yml ───────────────────────────────────────
+// Jeden plik cennik_prices.yml trzyma surowe liczby. Loader formatuje je
+// automatycznie: PL → "od X zł", EN → "from X PLN". price15=0 → bezpłatna/free.
+function applyPrices(data, lang) {
+  var isPL = (lang !== 'en');
+  for (var i = 1; i <= 16; i++) {
+    var raw = data['price' + i];
+    if (raw === undefined) continue;
+    var num = Number(raw);
+    var formatted;
+    if (i === 15 && num === 0) {
+      formatted = isPL ? 'bezpłatna' : 'free';
+    } else if (i === 16) {
+      formatted = isPL ? (num + ' zł / h') : (num + ' PLN / h');
+    } else {
+      formatted = isPL ? ('od ' + num + ' zł') : ('from ' + num + ' PLN');
+    }
+    data['price' + i + '_price'] = formatted;
+  }
+  return data;
+}
+
 // ─── Pliki YAML dla każdego języka ───────────────────────────────────────────
 var filesPL = [
   '/_data/hero.yml',
@@ -228,6 +256,7 @@ var filesPL = [
   '/_data/galeria.yml',
   '/_data/kontakt.yml',
   '/_data/cennik.yml',
+  '/_data/cennik_prices.yml',
 ];
 
 var filesEN = [
@@ -240,6 +269,7 @@ var filesEN = [
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
   '/_data/cennik_en.yml',
+  '/_data/cennik_prices.yml',
 ];
 
 // ─── Główna funkcja ładowania danych ─────────────────────────────────────────
@@ -260,6 +290,7 @@ async function loadCMSData(lang) {
   var results = await Promise.all(files.map(fetchYAML));
   var merged  = Object.assign.apply(Object, [{}].concat(results));
   var allData = flattenNested(merged);
+  applyPrices(allData, lang);
 
   await applyData(allData);
   applyUI(lang);
