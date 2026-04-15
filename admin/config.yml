@@ -96,53 +96,53 @@ collections:
             name: "cat1"
             collapsed: false
             fields:
-              - { label: "Tytuł kategorii", name: "cat1_title", widget: "string" }
-              - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string" }
-              - { label: "Usługa 1 — cena (zł)", name: "price1", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 2 — nazwa", name: "price2_service", widget: "string" }
-              - { label: "Usługa 2 — cena (zł)", name: "price2", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string" }
-              - { label: "Usługa 3 — cena (zł)", name: "price3", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string" }
-              - { label: "Usługa 4 — cena (zł)", name: "price4", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string" }
-              - { label: "Usługa 5 — cena (zł)", name: "price5", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string" }
-              - { label: "Usługa 6 — cena (zł)", name: "price6", widget: "number", value_type: "int", min: 0 }
+              - { label: "Tytuł kategorii", name: "cat1_title", widget: "string", default: "Koła" }
+              - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string", default: "Zaplatanie koła (hand-built)" }
+              - { label: "Usługa 1 — cena (zł)", name: "price1", widget: "number", value_type: "int", min: 0, default: 200 }
+              - { label: "Usługa 2 — nazwa", name: "price2_service", widget: "string", default: "Centrowanie koła" }
+              - { label: "Usługa 2 — cena (zł)", name: "price2", widget: "number", value_type: "int", min: 0, default: 60 }
+              - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string", default: "Wymiana szprychy (szt.)" }
+              - { label: "Usługa 3 — cena (zł)", name: "price3", widget: "number", value_type: "int", min: 0, default: 25 }
+              - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string", default: "Przygotowanie pod tubeless" }
+              - { label: "Usługa 4 — cena (zł)", name: "price4", widget: "number", value_type: "int", min: 0, default: 80 }
+              - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string", default: "Wymiana dętki / opony (przód)" }
+              - { label: "Usługa 5 — cena (zł)", name: "price5", widget: "number", value_type: "int", min: 0, default: 30 }
+              - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string", default: "Wymiana dętki / opony (tył)" }
+              - { label: "Usługa 6 — cena (zł)", name: "price6", widget: "number", value_type: "int", min: 0, default: 40 }
 
           - widget: "object"
             label: "Napęd & Hamulce"
             name: "cat2"
             collapsed: false
             fields:
-              - { label: "Tytuł kategorii", name: "cat2_title", widget: "string" }
-              - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string" }
-              - { label: "Usługa 7 — cena (zł)", name: "price7", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string" }
-              - { label: "Usługa 8 — cena (zł)", name: "price8", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string" }
-              - { label: "Usługa 9 — cena (zł)", name: "price9", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string" }
-              - { label: "Usługa 10 — cena (zł)", name: "price10", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string" }
-              - { label: "Usługa 11 — cena (zł)", name: "price11", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string" }
-              - { label: "Usługa 12 — cena (zł)", name: "price12", widget: "number", value_type: "int", min: 0 }
+              - { label: "Tytuł kategorii", name: "cat2_title", widget: "string", default: "Napęd & Hamulce" }
+              - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string", default: "Regulacja przerzutki (1 szt.)" }
+              - { label: "Usługa 7 — cena (zł)", name: "price7", widget: "number", value_type: "int", min: 0, default: 40 }
+              - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string", default: "Regulacja hamulców mechanicznych" }
+              - { label: "Usługa 8 — cena (zł)", name: "price8", widget: "number", value_type: "int", min: 0, default: 35 }
+              - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string", default: "Odpowietrzenie hamulców hydraulicznych" }
+              - { label: "Usługa 9 — cena (zł)", name: "price9", widget: "number", value_type: "int", min: 0, default: 100 }
+              - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string", default: "Wymiana linki + pancerza" }
+              - { label: "Usługa 10 — cena (zł)", name: "price10", widget: "number", value_type: "int", min: 0, default: 45 }
+              - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string", default: "Serwis suportu" }
+              - { label: "Usługa 11 — cena (zł)", name: "price11", widget: "number", value_type: "int", min: 0, default: 60 }
+              - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string", default: "Serwis piasty tylnej" }
+              - { label: "Usługa 12 — cena (zł)", name: "price12", widget: "number", value_type: "int", min: 0, default: 80 }
 
           - widget: "object"
             label: "Przeglądy & Custom"
             name: "cat3"
             collapsed: false
             fields:
-              - { label: "Tytuł kategorii", name: "cat3_title", widget: "string" }
-              - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string" }
-              - { label: "Usługa 13 — cena (zł)", name: "price13", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string" }
-              - { label: "Usługa 14 — cena (zł)", name: "price14", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 15 — konsultacja (0 = bezpłatna)", name: "price15_service", widget: "string" }
-              - { label: "Usługa 15 — cena (zł, 0 = bezpłatna)", name: "price15", widget: "number", value_type: "int", min: 0 }
-              - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string" }
-              - { label: "Usługa 16 — stawka (zł/h)", name: "price16", widget: "number", value_type: "int", min: 0 }
+              - { label: "Tytuł kategorii", name: "cat3_title", widget: "string", default: "Przeglądy & Custom" }
+              - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string", default: "Przegląd podstawowy" }
+              - { label: "Usługa 13 — cena (zł)", name: "price13", widget: "number", value_type: "int", min: 0, default: 150 }
+              - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string", default: "Przegląd rozszerzony (sezonowy)" }
+              - { label: "Usługa 14 — cena (zł)", name: "price14", widget: "number", value_type: "int", min: 0, default: 300 }
+              - { label: "Usługa 15 — nazwa", name: "price15_service", widget: "string", default: "Custom Build — konsultacja" }
+              - { label: "Usługa 15 — cena (zł, 0 = bezpłatna)", name: "price15", widget: "number", value_type: "int", min: 0, default: 0 }
+              - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string", default: "Stawka godzinowa (prace niestandardowe)" }
+              - { label: "Usługa 16 — stawka (zł/h)", name: "price16", widget: "number", value_type: "int", min: 0, default: 100 }
 
       - label: "Galeria realizacji"
         name: "galeria"

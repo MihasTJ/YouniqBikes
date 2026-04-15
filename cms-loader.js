@@ -173,12 +173,10 @@ function applyUI(lang) {
   var oth = document.getElementById('langOther');
   if (lbl) lbl.textContent = t.lang_active;
   if (oth) oth.textContent = t.lang_other;
-  // Mobile lang switcher labels
   var lblM = document.getElementById('langLabelMobile');
   var othM = document.getElementById('langOtherMobile');
   if (lblM) lblM.textContent = t.lang_active;
   if (othM) othM.textContent = t.lang_other;
-  // Mobile nav links (data-i18n already handled above via querySelectorAll)
 
   var opinieLabel = document.querySelector('#opinie .section-label');
   if (opinieLabel) opinieLabel.textContent = t.opinie_label;
@@ -223,8 +221,9 @@ function applyUI(lang) {
   document.documentElement.lang = lang;
 }
 
-// ─── Formatuj ceny z cennik.yml ─────────────────────────────────────────────
-// Ceny (liczby) są w cennik.yml (PL). Loader formatuje je automatycznie:
+// ─── Formatuj ceny z cennik.yml ──────────────────────────────────────────────
+// Ceny (liczby) są w cennik.yml zagnieżdżone w cat1/cat2/cat3.
+// Po flattenNested() są dostępne jako price1..price16.
 // PL → "od X zł", EN → "from X PLN". price15=0 → bezpłatna/free.
 function applyPrices(data, lang) {
   var isPL = (lang !== 'en');
@@ -246,6 +245,10 @@ function applyPrices(data, lang) {
 }
 
 // ─── Pliki YAML dla każdego języka ───────────────────────────────────────────
+// UWAGA: cennik_prices.yml został usunięty z obu list.
+// Ceny są teraz wyłącznie w cennik.yml (cat1/cat2/cat3 → price1..16).
+// Edycja w CMS → zapis do cennik.yml → strona czyta z cennik.yml. ✓
+
 var filesPL = [
   '/_data/hero.yml',
   '/_data/filozofia.yml',
@@ -256,7 +259,6 @@ var filesPL = [
   '/_data/galeria.yml',
   '/_data/kontakt.yml',
   '/_data/cennik.yml',
-  '/_data/cennik_prices.yml', // płaskie liczby nadpisują hardcoded price1..16 z cennik.yml
 ];
 
 var filesEN = [
@@ -268,12 +270,11 @@ var filesEN = [
   '/_data/opinie_en.yml',
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
-  '/_data/cennik.yml',        // 1. baza PL z cenami zagnieżdżonymi w cat1/cat2/cat3
-  '/_data/cennik_en.yml',     // 2. EN nadpisuje nazwy _service i nagłówki
-  '/_data/cennik_prices.yml', // 3. płaskie liczby nadpisują price1..16 (czyści hardcoded "od X zł")
+  '/_data/cennik.yml',     // 1. baza PL — zawiera price1..16 (liczby) w cat1/cat2/cat3
+  '/_data/cennik_en.yml',  // 2. EN nadpisuje tylko _service i nagłówki (bez liczb)
 ];
 
-// ─── Głęboki merge obiektów (rozwiązuje problem cat1/cat2/cat3) ──────────────
+// ─── Głęboki merge obiektów ───────────────────────────────────────────────────
 function deepMerge(target, source) {
   Object.keys(source).forEach(function(key) {
     var srcVal = source[key];
@@ -306,9 +307,9 @@ async function loadCMSData(lang) {
   var results = await Promise.all(files.map(fetchYAML));
   var merged  = results.reduce(function(acc, obj) { return deepMerge(acc, obj); }, {});
   var allData = flattenNested(merged);
-  applyPrices(allData, lang);   // generuje price1_price = "from 200 PLN"
-  await applyData(allData);     // wstawia do DOM — OK
-  
+  applyPrices(allData, lang);
+  await applyData(allData);
+
   applyUI(lang);
 
   if (window.revealGallery) window.revealGallery();
