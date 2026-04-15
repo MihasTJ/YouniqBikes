@@ -72,8 +72,13 @@ document.addEventListener('keydown', function(e) {
 var langMobile = document.getElementById('langSwitcherMobile');
 if (langMobile) {
   langMobile.addEventListener('click', function() {
-    document.getElementById('langSwitcher').click();
-    // Sync mobile labels after CMS reload (applyUI handles langLabelMobile)
+    // Przełącz język bezpośrednio — NIE przez .click() na desktopowym przycisku
+    // bo to powodowało podwójne przełączenie (pl→en→pl) i brak powrotu do PL
+    currentLang = (currentLang === 'pl') ? 'en' : 'pl';
+    localStorage.setItem('yb_lang', currentLang);
+    document.body.classList.remove('cms-ready');
+    loadCMSData(currentLang);
+    toggleMenu(false);
   });
 }
 

@@ -256,6 +256,7 @@ var filesPL = [
   '/_data/galeria.yml',
   '/_data/kontakt.yml',
   '/_data/cennik.yml',
+  '/_data/cennik_prices.yml', // płaskie liczby nadpisują hardcoded price1..16 z cennik.yml
 ];
 
 var filesEN = [
@@ -267,8 +268,9 @@ var filesEN = [
   '/_data/opinie_en.yml',
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
-  '/_data/cennik.yml',      // najpierw PL — zawiera ceny (price1, price2...) w cat1/cat2/cat3
-  '/_data/cennik_en.yml',   // potem EN — nadpisuje nazwy _service i nagłówki przez deep merge
+  '/_data/cennik.yml',        // 1. baza PL z cenami zagnieżdżonymi w cat1/cat2/cat3
+  '/_data/cennik_en.yml',     // 2. EN nadpisuje nazwy _service i nagłówki
+  '/_data/cennik_prices.yml', // 3. płaskie liczby nadpisują price1..16 (czyści hardcoded "od X zł")
 ];
 
 // ─── Głęboki merge obiektów (rozwiązuje problem cat1/cat2/cat3) ──────────────
