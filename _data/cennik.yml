@@ -4,24 +4,40 @@ cennik_desc: Ceny robocizny — bez kosztów części. Wycena indywidualna przy
 cennik_note: "* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i
   zawsze konsultowany z klientem przed zakupem."
 cat1:
-  cat1_title: Koła
-  price1_service: Zaplatanie koła (hand-built)
-  price2_service: Centrowanie koła
   price3_service: Wymiana szprychy (szt.)
   price4_service: Przygotowanie pod tubeless
   price5_service: Wymiana dętki / opony (przód)
   price6_service: Wymiana dętki / opony (tył)
+  price1: 220
+  price2: 60
+  price3: 25
+  price4: 80
+  price5: 30
+  price6: 40
+  cat1_title: Koła
+  price1_service: Zaplatanie koła (hand-built)
+  price2_service: Centrowanie koła
 cat2:
-  cat2_title: Napęd & Hamulce
+  price12_service: Serwis piasty tylnej
   price7_service: Regulacja przerzutki (1 szt.)
   price8_service: Regulacja hamulców mechanicznych
   price9_service: Odpowietrzenie hamulców hydraulicznych
+  price10: 45
+  price11: 60
+  price12: 80
+  price7: 40
+  price8: 35
+  price9: 100
+  cat2_title: Napęd & Hamulce
   price10_service: Wymiana linki + pancerza
   price11_service: Serwis suportu
-  price12_service: Serwis piasty tylnej
 cat3:
-  cat3_title: Przeglądy & Custom
   price13_service: Przegląd podstawowy
   price14_service: Przegląd rozszerzony (sezonowy)
   price15_service: Custom Build — konsultacja
   price16_service: Stawka godzinowa (prace niestandardowe)
+  price13: 150
+  price14: 300
+  price15: 0
+  price16: 100
+  cat3_title: Przeglądy & Custom
