@@ -8,7 +8,7 @@ cat1:
   price4_service: Przygotowanie pod tubeless
   price5_service: Wymiana dętki / opony (przód)
   price6_service: Wymiana dętki / opony (tył)
-  price1: 220
+  price1: 210
   price2: 60
   price3: 25
   price4: 80
@@ -26,7 +26,7 @@ cat2:
   price11: 60
   price12: 80
   price7: 40
-  price8: 35
+  price8: 40
   price9: 100
   cat2_title: Napęd & Hamulce
   price10_service: Wymiana linki + pancerza
@@ -37,7 +37,7 @@ cat3:
   price15_service: Custom Build — konsultacja
   price16_service: Stawka godzinowa (prace niestandardowe)
   price13: 150
-  price14: 300
+  price14: 310
   price15: 0
   price16: 100
   cat3_title: Przeglądy & Custom
