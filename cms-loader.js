@@ -304,9 +304,9 @@ async function loadCMSData(lang) {
   var results = await Promise.all(files.map(fetchYAML));
   var merged  = results.reduce(function(acc, obj) { return deepMerge(acc, obj); }, {});
   var allData = flattenNested(merged);
-  applyPrices(allData, lang);
-
-  await applyData(allData);
+  applyPrices(allData, lang);   // generuje price1_price = "from 200 PLN"
+  await applyData(allData);     // wstawia do DOM — OK
+  
   applyUI(lang);
 
   if (window.revealGallery) window.revealGallery();
