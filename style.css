@@ -859,12 +859,12 @@
   footer {
     background: #060605;
     border-top: 1px solid rgba(122,132,144,.1);
-    padding: 3rem;
+    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   .footer-logo {
     font-family: 'Barlow Condensed', sans-serif;
@@ -877,11 +877,22 @@
   .footer-logo span { color: var(--rust); }
   footer p {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: .68rem;
+    font-size: .62rem;
     font-weight: 600;
-    letter-spacing: .2em;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--text-dim);
+  }
+  .footer-credit a {
+    color: var(--text-dim);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(107,101,88,.3);
+    padding-bottom: 1px;
+    transition: color .2s, border-color .2s;
+  }
+  .footer-credit a:hover {
+    color: var(--steel-light);
+    border-color: var(--steel-light);
   }
 
   /* ── SCROLL REVEAL ── */
@@ -1014,7 +1025,9 @@
     .faq-answer { padding: 0 1.3rem; }
     #faq details[open] .faq-answer { padding: 0 1.3rem 1.3rem 1.3rem; }
     .faq-toggle { width: 30px; height: 30px; }
-    footer { flex-direction: column; text-align: center; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .footer-center { order: -1; }
+    .footer-credit { order: 1; }
 
     /* Cennik na mobile */
     #cennik { padding: 5rem 1.5rem; }

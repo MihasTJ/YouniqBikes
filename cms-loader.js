@@ -122,8 +122,7 @@ var uiStrings = {
     galeria_sub:   'Każdy rower to osobna historia. Oto kilka z nich.',
     galeria_cta:   'Porozmawiajmy o Twoim projekcie →',
     kontakt_label: 'Kontakt',
-    footer_copy:   '© 2026 Youniq Bikes. Wszelkie prawa zastrzeżone.',
-    footer_sub:    'Rakowicka 99 · Kraków · Customowe Rowery Premium',
+    footer_center: 'Rakowicka 99 · Kraków · © 2026 Youniq Bikes',
     lang_active:   'PL',
     lang_other:    'EN',
   },
@@ -152,8 +151,7 @@ var uiStrings = {
     galeria_sub:   'Every bike tells a story. Here are a few.',
     galeria_cta:   "Let's talk about your build →",
     kontakt_label: 'Contact',
-    footer_copy:   '© 2026 Youniq Bikes. All rights reserved.',
-    footer_sub:    'Rakowicka 99 · Kraków · Premium Custom Bikes',
+    footer_center: 'Rakowicka 99 · Kraków · © 2026 Youniq Bikes',
     lang_active:   'EN',
     lang_other:    'PL',
   }
@@ -214,9 +212,8 @@ function applyUI(lang) {
     if (btnGhost   && t.contact_btn_ghost)   btnGhost.textContent   = t.contact_btn_ghost;
   }
 
-  var footerPs = document.querySelectorAll('footer p');
-  if (footerPs[0]) footerPs[0].textContent = t.footer_sub;
-  if (footerPs[1]) footerPs[1].textContent = t.footer_copy;
+  var footerCenter = document.querySelector('footer .footer-center');
+  if (footerCenter) footerCenter.textContent = t.footer_center;
 
   document.documentElement.lang = lang;
 }
