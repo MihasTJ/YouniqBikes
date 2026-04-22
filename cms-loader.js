@@ -123,6 +123,7 @@ var uiStrings = {
     galeria_cta:   'Porozmawiajmy o Twoim projekcie →',
     kontakt_label: 'Kontakt',
     footer_center: 'Rakowicka 99 · Kraków · © 2026 Youniq Bikes',
+    hero_seo_label: 'Serwis rowerowy i custom builds — Kraków',
     lang_active:   'PL',
     lang_other:    'EN',
   },
@@ -152,6 +153,7 @@ var uiStrings = {
     galeria_cta:   "Let's talk about your build →",
     kontakt_label: 'Contact',
     footer_center: 'Rakowicka 99 · Kraków · © 2026 Youniq Bikes',
+    hero_seo_label: 'Bike service & custom builds — Kraków',
     lang_active:   'EN',
     lang_other:    'PL',
   }
@@ -199,8 +201,8 @@ function applyUI(lang) {
   // Ticker
   var tickerEl = document.querySelector('.ticker');
   if (tickerEl && t.ticker) {
-    var doubled = t.ticker.concat(t.ticker);
-    tickerEl.innerHTML = doubled.map(function(s) { return '<span>' + s + '</span>'; }).join('');
+    var tripled = t.ticker.concat(t.ticker).concat(t.ticker);
+    tickerEl.innerHTML = tripled.map(function(s) { return '<span>' + s + '</span>'; }).join('');
   }
 
   // Przyciski kontakt

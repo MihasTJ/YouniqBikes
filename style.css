@@ -255,7 +255,8 @@
     white-space: nowrap;
     animation: ticker 22s linear infinite;
   }
-  .ticker-wrap:hover .ticker {
+  .ticker-wrap:hover .ticker,
+  .ticker-wrap.ticker-paused .ticker {
     animation-play-state: paused;
   }
   .ticker span {
@@ -274,7 +275,7 @@
   }
   @keyframes ticker {
     from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    to   { transform: translateX(-33.333%); }
   }
 
   /* ── SECTIONS COMMON ── */

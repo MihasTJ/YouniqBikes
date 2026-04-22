@@ -179,8 +179,8 @@
   <a href="#filozofia" data-i18n="nav_filozofia" class="nav-mobile-link">Filozofia</a>
   <a href="#uslugi" data-i18n="nav_uslugi" class="nav-mobile-link">Usługi</a>
   <a href="#dlaczego" data-i18n="nav_dlaczego" class="nav-mobile-link">Dlaczego My</a>
-  <a href="#cennik" data-i18n="nav_cennik" class="nav-mobile-link">Cennik</a>
   <a href="#faq" class="nav-mobile-link">FAQ</a>
+  <a href="#cennik" data-i18n="nav_cennik" class="nav-mobile-link">Cennik</a>
   <a href="#galeria" data-i18n="nav_galeria" class="nav-mobile-link">Realizacje</a>
   <a href="#kontakt" data-i18n="nav_kontakt" class="nav-mobile-link">Kontakt</a>
   <button class="lang-switcher" id="langSwitcherMobile" aria-label="Switch language">
@@ -188,6 +188,7 @@
   </button>
 </div>
 
+<main id="main-content">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
@@ -195,7 +196,7 @@
 
   <p class="hero-eyebrow editable" data-cms="hero_eyebrow">Kraków · Rakowicka 99 · Custom Builds</p>
   <h1 class="editable" data-cms="hero_heading">Twoja<br>wizja.<br><em>Nasza</em><br>precyzja.</h1>
-  <p class="hero-seo-label">Serwis rowerowy i custom builds — Kraków</p>
+  <p class="hero-seo-label" data-i18n="hero_seo_label">Serwis rowerowy i custom builds — Kraków</p>
   <p class="hero-sub editable" data-cms="hero_subheading">Nie skręcamy rowerów z katalogu. Budujemy maszyny pod konkretny cel, konkretne ciało i konkretne drogi. Od stali po tytan.</p>
   <div class="hero-cta-row">
     <a href="#kontakt" class="btn-primary hero-cta-desktop editable" data-cms="hero_cta_label">Umów konsultację</a>
@@ -204,8 +205,6 @@
   </div>
   <div class="hero-address">Rakowicka 99 · Kraków · PL</div>
 </section>
-
-<main id="main-content">
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
@@ -498,7 +497,7 @@
 
     <div class="gallery-item gallery-item--tall reveal">
       <div class="gallery-img-wrap">
-        <img loading="eager" fetchpriority="high" class="editable" data-cms="gallery1_img" src="" alt="Custom build szosa stalowa">
+        <img loading="eager" fetchpriority="high" class="editable" data-cms="gallery1_img" src="data:," alt="Custom build szosa stalowa">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery1_tag">Custom Build</div>
           <div class="gallery-caption editable" data-cms="gallery1_caption">Szosa stalowa — Reynolds 853<br><span>Shimano Ultegra Di2 · ręcznie zaplatane koła</span></div>
@@ -508,7 +507,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img loading="lazy" class="editable" data-cms="gallery2_img" src="" alt="Zaplatanie kół DT Swiss">
+        <img loading="lazy" class="editable" data-cms="gallery2_img" src="data:," alt="Zaplatanie kół DT Swiss">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery2_tag">Koła Hand-Built</div>
           <div class="gallery-caption editable" data-cms="gallery2_caption">Zaplatanie kół<br><span>DT Swiss · Sapim CX-Ray</span></div>
@@ -518,7 +517,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img loading="lazy" class="editable" data-cms="gallery3_img" src="" alt="Serwis napędu SRAM">
+        <img loading="lazy" class="editable" data-cms="gallery3_img" src="data:," alt="Serwis napędu SRAM">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery3_tag">Serwis Premium</div>
           <div class="gallery-caption editable" data-cms="gallery3_caption">Serwis napędu<br><span>SRAM Force eTap AXS</span></div>
@@ -528,7 +527,7 @@
 
     <div class="gallery-item gallery-item--wide reveal">
       <div class="gallery-img-wrap">
-        <img loading="lazy" class="editable" data-cms="gallery4_img" src="" alt="Gravel custom build tytanowa rama">
+        <img loading="lazy" class="editable" data-cms="gallery4_img" src="data:," alt="Gravel custom build tytanowa rama">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery4_tag">Custom Build</div>
           <div class="gallery-caption editable" data-cms="gallery4_caption">Gravel na wyprawy — rama tytanowa<br><span>Shimano GRX 820 · opony 45c · sakwy bikepacking</span></div>
@@ -538,7 +537,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img loading="lazy" class="editable" data-cms="gallery5_img" src="" alt="Renowacja vintage roweru">
+        <img loading="lazy" class="editable" data-cms="gallery5_img" src="data:," alt="Renowacja vintage roweru">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery5_tag">Renowacja</div>
           <div class="gallery-caption editable" data-cms="gallery5_caption">Renowacja klasyka z lat 80.<br><span>Campagnolo Record · nowe okablowanie</span></div>
@@ -548,7 +547,7 @@
 
     <div class="gallery-item gallery-item--tall reveal">
       <div class="gallery-img-wrap">
-        <img loading="lazy" class="editable" data-cms="gallery6_img" src="" alt="Detal komponentów rowerowych">
+        <img loading="lazy" class="editable" data-cms="gallery6_img" src="data:," alt="Detal komponentów rowerowych">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery6_tag">Detal</div>
           <div class="gallery-caption editable" data-cms="gallery6_caption">Precyzja w każdym detalu<br><span>Mostek · Kierownica · Taśmowanie</span></div>
@@ -563,14 +562,14 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- KONTAKT -->
 <section id="kontakt">
   <div class="section-label">Kontakt</div>
   <h2 class="editable" data-cms="contact_heading">Zacznijmy<br><em>rozmawiać.</em></h2>
   <p class="editable" data-cms="contact_desc">Masz projekt, pytanie o serwis albo chcesz po prostu porozmawiać o kołach? Wpadnij na Rakowicką 99 albo napisz – nie owijamy w bawełnę.</p>
   <div class="cta-row">
-    <a href="/cdn-cgi/l/email-protection#8ae1e5e4feebe1fecaf3e5ffe4e3fbe8e3e1eff9a4fae6" class="btn-primary" data-i18n="contact_btn_primary">Napisz do nas</a>
-    <a href="https://maps.app.goo.gl/XpUsyRzsvwveWy1d6" class="btn-ghost" target="_blank" data-i18n="contact_btn_ghost">Znajdź warsztat</a>
+    <a href="/cdn-cgi/l/email-protection#8ae1e5e4feebe1fecaf3e5ffe4e3fbe8e3e1eff9a4fae6" class="btn-primary">Napisz do nas</a>
+    <a href="https://maps.app.goo.gl/XpUsyRzsvwveWy1d6" class="btn-ghost" target="_blank" rel="noopener">Znajdź warsztat</a>
   </div>
   <p class="cta-info editable" data-cms="contact_info">
     Rakowicka 99, Kraków &nbsp;·&nbsp;
@@ -579,14 +578,14 @@
   </p>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Youniq<span>.</span>Bikes</div>
   <p class="footer-center">Rakowicka 99 · Kraków &nbsp;·&nbsp; © 2026 Youniq Bikes</p>
   <p class="footer-credit">Designed &amp; Built by <a href="https://linktr.ee/michaljaniol" target="_blank" rel="noopener">Michał Janioł</a></p>
 </footer>
-
-</main>
 
 <!-- SCROLL TO TOP -->
 <button class="scroll-top" id="scrollTop" aria-label="Wróć na górę">

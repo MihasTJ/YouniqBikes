@@ -33,44 +33,78 @@ window.revealGallery = function() {
 
   document.querySelectorAll('#galeria .reveal').forEach((el) => {
     el.classList.add('active');
-    el.classList.add('visible'); // zachowaj visible dla pewności
+    el.classList.add('visible');
   });
 };
 
 // ─── Scroll Spy — podświetla aktywny link w nawigacji ────────────────────────
+// Śledzimy sekcję najbliżej górnej krawędzi viewportu (scroll-position based),
+// zamiast wąskiego okna IntersectionObserver, które gubiło sekcje przy szybkim scrollu.
 (function initScrollSpy() {
   var sections = Array.from(document.querySelectorAll('section[id]'));
   var navLinks = Array.from(document.querySelectorAll('nav ul a[href^="#"]'));
 
   if (!navLinks.length || !sections.length) return;
 
+  var NAV_HEIGHT = 80; // px — offset nav fixed
   var currentActive = null;
 
-  var spyObserver = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
+  function getActiveSection() {
+    var scrollY = window.scrollY + NAV_HEIGHT + 32;
 
-        var id = entry.target.getAttribute('id');
-        var matchingLink = navLinks.find(function(a) {
-          return a.getAttribute('href') === '#' + id;
-        });
-
-        if (!matchingLink || matchingLink === currentActive) return;
-
-        navLinks.forEach(function(a) { a.classList.remove('active'); });
-        matchingLink.classList.add('active');
-        currentActive = matchingLink;
-      });
-    },
-    {
-      // Sekcja aktywna gdy jej górna krawędź wchodzi w środkowy pas okna
-      rootMargin: '-20% 0px -75% 0px',
-      threshold: 0
+    // Pierwsza sekcja, której top <= scrollY (iterujemy od dołu)
+    var active = null;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
+        active = sections[i];
+      }
     }
-  );
+    return active;
+  }
 
-  sections.forEach(function(section) { spyObserver.observe(section); });
+  function updateSpy() {
+    var activeSection = getActiveSection();
+    if (!activeSection) return;
+
+    var id = activeSection.getAttribute('id');
+    var matchingLink = navLinks.find(function(a) {
+      return a.getAttribute('href') === '#' + id;
+    });
+
+    if (!matchingLink || matchingLink === currentActive) return;
+
+    navLinks.forEach(function(a) { a.classList.remove('active'); });
+    matchingLink.classList.add('active');
+    currentActive = matchingLink;
+  }
+
+  // Throttle przez rAF — max 1x na klatkę
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function() {
+      updateSpy();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // Wywołaj od razu przy załadowaniu strony
+  updateSpy();
+})();
+
+// ─── Ticker — CSS obsługuje hover, JS dodaje toggle dla dotyku ───────────────
+(function initTickerPause() {
+  var tickerWrap = document.querySelector('.ticker-wrap');
+  if (!tickerWrap) return;
+
+  var paused = false;
+
+  // Na urządzeniach dotykowych hover nie działa — obsługujemy klik jako toggle
+  tickerWrap.addEventListener('click', function() {
+    paused = !paused;
+    tickerWrap.classList.toggle('ticker-paused', paused);
+  });
 })();
 
 // ─── Burger menu ─────────────────────────────────────────────────────────────
