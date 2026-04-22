@@ -1,8 +1,8 @@
-// ─── Scroll reveal ────────────────────────────────────────────────────────────
-// Galeria jest wykluczona z reveal dopóki cms-loader nie załaduje zdjęć.
-// Klasa .cms-ready na body jest sygnałem że można odkryć galerię.
+// ─── Scroll reveal — Intersection Observer ───────────────────────────────────
+// Dodaje klasę .active do .reveal gdy element pojawi się w viewport.
+// Galeria jest wykluczona dopóki cms-loader nie wywoła revealGallery().
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -12,36 +12,70 @@ const observer = new IntersectionObserver(
       // Elementy galerii — czekaj na sygnał od cms-loader
       if (el.closest('#galeria')) {
         if (document.body.classList.contains('cms-ready')) {
-          el.classList.add('visible');
-          observer.unobserve(el);
+          el.classList.add('active');
+          revealObserver.unobserve(el);
         }
-        // Jeśli cms-ready jeszcze nie ma — nic nie rób,
-        // cms-loader sam wywoła revealGallery() gdy skończy
         return;
       }
 
-      // Wszystkie inne sekcje — reveal normalnie
-      el.classList.add('visible');
-      observer.unobserve(el);
+      el.classList.add('active');
+      revealObserver.unobserve(el);
     });
   },
   { threshold: 0.12 }
 );
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
 // ─── Wywoływane przez cms-loader gdy zdjęcia są gotowe ───────────────────────
 window.revealGallery = function() {
   document.body.classList.add('cms-ready');
 
   document.querySelectorAll('#galeria .reveal').forEach((el) => {
-    el.classList.add('visible');
+    el.classList.add('active');
+    el.classList.add('visible'); // zachowaj visible dla pewności
   });
 };
 
+// ─── Scroll Spy — podświetla aktywny link w nawigacji ────────────────────────
+(function initScrollSpy() {
+  var sections = Array.from(document.querySelectorAll('section[id]'));
+  var navLinks = Array.from(document.querySelectorAll('nav ul a[href^="#"]'));
+
+  if (!navLinks.length || !sections.length) return;
+
+  var currentActive = null;
+
+  var spyObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+
+        var id = entry.target.getAttribute('id');
+        var matchingLink = navLinks.find(function(a) {
+          return a.getAttribute('href') === '#' + id;
+        });
+
+        if (!matchingLink || matchingLink === currentActive) return;
+
+        navLinks.forEach(function(a) { a.classList.remove('active'); });
+        matchingLink.classList.add('active');
+        currentActive = matchingLink;
+      });
+    },
+    {
+      // Sekcja aktywna gdy jej górna krawędź wchodzi w środkowy pas okna
+      rootMargin: '-20% 0px -75% 0px',
+      threshold: 0
+    }
+  );
+
+  sections.forEach(function(section) { spyObserver.observe(section); });
+})();
+
 // ─── Burger menu ─────────────────────────────────────────────────────────────
-var burgerBtn  = document.getElementById('burgerBtn');
-var navMobile  = document.getElementById('navMobile');
+var burgerBtn = document.getElementById('burgerBtn');
+var navMobile = document.getElementById('navMobile');
 
 function toggleMenu(force) {
   var isOpen = force !== undefined ? force : !navMobile.classList.contains('open');
@@ -56,14 +90,12 @@ if (burgerBtn) {
   burgerBtn.addEventListener('click', function() { toggleMenu(); });
 }
 
-// Zamknij menu po kliknięciu w link lub poza overlay
 if (navMobile) {
   navMobile.querySelectorAll('.nav-mobile-link').forEach(function(link) {
     link.addEventListener('click', function() { toggleMenu(false); });
   });
 }
 
-// Zamknij na Escape
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') toggleMenu(false);
 });
@@ -72,8 +104,6 @@ document.addEventListener('keydown', function(e) {
 var langMobile = document.getElementById('langSwitcherMobile');
 if (langMobile) {
   langMobile.addEventListener('click', function() {
-    // Przełącz język bezpośrednio — NIE przez .click() na desktopowym przycisku
-    // bo to powodowało podwójne przełączenie (pl→en→pl) i brak powrotu do PL
     currentLang = (currentLang === 'pl') ? 'en' : 'pl';
     localStorage.setItem('yb_lang', currentLang);
     document.body.classList.remove('cms-ready');

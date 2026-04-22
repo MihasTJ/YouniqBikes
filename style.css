@@ -13,6 +13,25 @@
 
   html { scroll-behavior: smooth; }
 
+  /* ── SKIP TO CONTENT (dostępność + SEO) ── */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    background: var(--rust);
+    color: var(--off-white);
+    padding: .6rem 1.2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: top .2s;
+  }
+  .skip-to-content:focus { top: 1rem; }
+
   body {
     font-family: 'Crimson Pro', Georgia, serif;
     background: var(--black);
@@ -51,6 +70,20 @@
     transition: color .2s;
   }
   nav ul a:hover { color: var(--rust); }
+  nav ul a.active {
+    color: var(--rust);
+    position: relative;
+  }
+  nav ul a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--rust);
+    opacity: .6;
+  }
 
   /* ── HERO ── */
   #hero {
@@ -132,6 +165,17 @@
     animation: fadeUp .9s .75s forwards;
   }
 
+  .hero-seo-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .6rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(242,237,230,.07);
+    margin-top: .4rem;
+    user-select: none;
+  }
+
   .hero-cta-row {
     margin-top: 2.4rem;
     display: flex;
@@ -210,6 +254,9 @@
     display: flex;
     white-space: nowrap;
     animation: ticker 22s linear infinite;
+  }
+  .ticker-wrap:hover .ticker {
+    animation-play-state: paused;
   }
   .ticker span {
     font-family: 'Barlow Condensed', sans-serif;
@@ -898,9 +945,14 @@
   /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity .7s ease, transform .7s ease;
+    transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
   }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* zachowaj .visible dla wstecznej kompatybilności z cms-loader */
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);

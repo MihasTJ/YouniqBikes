@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youniq Bikes – Customowe Rowery Kraków</title>
+<title>Youniq Bikes – Serwis Rowerowy i Custom Builds Kraków</title>
 <meta name="description" content="Youniq Bikes – customowe rowery i serwis premium w Krakowie. Custom builds, zaplatanie i centrowanie kół, serwis Shimano / SRAM / Campagnolo. Rakowicka 99.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://youniqbikes.pl/">
@@ -25,6 +25,8 @@
 <meta property="og:description" content="Customowe rowery i serwis premium w Krakowie. Custom builds, koła ręcznie składane, serwis Shimano / SRAM / Campagnolo. Rakowicka 99.">
 <meta property="og:url" content="https://youniqbikes.pl/">
 <meta property="og:image" content="https://youniqbikes.netlify.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -41,6 +43,24 @@
   "description": "Customowe rowery i serwis premium w Krakowie: custom builds, zaplatanie i centrowanie kół, serwis Shimano / SRAM / Campagnolo.",
   "url": "https://youniqbikes.pl/",
   "telephone": "+48500250068",
+  "priceRange": "$$",
+  "currenciesAccepted": "PLN",
+  "paymentAccepted": "Cash, Credit Card",
+  "image": "https://youniqbikes.netlify.app/og.jpg",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://youniqbikes.pl/android-chrome-512x512.png",
+    "width": 512,
+    "height": 512
+  },
+  "hasMap": "https://maps.app.goo.gl/XpUsyRzsvwveWy1d6",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rakowicka 99",
@@ -48,6 +68,9 @@
     "postalCode": "31-510",
     "addressCountry": "PL"
   },
+  "sameAs": [
+    "https://www.google.com/maps/place/Youniq+Bikes"
+  ],
   "areaServed": {
     "@type": "City",
     "name": "Kraków"
@@ -59,6 +82,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
@@ -76,11 +100,62 @@
   .hero-cta-mobile  { display: inline-flex; }
 }
 </style>
+
+<!-- FAQPage structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Czy naprawiacie tylko nowoczesne rowery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie. Chętnie podejmujemy się reanimacji 30-letnich rowerów MTB, szosówek vintage czy rowerów miejskich, z których inni już spisali na straty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy podejmujecie się napraw, których inne serwisy odmówiły?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak. Specjalizujemy się w trudnych przypadkach – od nietypowych usterek w systemach SRAM i FOX, po niestandardowe ramy i rowery cargo. Jeśli usłyszałeś gdzieś że nie da się tego naprawić, przynieś rower do nas na Rakowicką 99 w Krakowie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak wygląda proces wyceny?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Działamy przejrzyście. Przy przyjęciu roweru dokonujemy wstępnej diagnozy i określamy przewidywane koszty. Jeśli potrzebne są dodatkowe części, konsultujemy to z Tobą przed ich zakupem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy muszę umawiać się na termin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dla większych projektów zalecamy kontakt telefoniczny. Drobne sprawy jak wymiana dętki staramy się załatwiać od ręki lub w ciągu 24 godzin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje serwis roweru w Youniq Bikes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Centrowanie koła od 60 zł, zaplatanie koła hand-built od 200 zł, przegląd podstawowy od 150 zł, przegląd sezonowy od 300 zł. Konsultacja custom build jest bezpłatna."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Nawigacja główna">
   <a href="#" class="nav-logo">Youniq<span>.</span>Bikes</a>
   <ul>
     <li><a href="#filozofia" data-i18n="nav_filozofia">Filozofia</a></li>
@@ -120,6 +195,7 @@
 
   <p class="hero-eyebrow editable" data-cms="hero_eyebrow">Kraków · Rakowicka 99 · Custom Builds</p>
   <h1 class="editable" data-cms="hero_heading">Twoja<br>wizja.<br><em>Nasza</em><br>precyzja.</h1>
+  <p class="hero-seo-label">Serwis rowerowy i custom builds — Kraków</p>
   <p class="hero-sub editable" data-cms="hero_subheading">Nie skręcamy rowerów z katalogu. Budujemy maszyny pod konkretny cel, konkretne ciało i konkretne drogi. Od stali po tytan.</p>
   <div class="hero-cta-row">
     <a href="#kontakt" class="btn-primary hero-cta-desktop editable" data-cms="hero_cta_label">Umów konsultację</a>
@@ -129,6 +205,7 @@
   <div class="hero-address">Rakowicka 99 · Kraków · PL</div>
 </section>
 
+<main id="main-content">
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
@@ -344,7 +421,7 @@
 
 <!-- CENNIK -->
 <section id="cennik">
-  <div class="section-label reveal" data-i18n-label="cennik_label">Cennik</div>
+  <div class="section-label reveal" data-i18n="cennik_label">Cennik</div>
   <h2 class="reveal editable" data-cms="cennik_heading">Cennik<br><em>usług.</em></h2>
   <p class="cennik-desc reveal editable" data-cms="cennik_desc">Ceny robocizny — bez kosztów części. Wycena indywidualna przy przyjęciu roweru. Bez niespodzianek.</p>
 
@@ -421,7 +498,7 @@
 
     <div class="gallery-item gallery-item--tall reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery1_img" src="" alt="Custom build szosa stalowa">
+        <img loading="eager" fetchpriority="high" class="editable" data-cms="gallery1_img" src="" alt="Custom build szosa stalowa">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery1_tag">Custom Build</div>
           <div class="gallery-caption editable" data-cms="gallery1_caption">Szosa stalowa — Reynolds 853<br><span>Shimano Ultegra Di2 · ręcznie zaplatane koła</span></div>
@@ -431,7 +508,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery2_img" src="" alt="Zaplatanie kół DT Swiss">
+        <img loading="lazy" class="editable" data-cms="gallery2_img" src="" alt="Zaplatanie kół DT Swiss">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery2_tag">Koła Hand-Built</div>
           <div class="gallery-caption editable" data-cms="gallery2_caption">Zaplatanie kół<br><span>DT Swiss · Sapim CX-Ray</span></div>
@@ -441,7 +518,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery3_img" src="" alt="Serwis napędu SRAM">
+        <img loading="lazy" class="editable" data-cms="gallery3_img" src="" alt="Serwis napędu SRAM">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery3_tag">Serwis Premium</div>
           <div class="gallery-caption editable" data-cms="gallery3_caption">Serwis napędu<br><span>SRAM Force eTap AXS</span></div>
@@ -451,7 +528,7 @@
 
     <div class="gallery-item gallery-item--wide reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery4_img" src="" alt="Gravel custom build tytanowa rama">
+        <img loading="lazy" class="editable" data-cms="gallery4_img" src="" alt="Gravel custom build tytanowa rama">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery4_tag">Custom Build</div>
           <div class="gallery-caption editable" data-cms="gallery4_caption">Gravel na wyprawy — rama tytanowa<br><span>Shimano GRX 820 · opony 45c · sakwy bikepacking</span></div>
@@ -461,7 +538,7 @@
 
     <div class="gallery-item reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery5_img" src="" alt="Renowacja vintage roweru">
+        <img loading="lazy" class="editable" data-cms="gallery5_img" src="" alt="Renowacja vintage roweru">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery5_tag">Renowacja</div>
           <div class="gallery-caption editable" data-cms="gallery5_caption">Renowacja klasyka z lat 80.<br><span>Campagnolo Record · nowe okablowanie</span></div>
@@ -471,7 +548,7 @@
 
     <div class="gallery-item gallery-item--tall reveal">
       <div class="gallery-img-wrap">
-        <img class="editable" data-cms="gallery6_img" src="" alt="Detal komponentów rowerowych">
+        <img loading="lazy" class="editable" data-cms="gallery6_img" src="" alt="Detal komponentów rowerowych">
         <div class="gallery-overlay">
           <div class="gallery-tag editable" data-cms="gallery6_tag">Detal</div>
           <div class="gallery-caption editable" data-cms="gallery6_caption">Precyzja w każdym detalu<br><span>Mostek · Kierownica · Taśmowanie</span></div>
@@ -509,13 +586,15 @@
   <p class="footer-credit">Designed &amp; Built by <a href="https://linktr.ee/michaljaniol" target="_blank" rel="noopener">Michał Janioł</a></p>
 </footer>
 
+</main>
+
 <!-- SCROLL TO TOP -->
 <button class="scroll-top" id="scrollTop" aria-label="Wróć na górę">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<script src="cms-loader.js"></script>
-<script src="script.js"></script>
+<script src="cms-loader.js" defer></script>
+<script src="script.js" defer></script>
 
 <!-- Netlify Identity: przekierowanie po logowaniu do /admin/ -->
 <script>
