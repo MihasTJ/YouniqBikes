@@ -146,7 +146,41 @@ if (langMobile) {
   });
 }
 
-// ─── Scroll to top ───────────────────────────────────────────────────────────
+// ─── Google Analytics 4 — Event Tracking ────────────────────────────────────
+// Śledzi kliknięcia we wszystkie przyciski z atrybutem data-track.
+// Zdarzenie w GA4: "cta_click" z parametrem button_id = wartość data-track.
+(function initGA4Tracking() {
+  // Czekamy aż gtag będzie dostępny (ładuje się async)
+  function sendEvent(buttonId) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        button_id: buttonId,
+      });
+    }
+  }
+
+  // Delegacja zdarzeń — jeden listener na całym dokumencie
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('[data-track]');
+    if (!target) return;
+    sendEvent(target.getAttribute('data-track'));
+  });
+
+  // Śledzenie przewinięcia do końca strony (sygnał wysokiego zaangażowania)
+  var scrolledToBottom = false;
+  window.addEventListener('scroll', function() {
+    if (scrolledToBottom) return;
+    var scrolled = window.scrollY + window.innerHeight;
+    var total    = document.documentElement.scrollHeight;
+    if (scrolled >= total - 100) {
+      scrolledToBottom = true;
+      if (typeof gtag === 'function') {
+        gtag('event', 'scroll_depth', { depth: '100%' });
+      }
+    }
+  }, { passive: true });
+})();
+
 var scrollTopBtn = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', function() {

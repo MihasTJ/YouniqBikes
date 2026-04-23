@@ -86,6 +86,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<!-- ═══════════════════════════════════════════════════════════════════
+     GOOGLE ANALYTICS 4
+     Zamień G-XXXXXXXXXX na swój Measurement ID z Google Analytics.
+     Jak go znaleźć: analytics.google.com → Admin → Data Streams → Twoja strona
+     ═══════════════════════════════════════════════════════════════════ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ32LKPJF8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HZ32LKPJF8');
+</script>
+
 <!-- Netlify Identity Widget -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -199,9 +212,9 @@
   <p class="hero-seo-label" data-i18n="hero_seo_label">Serwis rowerowy i custom builds — Kraków</p>
   <p class="hero-sub editable" data-cms="hero_subheading">Nie skręcamy rowerów z katalogu. Budujemy maszyny pod konkretny cel, konkretne ciało i konkretne drogi. Od stali po tytan.</p>
   <div class="hero-cta-row">
-    <a href="#kontakt" class="btn-primary hero-cta-desktop editable" data-cms="hero_cta_label">Umów konsultację</a>
-    <a href="tel:+48500250068" class="btn-primary hero-cta-mobile editable" data-cms="hero_cta_label">Umów konsultację</a>
-    <a href="#uslugi" class="btn-ghost editable" data-cms="hero_cta_ghost">Zobacz usługi</a>
+    <a href="#kontakt" class="btn-primary hero-cta-desktop editable" data-cms="hero_cta_label" data-track="hero_cta_konsultacja">Umów konsultację</a>
+    <a href="tel:+48500250068" class="btn-primary hero-cta-mobile editable" data-cms="hero_cta_label" data-track="hero_cta_telefon">Umów konsultację</a>
+    <a href="#uslugi" class="btn-ghost editable" data-cms="hero_cta_ghost" data-track="hero_cta_uslugi">Zobacz usługi</a>
   </div>
   <div class="hero-address">Rakowicka 99 · Kraków · PL</div>
 </section>
@@ -558,7 +571,7 @@
   </div>
 
   <div class="gallery-cta reveal">
-    <a href="#kontakt" class="btn-ghost">Porozmawiajmy o Twoim projekcie →</a>
+    <a href="#kontakt" class="btn-ghost" data-track="galeria_cta_projekt">Porozmawiajmy o Twoim projekcie →</a>
   </div>
 </section>
 
@@ -568,8 +581,8 @@
   <h2 class="editable" data-cms="contact_heading">Zacznijmy<br><em>rozmawiać.</em></h2>
   <p class="editable" data-cms="contact_desc">Masz projekt, pytanie o serwis albo chcesz po prostu porozmawiać o kołach? Wpadnij na Rakowicką 99 albo napisz – nie owijamy w bawełnę.</p>
   <div class="cta-row">
-    <a href="/cdn-cgi/l/email-protection#8ae1e5e4feebe1fecaf3e5ffe4e3fbe8e3e1eff9a4fae6" class="btn-primary">Napisz do nas</a>
-    <a href="https://maps.app.goo.gl/XpUsyRzsvwveWy1d6" class="btn-ghost" target="_blank" rel="noopener">Znajdź warsztat</a>
+    <a href="/cdn-cgi/l/email-protection#8ae1e5e4feebe1fecaf3e5ffe4e3fbe8e3e1eff9a4fae6" class="btn-primary" data-track="cta_napisz_kontakt">Napisz do nas</a>
+    <a href="https://maps.app.goo.gl/XpUsyRzsvwveWy1d6" class="btn-ghost" target="_blank" rel="noopener" data-track="cta_znajdz_warsztat">Znajdź warsztat</a>
   </div>
   <p class="cta-info editable" data-cms="contact_info">
     Rakowicka 99, Kraków &nbsp;·&nbsp;
