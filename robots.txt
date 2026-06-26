@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Nie indeksuj panelu CMS
+Disallow: /admin/
+
+Sitemap: https://youniqservice.pl/sitemap.xml

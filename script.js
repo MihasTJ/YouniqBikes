@@ -135,15 +135,11 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ─── Mobilny przełącznik języka ──────────────────────────────────────────────
+// Nawigację /  ↔  /en/ obsługuje cms-loader.js (initLangSwitcher).
+// Tutaj zamykamy tylko menu mobilne przed przejściem na drugą wersję.
 var langMobile = document.getElementById('langSwitcherMobile');
 if (langMobile) {
-  langMobile.addEventListener('click', function() {
-    currentLang = (currentLang === 'pl') ? 'en' : 'pl';
-    localStorage.setItem('yb_lang', currentLang);
-    document.body.classList.remove('cms-ready');
-    loadCMSData(currentLang);
-    toggleMenu(false);
-  });
+  langMobile.addEventListener('click', function() { toggleMenu(false); });
 }
 
 // ─── Google Analytics 4 — Event Tracking ────────────────────────────────────

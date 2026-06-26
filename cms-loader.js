@@ -3,8 +3,13 @@
  * Obsługa dwujęzyczności (PL / EN) + ładowanie cennika.
  */
 
-// ─── Aktualny język ───────────────────────────────────────────────────────────
-var currentLang = localStorage.getItem('yb_lang') || 'pl';
+// ─── Aktualny język — wyznaczany ze ścieżki URL ────────────────────────────────
+// /en/ (oraz ewentualne podstrony /en/...) → angielski; pozostałe → polski.
+// Dzięki temu każda wersja językowa ma własny, indeksowalny adres.
+function detectLangFromPath() {
+  return /^\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pl';
+}
+var currentLang = detectLangFromPath();
 
 // ─── Załaduj js-yaml z CDN ────────────────────────────────────────────────────
 function loadScript(src) {
@@ -101,8 +106,6 @@ var uiStrings = {
     ticker: ['Custom Builds','Zaplatanie Kół','Serwis Premium','Shimano · SRAM · Campagnolo','Rowery Szosowe','Gravele','Wyprawówki','Ramy Stalowe & Tytanowe'],
     contact_btn_primary: 'Napisz do nas',
     contact_btn_ghost: 'Znajdź warsztat',
-    nav_filozofia: 'Filozofia',
-    filozofia_label: 'O nas / Filozofia',
     uslugi_label:    'Usługi',
     services_h2:     'Co robimy<br><em>naprawdę</em> dobrze.',
     dlaczego_label:  'Dlaczego My',
@@ -112,11 +115,13 @@ var uiStrings = {
     nav_uslugi:    'Usługi',
     nav_dlaczego:  'Dlaczego My',
     nav_cennik:    'Cennik',
+    opinie:        'Opinie',
     nav_galeria:   'Galeria',
     nav_kontakt:   'Kontakt',
     cennik_label:  'Cennik',
     opinie_label:  'Głos klientów',
     opinie_h2:     'Mówią to,<br>czego nie<br><em>piszemy sami.</em>',
+    opinie_cta:    'Zobacz wszystkie opinie w Google →',
     galeria_label: 'Galeria',
     galeria_h2:    'Style i<br><em>specjalizacje.</em>',
     galeria_sub:   'Rowery i usługi, które kochamy — od custom buildów po przywracanie klasyków do życia.',
@@ -131,8 +136,6 @@ var uiStrings = {
     ticker: ['Custom Builds','Wheel Lacing','Premium Service','Shimano · SRAM · Campagnolo','Road Bikes','Gravel Bikes','Touring Builds','Steel & Titanium Frames'],
     contact_btn_primary: 'Write to us',
     contact_btn_ghost: 'Find the workshop',
-    nav_filozofia: 'Philosophy',
-    filozofia_label: 'About / Philosophy',
     uslugi_label:    'Services',
     services_h2:     'What we do<br><em>really</em> well.',
     dlaczego_label:  'Why Us',
@@ -142,11 +145,13 @@ var uiStrings = {
     nav_uslugi:    'Services',
     nav_dlaczego:  'Why Us',
     nav_cennik:    'Pricing',
+    opinie:        'Reviews',
     nav_galeria:   'Gallery',
     nav_kontakt:   'Contact',
     cennik_label:  'Pricing',
     opinie_label:  'Client Voice',
     opinie_h2:     "Words we<br>didn't<br><em>write ourselves.</em>",
+    opinie_cta:    'See all reviews on Google →',
     galeria_label: 'Gallery',
     galeria_h2:    'Styles &<br><em>specialities.</em>',
     galeria_sub:   'Bikes and services we love — from custom builds to restoring classics.',
@@ -257,7 +262,6 @@ function applyPrices(data, lang) {
 
 var filesPL = [
   '/_data/hero.yml',
-  '/_data/filozofia.yml',
   '/_data/uslugi.yml',
   '/_data/dlaczego.yml',
   '/_data/faq.yml',
@@ -269,14 +273,13 @@ var filesPL = [
 
 var filesEN = [
   '/_data/hero_en.yml',
-  '/_data/filozofia_en.yml',
   '/_data/uslugi_en.yml',
   '/_data/dlaczego_en.yml',
   '/_data/faq_en.yml',
   '/_data/opinie_en.yml',
   '/_data/galeria_en.yml',
   '/_data/kontakt_en.yml',
-  '/_data/cennik.yml',     // 1. baza PL — zawiera price1..16 (liczby) w cat1/cat2/cat3
+  '/_data/cennik.yml',     // 1. baza PL — zawiera price1..21 (liczby) w cat1/cat2/cat3
   '/_data/cennik_en.yml',  // 2. EN nadpisuje tylko _service i nagłówki (bez liczb)
 ];
 
@@ -321,15 +324,17 @@ async function loadCMSData(lang) {
   if (window.revealGallery) window.revealGallery();
 }
 
-// ─── Przełącznik języka ───────────────────────────────────────────────────────
+// ─── Przełącznik języka — nawigacja między /  i  /en/ ──────────────────────────
+// Każda wersja językowa ma własny URL (lepsze SEO), więc przełącznik przenosi
+// na odpowiadającą stronę zamiast podmieniać treść w miejscu.
 function initLangSwitcher() {
-  var btn = document.getElementById('langSwitcher');
-  if (!btn) return;
-  btn.addEventListener('click', function() {
-    currentLang = (currentLang === 'pl') ? 'en' : 'pl';
-    localStorage.setItem('yb_lang', currentLang);
-    document.body.classList.remove('cms-ready');
-    loadCMSData(currentLang);
+  var targetByCurrent = { pl: '/en/', en: '/' };
+  ['langSwitcher', 'langSwitcherMobile'].forEach(function(id) {
+    var btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      window.location.href = targetByCurrent[currentLang];
+    });
   });
 }
 

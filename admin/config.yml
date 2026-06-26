@@ -25,22 +25,6 @@ collections:
           - { label: "Przycisk główny (CTA)", name: "hero_cta_label", widget: "string" }
           - { label: "Przycisk ghost", name: "hero_cta_ghost", widget: "string" }
 
-      - label: "Filozofia"
-        name: "filozofia"
-        file: "_data/filozofia.yml"
-        fields:
-          - { label: "Nagłówek sekcji", name: "philosophy_heading", widget: "string" }
-          - { label: "Akapit 1", name: "philosophy_p1", widget: "text" }
-          - { label: "Akapit 2", name: "philosophy_p2", widget: "text" }
-          - { label: "Stat 1 — liczba", name: "stat1_num", widget: "string" }
-          - { label: "Stat 1 — opis", name: "stat1_label", widget: "string" }
-          - { label: "Stat 2 — liczba", name: "stat2_num", widget: "string" }
-          - { label: "Stat 2 — opis", name: "stat2_label", widget: "string" }
-          - { label: "Stat 3 — liczba", name: "stat3_num", widget: "string" }
-          - { label: "Stat 3 — opis", name: "stat3_label", widget: "string" }
-          - { label: "Stat 4 — liczba", name: "stat4_num", widget: "string" }
-          - { label: "Stat 4 — opis", name: "stat4_label", widget: "string" }
-
       - label: "Dlaczego My"
         name: "dlaczego"
         file: "_data/dlaczego.yml"
@@ -201,22 +185,6 @@ collections:
           - { label: "Subheading", name: "hero_subheading", widget: "text" }
           - { label: "Primary CTA button", name: "hero_cta_label", widget: "string" }
           - { label: "Ghost button", name: "hero_cta_ghost", widget: "string" }
-
-      - label: "Philosophy"
-        name: "filozofia_en"
-        file: "_data/filozofia_en.yml"
-        fields:
-          - { label: "Section heading", name: "philosophy_heading", widget: "string" }
-          - { label: "Paragraph 1", name: "philosophy_p1", widget: "text" }
-          - { label: "Paragraph 2", name: "philosophy_p2", widget: "text" }
-          - { label: "Stat 1 — number", name: "stat1_num", widget: "string" }
-          - { label: "Stat 1 — label", name: "stat1_label", widget: "string" }
-          - { label: "Stat 2 — number", name: "stat2_num", widget: "string" }
-          - { label: "Stat 2 — label", name: "stat2_label", widget: "string" }
-          - { label: "Stat 3 — number", name: "stat3_num", widget: "string" }
-          - { label: "Stat 3 — label", name: "stat3_label", widget: "string" }
-          - { label: "Stat 4 — number", name: "stat4_num", widget: "string" }
-          - { label: "Stat 4 — label", name: "stat4_label", widget: "string" }
 
       - label: "Why Us"
         name: "dlaczego_en"

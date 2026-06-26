@@ -215,7 +215,7 @@
     padding-bottom: 2px;
     transition: color .2s, border-color .2s;
   }
-  .btn-ghost:hover { color: var(--off-white); border-color: var(--off-white); }
+  .btn-ghost:hover { color: var(--green); border-color: var(--green); }
 
   .hero-address {
     position: absolute;
@@ -315,54 +315,6 @@
     font-style: italic;
     font-weight: 300;
     color: var(--green);
-  }
-
-  /* ── PHILOSOPHY ── */
-  #filozofia {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    background:
-      radial-gradient(ellipse 50% 70% at 10% 50%, rgba(var(--green-rgb),.07) 0%, transparent 60%),
-      var(--black);
-  }
-  .philosophy-text p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--steel-light);
-    margin-top: 1.8rem;
-  }
-  .philosophy-text p strong {
-    color: var(--off-white);
-    font-weight: 400;
-  }
-  .philosophy-stat-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: rgba(122,132,144,.15);
-  }
-  .stat {
-    background: rgba(10,10,8,.95);
-    padding: 2.5rem 2rem;
-  }
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--green);
-  }
-  .stat-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-top: .5rem;
   }
 
   /* ── SERVICES ── */
@@ -634,6 +586,26 @@
     letter-spacing: .2em;
     text-transform: uppercase;
     color: var(--text-dim);
+  }
+  .reviews-cta {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .reviews-cta-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--steel-light);
+    border-bottom: 1px solid var(--steel);
+    padding-bottom: 3px;
+    transition: color .2s, border-color .2s;
+  }
+  .reviews-cta-link:hover {
+    color: var(--green);
+    border-color: var(--green);
   }
 
   /* ── GALERIA ── */
@@ -1068,7 +1040,6 @@
     .nav-mobile { display: flex; }
     section { padding: 5rem 1.5rem; }
     #hero { padding: 0 1.5rem 5rem; }
-    #filozofia { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; gap: 3rem; }
     .reviews-grid { grid-template-columns: 1fr; }
