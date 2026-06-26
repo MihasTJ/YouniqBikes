@@ -221,31 +221,38 @@ function applyUI(lang) {
 }
 
 // ─── Formatuj ceny z cennik.yml ──────────────────────────────────────────────
-// Ceny (liczby) są w cennik.yml zagnieżdżone w cat1/cat2/cat3.
-// Po flattenNested() są dostępne jako price1..price16.
-// PL → "od X zł", EN → "from X PLN". price15=0 → bezpłatna/free.
+// Ceny są w cennik.yml zagnieżdżone w cat1/cat2/cat3.
+// Po flattenNested() są dostępne jako price1..price21.
+// • Wartość liczbowa  → PL "od X zł" / EN "from X PLN".
+// • price21 (stawka godzinowa) → PL "X zł / h" / EN "X PLN / h".
+// • Wartość tekstowa (np. "wycena indywidualna") → użyta dosłownie.
+//   Dla EN tekst nadpisuje się w cennik_en.yml (np. "individual quote").
+var hourlyPriceKeys = { price21: true };
+
 function applyPrices(data, lang) {
   var isPL = (lang !== 'en');
-  for (var i = 1; i <= 16; i++) {
-    var raw = data['price' + i];
-    if (raw === undefined) continue;
+  for (var i = 1; i <= 21; i++) {
+    var key = 'price' + i;
+    var raw = data[key];
+    if (raw === undefined || raw === null || raw === '') continue;
+
+    // Wartość nienumeryczna — użyj jako gotowy tekst ceny.
+    if (isNaN(Number(raw))) { data[key + '_price'] = String(raw); continue; }
+
     var num = Number(raw);
     var formatted;
-    if (i === 15 && num === 0) {
-      formatted = isPL ? 'bezpłatna' : 'free';
-    } else if (i === 16) {
+    if (hourlyPriceKeys[key]) {
       formatted = isPL ? (num + ' zł / h') : (num + ' PLN / h');
     } else {
       formatted = isPL ? ('od ' + num + ' zł') : ('from ' + num + ' PLN');
     }
-    data['price' + i + '_price'] = formatted;
+    data[key + '_price'] = formatted;
   }
   return data;
 }
 
 // ─── Pliki YAML dla każdego języka ───────────────────────────────────────────
-// UWAGA: cennik_prices.yml został usunięty z obu list.
-// Ceny są teraz wyłącznie w cennik.yml (cat1/cat2/cat3 → price1..16).
+// Ceny są wyłącznie w cennik.yml (cat1/cat2/cat3 → price1..21).
 // Edycja w CMS → zapis do cennik.yml → strona czyta z cennik.yml. ✓
 
 var filesPL = [

@@ -4,40 +4,52 @@ cennik_desc: Ceny robocizny — bez kosztów części. Wycena indywidualna przy
 cennik_note: "* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i
   zawsze konsultowany z klientem przed zakupem."
 cat1:
-  price3_service: Wymiana szprychy (szt.)
-  price4_service: Przygotowanie pod tubeless
-  price5_service: Wymiana dętki / opony (przód)
-  price6_service: Wymiana dętki / opony (tył)
-  price1: 210
-  price2: 60
-  price3: 25
-  price4: 80
-  price5: 30
-  price6: 40
   cat1_title: Koła
-  price1_service: Zaplatanie koła (hand-built)
+  price1_service: Zaplatanie i centrowanie koła (hand-built)
+  price1: 120
   price2_service: Centrowanie koła
+  price2: 50
+  price3_service: Przygotowanie pod tubeless i montaż opony
+  price3: 90
+  price4_service: Wymiana dętki / opony
+  price4: 30
+  price5_service: Wymiana dętki / opony (rowery z zabudowanym napędem lub
+    silnikiem w piaście)
+  price5: 90
 cat2:
-  price12_service: Serwis piasty tylnej
-  price7_service: Regulacja przerzutki (1 szt.)
-  price8_service: Regulacja hamulców mechanicznych
-  price9_service: Odpowietrzenie hamulców hydraulicznych
-  price10: 45
-  price11: 60
-  price12: 80
-  price7: 40
-  price8: 40
-  price9: 100
   cat2_title: Napęd & Hamulce
-  price10_service: Wymiana linki + pancerza
-  price11_service: Serwis suportu
+  price6_service: Regulacja przerzutki
+  price6: 30
+  price7_service: Wymiana linki i pancerza wraz z regulacją
+  price7: 50
+  price8_service: Regulacja hamulca mechanicznego / hydraulicznego
+  price8: 30
+  price9_service: Odpowietrzenie i regulacja hamulca hydraulicznego Shimano
+  price9: 80
+  price10_service: Wymiana przewodu / zacisku lub klamki hamulcowej Shimano
+  price10: 100
+  price11_service: Wymiana klocków hamulcowych wraz z wyczyszczeniem tarczy i
+    zacisku
+  price11: 60
+  price12_service: Wymiana wkładu suportu
+  price12: 80
+  price13_service: Wymiana łańcucha i kasety
+  price13: 80
+  price14_service: Wymiana całego napędu
+  price14: 160
+  price15_service: Kompleksowe mycie napędu
+  price15: 250
 cat3:
-  price13_service: Przegląd podstawowy
-  price14_service: Przegląd rozszerzony (sezonowy)
-  price15_service: Custom Build — konsultacja
-  price16_service: Stawka godzinowa (prace niestandardowe)
-  price13: 150
-  price14: 310
-  price15: 0
-  price16: 100
   cat3_title: Przeglądy & Custom
+  price16_service: Przegląd podstawowy
+  price16: 150
+  price17_service: Przegląd rozszerzony (sezonowy)
+  price17: 300
+  price18_service: Serwis olejowy widelca / dampera
+  price18: wycena indywidualna
+  price19_service: Montaż nowego roweru z kartonu
+  price19: 190
+  price20_service: Kompleksowe mycie roweru i napędu
+  price20: 250
+  price21_service: Stawka godzinowa (prace niestandardowe)
+  price21: 100

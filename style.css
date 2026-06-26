@@ -2,8 +2,9 @@
     --black: #0a0a08;
     --off-white: #f2ede6;
     --cream: #e8e0d4;
-    --rust: #5CC8C0;
-    --rust-dark: #3AABA7;
+    --green: #6CBE45;
+    --green-dark: #569C32;
+    --green-rgb: 108, 190, 69;
     --steel: #7a8490;
     --steel-light: #b0bec5;
     --text-dim: #6b6558;
@@ -19,7 +20,7 @@
     top: -100%;
     left: 1rem;
     z-index: 9999;
-    background: var(--rust);
+    background: var(--green);
     color: var(--off-white);
     padding: .6rem 1.2rem;
     font-family: 'Barlow Condensed', sans-serif;
@@ -57,7 +58,7 @@
     color: var(--off-white);
     text-decoration: none;
   }
-  .nav-logo span { color: var(--rust); }
+  .nav-logo span { color: var(--green); }
   nav ul { list-style: none; display: flex; gap: 2.4rem; }
   nav ul a {
     font-family: 'Barlow Condensed', sans-serif;
@@ -69,9 +70,9 @@
     text-decoration: none;
     transition: color .2s;
   }
-  nav ul a:hover { color: var(--rust); }
+  nav ul a:hover { color: var(--green); }
   nav ul a.active {
-    color: var(--rust);
+    color: var(--green);
     position: relative;
   }
   nav ul a.active::after {
@@ -81,7 +82,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--rust);
+    background: var(--green);
     opacity: .6;
   }
 
@@ -105,7 +106,7 @@
   .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(92,200,192,.12) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(var(--green-rgb),.12) 0%, transparent 65%),
       linear-gradient(160deg, #0a0a08 0%, #12100e 40%, #1a1208 100%);
   }
 
@@ -113,8 +114,8 @@
   .hero-grid {
     position: absolute; inset: 0; pointer-events: none;
     background-image:
-      linear-gradient(rgba(92,200,192,.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(92,200,192,.07) 1px, transparent 1px);
+      linear-gradient(rgba(var(--green-rgb),.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--green-rgb),.07) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: gridDrift 30s linear infinite;
   }
@@ -129,7 +130,7 @@
     font-weight: 600;
     letter-spacing: .35em;
     text-transform: uppercase;
-    color: var(--rust);
+    color: var(--green);
     margin-bottom: 1.2rem;
     opacity: 0;
     animation: fadeUp .8s .3s forwards;
@@ -151,7 +152,7 @@
     font-style: italic;
     font-family: 'Crimson Pro', serif;
     font-weight: 300;
-    color: var(--rust);
+    color: var(--green);
   }
 
   .hero-sub {
@@ -195,12 +196,12 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--off-white);
-    background: var(--rust);
+    background: var(--green);
     padding: .85rem 2.4rem;
     display: inline-block;
     transition: background .2s, transform .15s;
   }
-  .btn-primary:hover { background: var(--rust-dark); transform: translateY(-2px); }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
 
   .btn-ghost {
     font-family: 'Barlow Condensed', sans-serif;
@@ -240,14 +241,14 @@
   .divider {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--rust), transparent);
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
     opacity: .4;
   }
 
   /* ── TICKER ── */
   .ticker-wrap {
     overflow: hidden;
-    background: var(--rust);
+    background: var(--green);
     padding: .6rem 0;
   }
   .ticker {
@@ -286,7 +287,7 @@
     font-weight: 700;
     letter-spacing: .38em;
     text-transform: uppercase;
-    color: var(--rust);
+    color: var(--green);
     margin-bottom: 1.6rem;
     display: flex;
     align-items: center;
@@ -297,7 +298,7 @@
     flex: 1;
     max-width: 40px;
     height: 1px;
-    background: var(--rust);
+    background: var(--green);
     opacity: .5;
   }
   h2 {
@@ -313,7 +314,7 @@
     font-family: 'Crimson Pro', serif;
     font-style: italic;
     font-weight: 300;
-    color: var(--rust);
+    color: var(--green);
   }
 
   /* ── PHILOSOPHY ── */
@@ -323,7 +324,7 @@
     gap: 6rem;
     align-items: center;
     background:
-      radial-gradient(ellipse 50% 70% at 10% 50%, rgba(92,200,192,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 10% 50%, rgba(var(--green-rgb),.07) 0%, transparent 60%),
       var(--black);
   }
   .philosophy-text p {
@@ -352,7 +353,7 @@
     font-weight: 900;
     font-size: 3.5rem;
     line-height: 1;
-    color: var(--rust);
+    color: var(--green);
   }
   .stat-label {
     font-family: 'Barlow Condensed', sans-serif;
@@ -394,7 +395,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--rust);
+    background: var(--green);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .35s ease;
@@ -407,7 +408,7 @@
     font-size: .65rem;
     font-weight: 700;
     letter-spacing: .3em;
-    color: var(--rust);
+    color: var(--green);
     opacity: .6;
     margin-bottom: 2rem;
   }
@@ -452,7 +453,7 @@
   /* ── DLACZEGO MY ── */
   #dlaczego {
     background:
-      radial-gradient(ellipse 70% 60% at 80% 40%, rgba(92,200,192,.09) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 80% 40%, rgba(var(--green-rgb),.09) 0%, transparent 60%),
       var(--black);
   }
   .why-grid {
@@ -469,7 +470,7 @@
     font-style: italic;
     line-height: 1.55;
     color: var(--off-white);
-    border-left: 2px solid var(--rust);
+    border-left: 2px solid var(--green);
     padding-left: 2rem;
   }
   .why-list { display: flex; flex-direction: column; gap: 0; }
@@ -493,7 +494,7 @@
   .why-item-title::before {
     content: '';
     width: 6px; height: 6px;
-    background: var(--rust);
+    background: var(--green);
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -556,7 +557,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--rust);
+    color: var(--green);
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
@@ -586,7 +587,7 @@
   }
 
   .faq-answer strong {
-    color: var(--rust);
+    color: var(--green);
     font-weight: 900;
   }
 
@@ -613,7 +614,7 @@
     padding: 2.5rem 2rem;
   }
   .review-stars {
-    color: var(--rust);
+    color: var(--green);
     font-size: .85rem;
     letter-spacing: .1em;
     margin-bottom: 1.2rem;
@@ -730,7 +731,7 @@
     font-weight: 700;
     letter-spacing: .3em;
     text-transform: uppercase;
-    color: var(--rust);
+    color: var(--green);
     margin-bottom: .5rem;
   }
 
@@ -766,7 +767,7 @@
     text-align: center;
     padding: 9rem 3rem;
     background:
-      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(92,200,192,.14) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(var(--green-rgb),.14) 0%, transparent 65%),
       var(--black);
     position: relative;
     overflow: hidden;
@@ -777,7 +778,7 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 28vw;
-    color: rgba(92,200,192,.06);
+    color: rgba(var(--green-rgb),.06);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -812,7 +813,7 @@
     color: var(--text-dim);
   }
   .cta-info a { color: var(--steel-light); text-decoration: none; }
-  .cta-info a:hover { color: var(--rust); }
+  .cta-info a:hover { color: var(--green); }
 
   /* ── LANG SWITCHER ── */
   .lang-switcher {
@@ -831,7 +832,7 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .lang-switcher:hover { border-color: var(--rust); color: var(--rust); }
+  .lang-switcher:hover { border-color: var(--green); color: var(--green); }
   .lang-sep { color: var(--text-dim); }
 
   /* ── CENNIK ── */
@@ -865,10 +866,10 @@
     font-weight: 700;
     letter-spacing: .3em;
     text-transform: uppercase;
-    color: var(--rust);
+    color: var(--green);
     margin-bottom: 1.8rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(92,200,192,.25);
+    border-bottom: 1px solid rgba(var(--green-rgb),.25);
   }
   .cennik-row {
     display: flex;
@@ -882,7 +883,7 @@
     line-height: 1.4;
   }
   .cennik-row:last-child { border-bottom: none; }
-  .cennik-row--highlight .cennik-price { color: var(--rust); }
+  .cennik-row--highlight .cennik-price { color: var(--green); }
   .cennik-price {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: .85rem;
@@ -922,7 +923,7 @@
     text-transform: uppercase;
     color: var(--off-white);
   }
-  .footer-logo span { color: var(--rust); }
+  .footer-logo span { color: var(--green); }
   footer p {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: .62rem;
@@ -1017,7 +1018,7 @@
     text-decoration: none;
     transition: color .2s;
   }
-  .nav-mobile a:hover { color: var(--rust); }
+  .nav-mobile a:hover { color: var(--green); }
   .nav-mobile .lang-switcher {
     margin-top: 1rem;
     font-size: .85rem;
@@ -1031,7 +1032,7 @@
     right: 2rem;
     width: 46px;
     height: 46px;
-    background: var(--rust);
+    background: var(--green);
     border: none;
     cursor: pointer;
     display: flex;
@@ -1048,7 +1049,7 @@
     transform: translateY(0);
     pointer-events: all;
   }
-  .scroll-top:hover { background: var(--rust-dark); }
+  .scroll-top:hover { background: var(--green-dark); }
   .scroll-top svg {
     width: 18px;
     height: 18px;

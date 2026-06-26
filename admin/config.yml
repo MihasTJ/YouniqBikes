@@ -97,18 +97,16 @@ collections:
             collapsed: false
             fields:
               - { label: "Tytuł kategorii", name: "cat1_title", widget: "string", default: "Koła" }
-              - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string", default: "Zaplatanie koła (hand-built)" }
-              - { label: "Usługa 1 — cena (zł)", name: "price1", widget: "number", value_type: "int", min: 0, default: 200 }
+              - { label: "Usługa 1 — nazwa", name: "price1_service", widget: "string", default: "Zaplatanie i centrowanie koła (hand-built)" }
+              - { label: "Usługa 1 — cena (zł)", name: "price1", widget: "number", value_type: "int", min: 0, default: 120 }
               - { label: "Usługa 2 — nazwa", name: "price2_service", widget: "string", default: "Centrowanie koła" }
-              - { label: "Usługa 2 — cena (zł)", name: "price2", widget: "number", value_type: "int", min: 0, default: 60 }
-              - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string", default: "Wymiana szprychy (szt.)" }
-              - { label: "Usługa 3 — cena (zł)", name: "price3", widget: "number", value_type: "int", min: 0, default: 25 }
-              - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string", default: "Przygotowanie pod tubeless" }
-              - { label: "Usługa 4 — cena (zł)", name: "price4", widget: "number", value_type: "int", min: 0, default: 80 }
-              - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string", default: "Wymiana dętki / opony (przód)" }
-              - { label: "Usługa 5 — cena (zł)", name: "price5", widget: "number", value_type: "int", min: 0, default: 30 }
-              - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string", default: "Wymiana dętki / opony (tył)" }
-              - { label: "Usługa 6 — cena (zł)", name: "price6", widget: "number", value_type: "int", min: 0, default: 40 }
+              - { label: "Usługa 2 — cena (zł)", name: "price2", widget: "number", value_type: "int", min: 0, default: 50 }
+              - { label: "Usługa 3 — nazwa", name: "price3_service", widget: "string", default: "Przygotowanie pod tubeless i montaż opony" }
+              - { label: "Usługa 3 — cena (zł)", name: "price3", widget: "number", value_type: "int", min: 0, default: 90 }
+              - { label: "Usługa 4 — nazwa", name: "price4_service", widget: "string", default: "Wymiana dętki / opony" }
+              - { label: "Usługa 4 — cena (zł)", name: "price4", widget: "number", value_type: "int", min: 0, default: 30 }
+              - { label: "Usługa 5 — nazwa", name: "price5_service", widget: "string", default: "Wymiana dętki / opony (rowery z zabudowanym napędem lub silnikiem w piaście)" }
+              - { label: "Usługa 5 — cena (zł)", name: "price5", widget: "number", value_type: "int", min: 0, default: 90 }
 
           - widget: "object"
             label: "Napęd & Hamulce"
@@ -116,18 +114,26 @@ collections:
             collapsed: false
             fields:
               - { label: "Tytuł kategorii", name: "cat2_title", widget: "string", default: "Napęd & Hamulce" }
-              - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string", default: "Regulacja przerzutki (1 szt.)" }
-              - { label: "Usługa 7 — cena (zł)", name: "price7", widget: "number", value_type: "int", min: 0, default: 40 }
-              - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string", default: "Regulacja hamulców mechanicznych" }
-              - { label: "Usługa 8 — cena (zł)", name: "price8", widget: "number", value_type: "int", min: 0, default: 35 }
-              - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string", default: "Odpowietrzenie hamulców hydraulicznych" }
-              - { label: "Usługa 9 — cena (zł)", name: "price9", widget: "number", value_type: "int", min: 0, default: 100 }
-              - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string", default: "Wymiana linki + pancerza" }
-              - { label: "Usługa 10 — cena (zł)", name: "price10", widget: "number", value_type: "int", min: 0, default: 45 }
-              - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string", default: "Serwis suportu" }
+              - { label: "Usługa 6 — nazwa", name: "price6_service", widget: "string", default: "Regulacja przerzutki" }
+              - { label: "Usługa 6 — cena (zł)", name: "price6", widget: "number", value_type: "int", min: 0, default: 30 }
+              - { label: "Usługa 7 — nazwa", name: "price7_service", widget: "string", default: "Wymiana linki i pancerza wraz z regulacją" }
+              - { label: "Usługa 7 — cena (zł)", name: "price7", widget: "number", value_type: "int", min: 0, default: 50 }
+              - { label: "Usługa 8 — nazwa", name: "price8_service", widget: "string", default: "Regulacja hamulca mechanicznego / hydraulicznego" }
+              - { label: "Usługa 8 — cena (zł)", name: "price8", widget: "number", value_type: "int", min: 0, default: 30 }
+              - { label: "Usługa 9 — nazwa", name: "price9_service", widget: "string", default: "Odpowietrzenie i regulacja hamulca hydraulicznego Shimano" }
+              - { label: "Usługa 9 — cena (zł)", name: "price9", widget: "number", value_type: "int", min: 0, default: 80 }
+              - { label: "Usługa 10 — nazwa", name: "price10_service", widget: "string", default: "Wymiana przewodu / zacisku lub klamki hamulcowej Shimano" }
+              - { label: "Usługa 10 — cena (zł)", name: "price10", widget: "number", value_type: "int", min: 0, default: 100 }
+              - { label: "Usługa 11 — nazwa", name: "price11_service", widget: "string", default: "Wymiana klocków hamulcowych wraz z wyczyszczeniem tarczy i zacisku" }
               - { label: "Usługa 11 — cena (zł)", name: "price11", widget: "number", value_type: "int", min: 0, default: 60 }
-              - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string", default: "Serwis piasty tylnej" }
+              - { label: "Usługa 12 — nazwa", name: "price12_service", widget: "string", default: "Wymiana wkładu suportu" }
               - { label: "Usługa 12 — cena (zł)", name: "price12", widget: "number", value_type: "int", min: 0, default: 80 }
+              - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string", default: "Wymiana łańcucha i kasety" }
+              - { label: "Usługa 13 — cena (zł)", name: "price13", widget: "number", value_type: "int", min: 0, default: 80 }
+              - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string", default: "Wymiana całego napędu" }
+              - { label: "Usługa 14 — cena (zł)", name: "price14", widget: "number", value_type: "int", min: 0, default: 160 }
+              - { label: "Usługa 15 — nazwa", name: "price15_service", widget: "string", default: "Kompleksowe mycie napędu" }
+              - { label: "Usługa 15 — cena (zł)", name: "price15", widget: "number", value_type: "int", min: 0, default: 250 }
 
           - widget: "object"
             label: "Przeglądy & Custom"
@@ -135,14 +141,18 @@ collections:
             collapsed: false
             fields:
               - { label: "Tytuł kategorii", name: "cat3_title", widget: "string", default: "Przeglądy & Custom" }
-              - { label: "Usługa 13 — nazwa", name: "price13_service", widget: "string", default: "Przegląd podstawowy" }
-              - { label: "Usługa 13 — cena (zł)", name: "price13", widget: "number", value_type: "int", min: 0, default: 150 }
-              - { label: "Usługa 14 — nazwa", name: "price14_service", widget: "string", default: "Przegląd rozszerzony (sezonowy)" }
-              - { label: "Usługa 14 — cena (zł)", name: "price14", widget: "number", value_type: "int", min: 0, default: 300 }
-              - { label: "Usługa 15 — nazwa", name: "price15_service", widget: "string", default: "Custom Build — konsultacja" }
-              - { label: "Usługa 15 — cena (zł, 0 = bezpłatna)", name: "price15", widget: "number", value_type: "int", min: 0, default: 0 }
-              - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string", default: "Stawka godzinowa (prace niestandardowe)" }
-              - { label: "Usługa 16 — stawka (zł/h)", name: "price16", widget: "number", value_type: "int", min: 0, default: 100 }
+              - { label: "Usługa 16 — nazwa", name: "price16_service", widget: "string", default: "Przegląd podstawowy" }
+              - { label: "Usługa 16 — cena (zł)", name: "price16", widget: "number", value_type: "int", min: 0, default: 150 }
+              - { label: "Usługa 17 — nazwa", name: "price17_service", widget: "string", default: "Przegląd rozszerzony (sezonowy)" }
+              - { label: "Usługa 17 — cena (zł)", name: "price17", widget: "number", value_type: "int", min: 0, default: 300 }
+              - { label: "Usługa 18 — nazwa", name: "price18_service", widget: "string", default: "Serwis olejowy widelca / dampera" }
+              - { label: "Usługa 18 — cena (tekst, np. wycena indywidualna)", name: "price18", widget: "string", default: "wycena indywidualna" }
+              - { label: "Usługa 19 — nazwa", name: "price19_service", widget: "string", default: "Montaż nowego roweru z kartonu" }
+              - { label: "Usługa 19 — cena (zł)", name: "price19", widget: "number", value_type: "int", min: 0, default: 190 }
+              - { label: "Usługa 20 — nazwa", name: "price20_service", widget: "string", default: "Kompleksowe mycie roweru i napędu" }
+              - { label: "Usługa 20 — cena (zł)", name: "price20", widget: "number", value_type: "int", min: 0, default: 250 }
+              - { label: "Usługa 21 — nazwa", name: "price21_service", widget: "string", default: "Stawka godzinowa (prace niestandardowe)" }
+              - { label: "Usługa 21 — stawka (zł/h)", name: "price21", widget: "number", value_type: "int", min: 0, default: 100 }
 
       - label: "Galeria realizacji"
         name: "galeria"
@@ -270,7 +280,6 @@ collections:
               - { label: "Service 3 — name", name: "price3_service", widget: "string" }
               - { label: "Service 4 — name", name: "price4_service", widget: "string" }
               - { label: "Service 5 — name", name: "price5_service", widget: "string" }
-              - { label: "Service 6 — name", name: "price6_service", widget: "string" }
 
           - widget: "object"
             label: "Drivetrain & Brakes"
@@ -278,12 +287,16 @@ collections:
             collapsed: false
             fields:
               - { label: "Category title", name: "cat2_title", widget: "string" }
+              - { label: "Service 6 — name", name: "price6_service", widget: "string" }
               - { label: "Service 7 — name", name: "price7_service", widget: "string" }
               - { label: "Service 8 — name", name: "price8_service", widget: "string" }
               - { label: "Service 9 — name", name: "price9_service", widget: "string" }
               - { label: "Service 10 — name", name: "price10_service", widget: "string" }
               - { label: "Service 11 — name", name: "price11_service", widget: "string" }
               - { label: "Service 12 — name", name: "price12_service", widget: "string" }
+              - { label: "Service 13 — name", name: "price13_service", widget: "string" }
+              - { label: "Service 14 — name", name: "price14_service", widget: "string" }
+              - { label: "Service 15 — name", name: "price15_service", widget: "string" }
 
           - widget: "object"
             label: "Service & Custom"
@@ -291,10 +304,13 @@ collections:
             collapsed: false
             fields:
               - { label: "Category title", name: "cat3_title", widget: "string" }
-              - { label: "Service 13 — name", name: "price13_service", widget: "string" }
-              - { label: "Service 14 — name", name: "price14_service", widget: "string" }
-              - { label: "Service 15 — name", name: "price15_service", widget: "string" }
               - { label: "Service 16 — name", name: "price16_service", widget: "string" }
+              - { label: "Service 17 — name", name: "price17_service", widget: "string" }
+              - { label: "Service 18 — name", name: "price18_service", widget: "string" }
+              - { label: "Service 18 — price (text)", name: "price18", widget: "string" }
+              - { label: "Service 19 — name", name: "price19_service", widget: "string" }
+              - { label: "Service 20 — name", name: "price20_service", widget: "string" }
+              - { label: "Service 21 — name", name: "price21_service", widget: "string" }
 
       - label: "Contact"
         name: "kontakt_en"
