@@ -1,6 +1,7 @@
-gallery1_img: /images/uploads/photo-1-change.webp
+gallery1_img: https://cdn.pixabay.com/photo/2026/05/27/15/31/15-31-55-718_1280.jpg
 gallery1_tag: Custom Build
-gallery1_caption: Szosa wyścigowa na miarę<br><span>Budujemy od zera — pod Twój cel i budżet</span>
+gallery1_caption: Szosa wyścigowa na miarę<br><span>Budujemy od zera — pod Twój
+  cel i budżet</span>
 gallery2_img: https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&q=80
 gallery2_tag: Koła Hand-Built
 gallery2_caption: Ręcznie zaplatane koła<br><span>Precyzyjny naciąg · maksymalna trwałość</span>
@@ -12,7 +13,9 @@ gallery4_tag: Custom Build
 gallery4_caption: Gravel na długi dystans<br><span>Konfiguracja pod wyprawy i bezdroża</span>
 gallery5_img: https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80
 gallery5_tag: Renowacja
-gallery5_caption: Drugie życie klasyka<br><span>Przywracamy rowery do formy — niezależnie od wieku</span>
+gallery5_caption: Drugie życie klasyka<br><span>Przywracamy rowery do formy —
+  niezależnie od wieku</span>
 gallery6_img: https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=800&q=80
 gallery6_tag: Detal
-gallery6_caption: Jakość w każdym detalu<br><span>Montaż · wykończenie · idealne dopasowanie</span>
+gallery6_caption: Jakość w każdym detalu<br><span>Montaż · wykończenie · idealne
+  dopasowanie</span>
