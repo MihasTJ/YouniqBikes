@@ -3,53 +3,51 @@ cennik_desc: Ceny robocizny — bez kosztów części. Wycena indywidualna przy
   przyjęciu roweru. Bez niespodzianek.
 cennik_note: "* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i
   zawsze konsultowany z klientem przed zakupem."
+cat3:
+  price16_service: Przegląd podstawowy - test
+  price17_service: Przegląd rozszerzony (sezonowy)
+  price18_service: Serwis olejowy widelca / dampera
+  price20: 250
+  price19_service: Montaż nowego roweru z kartonu
+  price21: 100
+  price16: 200
+  price17: 300
+  price18: wycena indywidualna
+  price19: 190
+  cat3_title: Przeglądy & Custom
+  price20_service: Kompleksowe mycie roweru i napędu
+  price21_service: Stawka godzinowa (prace niestandardowe)
+cat2:
+  price12_service: Wymiana wkładu suportu
+  price13_service: Wymiana łańcucha i kasety
+  price14_service: Wymiana całego napędu
+  price6_service: Regulacja przerzutki
+  price15_service: Kompleksowe mycie napędu
+  price7_service: Wymiana linki i pancerza wraz z regulacją
+  price8_service: Regulacja hamulca mechanicznego / hydraulicznego
+  price9_service: Odpowietrzenie i regulacja hamulca hydraulicznego Shimano
+  price10: 100
+  price11: 60
+  price12: 80
+  price13: 80
+  price14: 160
+  price6: 30
+  price15: 250
+  price7: 50
+  price8: 30
+  price9: 80
+  cat2_title: Napęd & Hamulce
+  price10_service: Wymiana przewodu / zacisku lub klamki hamulcowej Shimano
+  price11_service: Wymiana klocków hamulcowych wraz z wyczyszczeniem tarczy i zacisku
 cat1:
+  price3_service: Przygotowanie pod tubeless i montaż opony
+  price4_service: Wymiana dętki / opony
+  price5_service: Wymiana dętki / opony (rowery z zabudowanym napędem lub silnikiem w piaście)
+  price1: 120
+  price2: 50
+  price3: 90
+  price4: 30
+  price5: 90
   cat1_title: Koła
   price1_service: Zaplatanie i centrowanie koła (hand-built)
-  price1: 120
   price2_service: Centrowanie koła
-  price2: 50
-  price3_service: Przygotowanie pod tubeless i montaż opony
-  price3: 90
-  price4_service: Wymiana dętki / opony
-  price4: 30
-  price5_service: Wymiana dętki / opony (rowery z zabudowanym napędem lub
-    silnikiem w piaście)
-  price5: 90
-cat2:
-  cat2_title: Napęd & Hamulce
-  price6_service: Regulacja przerzutki
-  price6: 30
-  price7_service: Wymiana linki i pancerza wraz z regulacją
-  price7: 50
-  price8_service: Regulacja hamulca mechanicznego / hydraulicznego
-  price8: 30
-  price9_service: Odpowietrzenie i regulacja hamulca hydraulicznego Shimano
-  price9: 80
-  price10_service: Wymiana przewodu / zacisku lub klamki hamulcowej Shimano
-  price10: 100
-  price11_service: Wymiana klocków hamulcowych wraz z wyczyszczeniem tarczy i
-    zacisku
-  price11: 60
-  price12_service: Wymiana wkładu suportu
-  price12: 80
-  price13_service: Wymiana łańcucha i kasety
-  price13: 80
-  price14_service: Wymiana całego napędu
-  price14: 160
-  price15_service: Kompleksowe mycie napędu
-  price15: 250
-cat3:
-  cat3_title: Przeglądy & Custom
-  price16_service: Przegląd podstawowy
-  price16: 150
-  price17_service: Przegląd rozszerzony (sezonowy)
-  price17: 300
-  price18_service: Serwis olejowy widelca / dampera
-  price18: wycena indywidualna
-  price19_service: Montaż nowego roweru z kartonu
-  price19: 190
-  price20_service: Kompleksowe mycie roweru i napędu
-  price20: 250
-  price21_service: Stawka godzinowa (prace niestandardowe)
-  price21: 100
