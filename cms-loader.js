@@ -41,24 +41,56 @@ function linkifyPhone(value) {
   });
 }
 
+// ─── Optymalizuj URL zdjęcia do WebP ─────────────────────────────────────────
+// Unsplash: dodaj fm=webp (serwer zwróci WebP zamiast JPEG).
+// Lokalne uploads (.jpg/.jpeg/.png): zamień na .webp; jeśli plik nie istnieje
+// (onerror), załaduj oryginalne rozszerzenie jako fallback.
+function optimizeImageUrl(src) {
+  if (!src) return src;
+  if (src.includes('unsplash.com')) {
+    var sep = src.includes('?') ? '&' : '?';
+    return src.replace(/[&?]fm=\w+/, '') + sep + 'fm=webp';
+  }
+  return src;
+}
+
+function toWebpUrl(src) {
+  return src.replace(/\.(jpe?g|png)(\?.*)?$/i, '.webp');
+}
+
 // ─── Załaduj zdjęcie w tle, pokaż gdy gotowe ─────────────────────────────────
 function loadImageWhenReady(imgEl, src) {
   return new Promise(function(resolve) {
     if (!src) { resolve(); return; }
+
+    var finalSrc = optimizeImageUrl(src);
+
+    // Dla lokalnych plików JPG/PNG: próbuj WebP, fallback do oryginału
+    var isLocalUpload = /^\/images\/uploads\//i.test(finalSrc);
+    var needsWebpTry  = isLocalUpload && /\.(jpe?g|png)(\?.*)?$/i.test(finalSrc);
+    var webpSrc       = needsWebpTry ? toWebpUrl(finalSrc) : null;
+
+    function applyAndResolve(url) {
+      imgEl.src = url;
+      imgEl.classList.add('loaded');
+      imgEl.style.opacity = '1';
+      resolve();
+    }
+
     var temp = new window.Image();
-    temp.onload = function() {
-      imgEl.src = src;
-      imgEl.classList.add('loaded');
-      imgEl.style.opacity = '1';
-      resolve();
-    };
+    temp.onload = function() { applyAndResolve(temp.src); };
     temp.onerror = function() {
-      imgEl.src = src;
-      imgEl.classList.add('loaded');
-      imgEl.style.opacity = '1';
-      resolve();
+      if (webpSrc && temp.src === webpSrc) {
+        // WebP nie zadziałało — użyj oryginału
+        var fallback = new window.Image();
+        fallback.onload = function() { applyAndResolve(finalSrc); };
+        fallback.onerror = function() { applyAndResolve(finalSrc); };
+        fallback.src = finalSrc;
+      } else {
+        applyAndResolve(finalSrc);
+      }
     };
-    temp.src = src;
+    temp.src = webpSrc || finalSrc;
   });
 }
 
