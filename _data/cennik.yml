@@ -4,13 +4,13 @@ cennik_desc: Ceny robocizny — bez kosztów części. Wycena indywidualna przy
 cennik_note: "* Ceny dotyczą robocizny. Koszt części wyceniany indywidualnie i
   zawsze konsultowany z klientem przed zakupem."
 cat3:
-  price16_service: Przegląd podstawowy - test
+  price16_service: Przegląd podstawowy
   price17_service: Przegląd rozszerzony (sezonowy)
   price18_service: Serwis olejowy widelca / dampera
   price20: 250
   price19_service: Montaż nowego roweru z kartonu
   price21: 100
-  price16: 200
+  price16: 150
   price17: 300
   price18: wycena indywidualna
   price19: 190
