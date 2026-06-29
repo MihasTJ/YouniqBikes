@@ -1,5 +1,5 @@
 /**
- * cms-loader.js — Youniq Bikes
+ * cms-loader.js — Youniq Service
  * Obsługa dwujęzyczności (PL / EN) + ładowanie cennika.
  */
 
