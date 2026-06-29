@@ -191,7 +191,7 @@
   <div class="hero-grid"></div>
 
   <p class="hero-eyebrow editable" data-cms="hero_eyebrow">Kraków · Rakowicka 99 · Custom Builds</p>
-  <h1 class="editable" data-cms="hero_heading">Twoja<br>wizja.<br><em>Nasza</em><br>precyzja.</h1>
+  <h1 class="editable" data-cms="hero_heading">Twoja<br>wizja<br><em>Nasza</em><br>precyzja</h1>
   <p class="hero-seo-label" data-i18n="hero_seo_label">Serwis rowerowy i custom builds — Kraków</p>
   <p class="hero-sub editable" data-cms="hero_subheading">Budujemy maszyny pod indywidualne potrzeby, konkretny cel, konkretne ciało i konkretne drogi. Od stali po tytan.</p>
   <div class="hero-cta-row">
@@ -568,6 +568,23 @@
 
 <script src="/cms-loader.js" defer></script>
 <script src="/script.js" defer></script>
+
+<!-- PROMO POPUP -->
+<div id="promoOverlay" class="promo-overlay" aria-hidden="true">
+  <div class="promo-modal" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
+    <button class="promo-close" id="promoClose" aria-label="Close">&times;</button>
+    <div class="promo-eyebrow" data-cms="promo_eyebrow">Exclusive offer</div>
+    <h2 class="promo-title" id="promoTitle" data-cms="promo_title">Free<br><em>bike</em><br>inspection.</h2>
+    <p class="promo-desc" data-cms="promo_desc">For visitors of our website — show this code at your visit and get a free basic bike inspection with any repair service.</p>
+    <div class="promo-code-wrap">
+      <span class="promo-code-label" data-cms="promo_code_label">Your code:</span>
+      <div class="promo-code" id="promoCode" data-cms="promo_code">SERWIS2026</div>
+      <button class="promo-copy" id="promoCopy" aria-label="Copy code">Copy</button>
+    </div>
+    <p class="promo-validity" data-cms="promo_validity">Valid until end of season 2026 · Rakowicka 99, Kraków</p>
+    <a href="#kontakt" class="btn-primary promo-cta" id="promoCtaBtn" data-cms="promo_cta">Book a visit</a>
+  </div>
+</div>
 
 <!-- Netlify Identity: przekierowanie po logowaniu do /admin/ -->
 <script>

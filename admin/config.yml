@@ -169,6 +169,19 @@ collections:
           - { label: "Opis", name: "contact_desc", widget: "text" }
           - { label: "Informacje kontaktowe", name: "contact_info", widget: "string" }
 
+      - label: "Popup promocyjny"
+        name: "promo"
+        file: "_data/promo.yml"
+        fields:
+          - { label: "Włącz popup", name: "promo_enabled", widget: "boolean", default: true, hint: "Wyłącz aby ukryć popup na stronie bez kasowania treści" }
+          - { label: "Nad-nagłówek", name: "promo_eyebrow", widget: "string" }
+          - { label: "Tytuł", name: "promo_title", widget: "string", hint: "Użyj <br> dla nowej linii, <em>tekst</em> dla zielonego kursiwa" }
+          - { label: "Opis", name: "promo_desc", widget: "text" }
+          - { label: "Etykieta kodu", name: "promo_code_label", widget: "string" }
+          - { label: "Kod promocyjny", name: "promo_code", widget: "string" }
+          - { label: "Ważność / info pod kodem", name: "promo_validity", widget: "string" }
+          - { label: "Tekst przycisku", name: "promo_cta", widget: "string" }
+
   # ═══════════════════════════════════════════════════
   # TREŚCI EN
   # ═══════════════════════════════════════════════════
@@ -287,3 +300,15 @@ collections:
           - { label: "Section heading", name: "contact_heading", widget: "string" }
           - { label: "Description", name: "contact_desc", widget: "text" }
           - { label: "Contact info", name: "contact_info", widget: "string" }
+
+      - label: "Promo popup (EN)"
+        name: "promo_en"
+        file: "_data/promo_en.yml"
+        hint: "Enable/disable is shared with the PL version — set it in 🇵🇱 Popup promocyjny."
+        fields:
+          - { label: "Eyebrow text", name: "promo_eyebrow", widget: "string" }
+          - { label: "Title", name: "promo_title", widget: "string", hint: "Use <br> for line break, <em>text</em> for green italic" }
+          - { label: "Description", name: "promo_desc", widget: "text" }
+          - { label: "Code label", name: "promo_code_label", widget: "string" }
+          - { label: "Validity / info", name: "promo_validity", widget: "string" }
+          - { label: "CTA button text", name: "promo_cta", widget: "string" }

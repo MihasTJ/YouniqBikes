@@ -301,6 +301,7 @@ var filesPL = [
   '/_data/galeria.yml',
   '/_data/kontakt.yml',
   '/_data/cennik.yml',
+  '/_data/promo.yml',
 ];
 
 var filesEN = [
@@ -313,6 +314,8 @@ var filesEN = [
   '/_data/kontakt_en.yml',
   '/_data/cennik.yml',     // 1. baza PL — zawiera price1..21 (liczby) w cat1/cat2/cat3
   '/_data/cennik_en.yml',  // 2. EN nadpisuje tylko _service i nagłówki (bez liczb)
+  '/_data/promo.yml',      // 3. baza promo (promo_enabled + promo_code)
+  '/_data/promo_en.yml',   // 4. EN nadpisuje teksty
 ];
 
 // ─── Głęboki merge obiektów ───────────────────────────────────────────────────
@@ -350,6 +353,13 @@ async function loadCMSData(lang) {
   var allData = flattenNested(merged);
   applyPrices(allData, lang);
   await applyData(allData);
+
+  // Promo popup — włącz lub wyłącz na podstawie promo_enabled z YML
+  var promoOverlay = document.getElementById('promoOverlay');
+  if (promoOverlay) {
+    var promoOn = allData.promo_enabled;
+    promoOverlay.dataset.enabled = (promoOn === false || String(promoOn) === 'false') ? 'false' : 'true';
+  }
 
   applyUI(lang);
 
