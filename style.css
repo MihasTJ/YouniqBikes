@@ -12,7 +12,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; font-size: 18px; }
+  html { scroll-behavior: smooth; font-size: 18px; background: var(--black); overflow-x: hidden; }
 
   /* ── SKIP TO CONTENT (dostępność + SEO) ── */
   .skip-to-content {
@@ -37,13 +37,17 @@
     font-family: 'Crimson Pro', Georgia, serif;
     background: var(--black);
     color: var(--off-white);
-    overflow-x: hidden;
     cursor: crosshair;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
   }
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 50%; right: auto; z-index: 100;
+    width: 100%; max-width: 1600px;
+    transform: translateX(-50%);
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.4rem 3rem;
     mix-blend-mode: normal;
@@ -93,9 +97,8 @@
     min-height: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: safe center;
     padding: 7.5rem 3rem 5.5rem;
-    overflow: hidden;
   }
 
   #hero > :not(.hero-bg):not(.hero-grid) {
@@ -104,7 +107,10 @@
   }
 
   .hero-bg {
-    position: absolute; inset: 0;
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
     background:
       radial-gradient(ellipse 60% 80% at 70% 50%, rgba(var(--green-rgb),.12) 0%, transparent 65%),
       linear-gradient(160deg, #0a0a08 0%, #12100e 40%, #1a1208 100%);
@@ -112,7 +118,11 @@
 
   /* animated grid lines */
   .hero-grid {
-    position: absolute; inset: 0; pointer-events: none;
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
+    pointer-events: none;
     background-image:
       linear-gradient(rgba(var(--green-rgb),.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(var(--green-rgb),.07) 1px, transparent 1px);
@@ -139,7 +149,7 @@
   h1 {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: clamp(3.4rem, 7.2vw, 8.6rem);
+    font-size: clamp(3rem, 6vw, 7rem);
     line-height: .9;
     text-transform: uppercase;
     letter-spacing: -.01em;
@@ -250,6 +260,11 @@
     overflow: hidden;
     background: var(--green);
     padding: .6rem 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
   .ticker {
     display: flex;
@@ -303,7 +318,7 @@
   h2 {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    font-size: clamp(2.2rem, 3.5vw, 4rem);
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: -.01em;
@@ -318,7 +333,16 @@
 
   /* ── SERVICES ── */
   #uslugi {
+    position: relative;
+    isolation: isolate;
+  }
+  #uslugi::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
     background: #0d0c0a;
+    z-index: -1;
   }
   .services-header {
     display: flex;
@@ -402,9 +426,18 @@
 
   /* ── DLACZEGO MY ── */
   #dlaczego {
+    position: relative;
+    isolation: isolate;
+  }
+  #dlaczego::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
     background:
       radial-gradient(ellipse 70% 60% at 80% 40%, rgba(var(--green-rgb),.09) 0%, transparent 60%),
       var(--black);
+    z-index: -1;
   }
   .why-grid {
     display: grid;
@@ -458,7 +491,16 @@
 
   /* ── FAQ ── */
   #faq {
+    position: relative;
+    isolation: isolate;
+  }
+  #faq::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
     background: #0d0c0a;
+    z-index: -1;
   }
 
   .faq-list {
@@ -550,7 +592,16 @@
 
   /* ── OPINIE ── */
   #opinie {
+    position: relative;
+    isolation: isolate;
+  }
+  #opinie::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
     background: #0d0c0a;
+    z-index: -1;
   }
   .reviews-grid {
     display: grid;
@@ -736,11 +787,18 @@
   #kontakt {
     text-align: center;
     padding: 7rem 3rem;
+    position: relative;
+    isolation: isolate;
+  }
+  #kontakt::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
     background:
       radial-gradient(ellipse 60% 60% at 50% 50%, rgba(var(--green-rgb),.14) 0%, transparent 65%),
       var(--black);
-    position: relative;
-    overflow: hidden;
+    z-index: -1;
   }
   #kontakt::before {
     content: 'YS';
@@ -812,8 +870,6 @@
   /* ── CENNIK ── */
   #cennik {
     padding: 8rem 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
   }
   .cennik-desc {
     font-size: 1.15rem;
@@ -880,15 +936,25 @@
 
   /* ── FOOTER ── */
   footer {
-    background: #060605;
     border-top: 1px solid rgba(122,132,144,.1);
     padding: 2rem 3rem;
+    position: relative;
+    isolation: isolate;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
   }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 50%; width: 100vw;
+    transform: translateX(-50%);
+    background: #060605;
+    z-index: -1;
+  }
+
   .footer-logo {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
